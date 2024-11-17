@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "synmetrix-graphql-client"
+version = "0.1.0"
+description = ""
+authors = ["Ivan Fokeev <vanya@vanya.cc>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.9.7 || >3.9.7,<3.13"
+python-dotenv = "^1.0.0"
+pydantic = "2.9.2"
+streamlit = "1.39.0"
+ariadne-codegen = "0.14.0"
+httpx = "0.27.2"
+PyYAML = "^6.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api" 
+
+[tool.poetry.scripts]
+generate-client = "synmetrix_graphql_client.scripts:generate_client"
+
+[tool.ariadne-codegen]
+target_package_path = "synmetrix_graphql_client/"
+queries_path = "synmetrix_graphql_client/queries.graphql"
+remote_schema_url = "http://localhost/v1/graphql"
+remote_schema_headers = { "X-Hasura-Admin-Secret" = "adminsecret" }
