@@ -8,4 +8,4 @@ poetry build
 
 # Upload to TestPyPI
 poetry config repositories.testpypi https://test.pypi.org/legacy/
-poetry publish -r testpypi 
+poetry publish -r testpypi

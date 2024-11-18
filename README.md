@@ -45,7 +45,7 @@ async def get_current_user():
     # Query current user
     current_user = await client.current_user(id=user_id)
     print(f"User: {current_user.users_by_pk.display_name}")
-    
+
     # Subscribe to user updates
     async for update in client.sub_current_user(id=user_id):
         print(f"Update received: {update.users_by_pk.display_name}")
@@ -161,3 +161,7 @@ For support, please:
 - Open an issue in the GitHub repository
 - Contact us at support@synmetrix.org
 - Visit our documentation at https://docs.synmetrix.org
+
+## Examples
+
+For complete working examples of client usage, check the [`examples/`](examples/) directory in the repository.

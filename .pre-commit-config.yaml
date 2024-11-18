@@ -5,23 +5,30 @@ repos:
     rev: v4.5.0
     hooks:
       - id: trailing-whitespace
+        exclude: ^synmetrix_graphql_client/graphql_client/
       - id: end-of-file-fixer
+        exclude: ^synmetrix_graphql_client/graphql_client/
       - id: check-yaml
+        exclude: ^synmetrix_graphql_client/graphql_client/
       - id: check-added-large-files
       - id: check-case-conflict
       - id: check-merge-conflict
       - id: debug-statements
       - id: requirements-txt-fixer
       - id: forbid-new-submodules
+
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.3.5
     hooks:
       - id: ruff
         args: [ --fix, --config=./ruff.toml ]
+        exclude: ^synmetrix_graphql_client/graphql_client/
       - id: ruff-format
+        exclude: ^synmetrix_graphql_client/graphql_client/
 
   - repo: https://github.com/psf/black
     rev: 24.3.0
     hooks:
       - id: black
         language_version: python3.9
+        exclude: ^synmetrix_graphql_client/graphql_client/

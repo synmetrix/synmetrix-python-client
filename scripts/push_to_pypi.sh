@@ -7,4 +7,4 @@ rm -rf dist/
 poetry build
 
 # Upload to PyPI
-poetry publish 
+poetry publish
