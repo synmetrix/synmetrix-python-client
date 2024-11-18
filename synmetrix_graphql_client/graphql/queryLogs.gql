@@ -1,0 +1,74 @@
+fragment DefaultFields on request_logs {
+  id
+  created_at
+  start_time
+  duration
+  path
+  user_id
+  datasource_id
+}
+
+query CurrentLog($id: uuid!) {
+  request_logs_by_pk(id: $id) {
+    ...DefaultFields
+    end_time
+    request_id
+    updated_at
+    request_event_logs(order_by: { timestamp: desc }) {
+      id
+      duration
+      event
+      path
+      query
+      query_key
+      query_sql
+      query_key_md5
+      queue_prefix
+      time_in_queue
+      timestamp
+      error
+    }
+  }
+}
+
+query AllLogs(
+  $offset: Int
+  $limit: Int
+  $where: request_logs_bool_exp
+  $order_by: [request_logs_order_by!]
+) {
+  request_logs(
+    offset: $offset
+    limit: $limit
+    where: $where
+    order_by: $order_by
+  ) {
+    ...DefaultFields
+    request_event_logs_aggregate {
+      aggregate {
+        count
+      }
+    }
+  }
+  request_logs_aggregate(where: $where) {
+    aggregate {
+      count
+    }
+  }
+}
+
+subscription SubAllLogs(
+  $offset: Int
+  $limit: Int
+  $where: request_logs_bool_exp
+  $order_by: [request_logs_order_by!]
+) {
+  request_logs(
+    offset: $offset
+    limit: $limit
+    where: $where
+    order_by: $order_by
+  ) {
+    id
+  }
+}

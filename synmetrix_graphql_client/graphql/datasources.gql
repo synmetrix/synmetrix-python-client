@@ -1,0 +1,162 @@
+mutation CreateDataSource($object: datasources_insert_input!) {
+  insert_datasources_one(object: $object) {
+    id
+    name
+    branches {
+      id
+    }
+    sql_credentials {
+      id
+    }
+  }
+}
+
+query Datasources(
+  $offset: Int
+  $limit: Int
+  $where: datasources_bool_exp
+  $order_by: [datasources_order_by!]
+) {
+  datasources(
+    offset: $offset
+    limit: $limit
+    where: $where
+    order_by: $order_by
+  ) {
+    id
+    name
+    db_params_computed
+    db_type
+    created_at
+    updated_at
+    branches(where: { status: { _eq: active } }) {
+      id
+    }
+    sql_credentials {
+      id
+      username
+      created_at
+      updated_at
+      user {
+        id
+        display_name
+      }
+    }
+  }
+  datasources_aggregate(where: $where) {
+    aggregate {
+      count
+    }
+  }
+}
+
+subscription AllDataSources(
+  $offset: Int
+  $limit: Int
+  $where: datasources_bool_exp
+  $order_by: [datasources_order_by!]
+) {
+  datasources(
+    offset: $offset
+    limit: $limit
+    where: $where
+    order_by: $order_by
+  ) {
+    id
+    name
+    db_params_computed
+    db_type
+    created_at
+    updated_at
+    branches(where: { status: { _eq: active } }) {
+      id
+    }
+    sql_credentials {
+      id
+      username
+      created_at
+      updated_at
+      user {
+        id
+        display_name
+      }
+    }
+  }
+}
+
+query FetchTables($id: uuid!) {
+  fetch_tables(datasource_id: $id) {
+    schema
+  }
+}
+
+query FetchMeta($datasource_id: uuid!, $branch_id: uuid) {
+  fetch_meta(datasource_id: $datasource_id, branch_id: $branch_id) {
+    cubes
+  }
+}
+
+query CurrentDataSource($id: uuid!) {
+  datasources_by_pk(id: $id) {
+    id
+    name
+    db_type
+    db_params_computed
+    created_at
+    updated_at
+  }
+}
+
+mutation UpdateDataSource(
+  $pk_columns: datasources_pk_columns_input!
+  $_set: datasources_set_input!
+) {
+  update_datasources_by_pk(pk_columns: $pk_columns, _set: $_set) {
+    id
+    branches (where: { status: { _eq: active }}) {
+      id
+    }
+  }
+}
+
+mutation CheckConnection($id: uuid!) {
+  check_connection(datasource_id: $id) {
+    message
+    code
+  }
+}
+
+mutation DeleteDataSource($id: uuid!) {
+  delete_datasources_by_pk(id: $id) {
+    id
+  }
+}
+
+mutation GenDataSchemas(
+  $datasource_id: uuid!
+  $branch_id: uuid!
+  $tables: [SourceTable!]!
+  $overwrite: Boolean
+  $format: String
+) {
+  gen_dataschemas(
+    datasource_id: $datasource_id
+    branch_id: $branch_id
+    tables: $tables
+    overwrite: $overwrite
+    format: $format
+  ) {
+    code
+    message
+  }
+}
+
+mutation RunSourceSQLQuery(
+  $datasource_id: uuid!
+  $query: String!
+  $limit: Int!
+) {
+  run_query(datasource_id: $datasource_id, query: $query, limit: $limit) {
+    result
+  }
+}

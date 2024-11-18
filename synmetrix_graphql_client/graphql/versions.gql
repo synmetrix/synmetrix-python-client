@@ -1,0 +1,67 @@
+mutation CreateVersion($object: versions_insert_input!) {
+  insert_versions_one(object: $object) {
+    id
+  }
+}
+
+query versionByBranchId($branch_id: uuid!, $limit: Int, $offset: Int) {
+  versions(
+    limit: $limit
+    offset: $offset
+    order_by: { created_at: desc }
+    where: { branch_id: { _eq: $branch_id } }
+  ) {
+    id
+    checksum
+    updated_at
+    created_at
+    user {
+      display_name
+    }
+    dataschemas(order_by: { name: asc }) {
+      created_at
+      updated_at
+      datasource_id
+      id
+      user_id
+      name
+      code
+      checksum
+    }
+  }
+  versions_aggregate(where: { branch_id: { _eq: $branch_id } }) {
+    aggregate {
+      count
+    }
+  }
+}
+
+query CurrentVersion($branch_id: uuid!) {
+  versions(
+    limit: 1
+    offset: 0
+    order_by: { created_at: desc }
+    where: { branch_id: { _eq: $branch_id } }
+  ) {
+    id
+    checksum
+    dataschemas(order_by: { name: asc }) {
+      created_at
+      updated_at
+      datasource_id
+      id
+      user_id
+      name
+      code
+      checksum
+    }
+  }
+}
+
+subscription VersionsCount($branch_id: uuid!) {
+  versions_aggregate(where: { branch_id: { _eq: $branch_id } }) {
+    aggregate {
+      count
+    }
+  }
+}

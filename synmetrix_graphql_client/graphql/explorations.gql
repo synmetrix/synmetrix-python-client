@@ -1,0 +1,30 @@
+mutation CreateExploration($object: explorations_insert_input!) {
+  insert_explorations_one(object: $object) {
+    id
+  }
+}
+
+mutation GenSQL($exploration_id: uuid!) {
+  gen_sql(exploration_id: $exploration_id) {
+    result
+  }
+}
+
+query CurrentExploration($id: uuid!, $offset: Int, $limit: Int) {
+  explorations_by_pk(id: $id) {
+    id
+    branch_id
+    datasource_id
+    playground_state
+    playground_settings
+    created_at
+    updated_at
+  }
+  fetch_dataset(exploration_id: $id, offset: $offset, limit: $limit) {
+    annotation
+    data
+    query
+    progress
+    hitLimit
+  }
+}

@@ -1,0 +1,290 @@
+fragment BranchesFields on branches {
+  id
+  name
+  status
+}
+
+fragment UserTeamFields on teams {
+  id
+  name
+  created_at
+  updated_at
+  members(order_by: { updated_at: desc }) {
+    id
+    user_id
+    member_roles {
+      team_role
+    }
+    user {
+      id
+      avatar_url
+      display_name
+      account {
+        email
+      }
+    }
+  }
+}
+
+fragment TeamMembersFields on teams {
+  members(order_by: { updated_at: desc }) {
+    id
+    user_id
+    member_roles {
+      id
+      team_role
+      created_at
+      updated_at
+      access_list {
+        id
+        name
+        config
+      }
+    }
+    user {
+      id
+      avatar_url
+      display_name
+      account {
+        email
+      }
+    }
+  }
+}
+
+query CurrentUser($id: uuid!) {
+  users_by_pk(id: $id) {
+    id
+    display_name
+    avatar_url
+    account {
+      email
+    }
+
+    members(order_by: { updated_at: desc }) {
+      member_roles {
+        team_role
+      }
+      user {
+        id
+        avatar_url
+        display_name
+        account {
+          email
+        }
+      }
+      team {
+        ...UserTeamFields
+      }
+    }
+  }
+}
+
+subscription SubCurrentUser($id: uuid!) {
+  users_by_pk(id: $id) {
+    id
+    display_name
+    avatar_url
+    account {
+      email
+    }
+
+    members(order_by: { updated_at: desc }) {
+      id
+      user_id
+      member_roles {
+        id
+        team_role
+        created_at
+        updated_at
+        access_list {
+          id
+          name
+          config
+        }
+      }
+      user {
+        id
+        avatar_url
+        display_name
+        account {
+          email
+        }
+      }
+      team {
+        ...UserTeamFields
+      }
+    }
+  }
+}
+
+query TeamData($team_id: uuid!) {
+  teams_by_pk(id: $team_id) {
+    ...TeamMembersFields
+
+    datasources(order_by: { updated_at: desc }) {
+      id
+      name
+      db_params_computed
+      db_type
+      created_at
+      updated_at
+      branches(
+        where: { status: { _in: [active, created] } }
+        order_by: { created_at: desc }
+      ) {
+        ...BranchesFields
+      }
+      sql_credentials(order_by: { updated_at: desc }) {
+        id
+        username
+        created_at
+        updated_at
+        user {
+          id
+          display_name
+        }
+      }
+    }
+
+    alerts(order_by: { created_at: desc }) {
+      id
+      name
+      delivery_type
+      delivery_config
+      trigger_config
+      created_at
+      updated_at
+      schedule
+      user {
+        id
+        avatar_url
+        display_name
+        account {
+          email
+        }
+      }
+      exploration {
+        id
+        playground_state
+      }
+    }
+
+    reports(order_by: { created_at: desc }) {
+      id
+      name
+      schedule
+      delivery_type
+      delivery_config
+      created_at
+      updated_at
+      user {
+        id
+        avatar_url
+        display_name
+        account {
+          email
+        }
+      }
+      exploration {
+        id
+        playground_state
+      }
+    }
+  }
+}
+
+subscription SubTeamData($team_id: uuid!) {
+  teams_by_pk(id: $team_id) {
+    ...TeamMembersFields
+
+    datasources(order_by: { updated_at: desc }) {
+      id
+      name
+      db_params_computed
+      db_type
+      created_at
+      updated_at
+      branches(
+        where: { status: { _in: [active, created] } }
+        order_by: { created_at: desc }
+      ) {
+        ...BranchesFields
+      }
+      sql_credentials {
+        id
+        username
+        created_at
+        updated_at
+        user {
+          id
+          display_name
+        }
+      }
+    }
+
+    alerts(order_by: { created_at: desc }) {
+      id
+      name
+      delivery_type
+      delivery_config
+      trigger_config
+      created_at
+      updated_at
+      schedule
+      user {
+        id
+        avatar_url
+        display_name
+        account {
+          email
+        }
+      }
+      exploration {
+        id
+        playground_state
+      }
+    }
+
+    reports(order_by: { created_at: desc }) {
+      id
+      name
+      schedule
+      delivery_type
+      delivery_config
+      created_at
+      updated_at
+      user {
+        id
+        avatar_url
+        display_name
+        account {
+          email
+        }
+      }
+      exploration {
+        id
+        playground_state
+      }
+    }
+  }
+}
+
+mutation UpdateUserInfo(
+  $user_id: uuid!
+  $display_name: String
+  $email: citext
+) {
+  update_users_by_pk(
+    pk_columns: { id: $user_id }
+    _set: { display_name: $display_name }
+  ) {
+    id
+  }
+  update_auth_accounts(
+    where: { user_id: { _eq: $user_id } }
+    _set: { email: $email }
+  ) {
+    affected_rows
+  }
+}

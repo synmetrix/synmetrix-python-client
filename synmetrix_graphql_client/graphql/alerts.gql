@@ -1,0 +1,37 @@
+mutation CreateAlert($object: alerts_insert_input!) {
+  insert_alerts_one(object: $object) {
+    id
+  }
+}
+
+mutation UpdateAlert(
+  $pk_columns: alerts_pk_columns_input!
+  $_set: alerts_set_input!
+) {
+  update_alerts_by_pk(pk_columns: $pk_columns, _set: $_set) {
+    id
+  }
+}
+
+mutation DeleteAlert($id: uuid!) {
+  delete_alerts_by_pk(id: $id) {
+    id
+  }
+}
+
+mutation SendTestAlert(
+  $deliveryConfig: json!
+  $deliveryType: String!
+  $explorationId: uuid
+  $name: String
+) {
+  send_test_alert(
+    deliveryConfig: $deliveryConfig
+    deliveryType: $deliveryType
+    name: $name
+    explorationId: $explorationId
+  ) {
+    error
+    result
+  }
+}

@@ -1,0 +1,22 @@
+mutation SetDefaultBranch($branch_id: uuid!, $datasource_id: uuid!) {
+  update_branches(
+    _set: { status: created }
+    where: { datasource_id: { _eq: $datasource_id }, status: { _eq: active } }
+  ) {
+    affected_rows
+  }
+
+  update_branches_by_pk(
+    _set: { status: active }
+    pk_columns: { id: $branch_id }
+  ) {
+    id
+    name
+  }
+}
+
+mutation ExportData($branch_id: String) {
+  export_data_models(branch_id: $branch_id) {
+    download_url
+  }
+}

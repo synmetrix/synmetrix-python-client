@@ -1,0 +1,35 @@
+mutation CreateTeam($name: String!) {
+  create_team(name: $name) {
+    id
+    name
+  }
+}
+
+mutation EditTeam(
+  $pk_columns: teams_pk_columns_input!
+  $_set: teams_set_input!
+) {
+  update_teams_by_pk(pk_columns: $pk_columns, _set: $_set) {
+    id
+    name
+  }
+}
+
+mutation DeleteTeam($id: uuid!) {
+  delete_teams_by_pk(id: $id) {
+    id
+  }
+}
+
+query CurrentTeam($id: uuid!) {
+  teams_by_pk(id: $id) {
+    id
+    created_at
+    updated_at
+    members {
+      user {
+        display_name
+      }
+    }
+  }
+}

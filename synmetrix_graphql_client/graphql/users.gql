@@ -1,0 +1,6 @@
+# test query
+query GetUsers {
+  users {
+    id
+  }
+}

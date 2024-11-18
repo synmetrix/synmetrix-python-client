@@ -1,0 +1,5 @@
+mutation CreateBranch($object: branches_insert_input!) {
+  insert_branches_one(object: $object) {
+    id
+  }
+}

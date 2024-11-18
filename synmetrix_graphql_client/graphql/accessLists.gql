@@ -1,0 +1,69 @@
+query AllAccessLists(
+  $offset: Int
+  $limit: Int
+  $where: access_lists_bool_exp
+  $order_by: [access_lists_order_by!]
+) {
+  access_lists(
+    offset: $offset
+    limit: $limit
+    where: $where
+    order_by: $order_by
+  ) {
+    id
+    name
+    config
+    team_id
+    created_at
+    updated_at
+  }
+}
+
+subscription SubAccessLists(
+  $offset: Int
+  $limit: Int
+  $where: access_lists_bool_exp
+  $order_by: [access_lists_order_by!]
+) {
+  access_lists(
+    offset: $offset
+    limit: $limit
+    where: $where
+    order_by: $order_by
+  ) {
+    id
+    name
+    config
+    created_at
+    updated_at
+  }
+}
+
+query AccessList($id: uuid!) {
+  access_lists_by_pk(id: $id) {
+    name
+    config
+    team_id
+  }
+}
+
+mutation UpdateAccessList(
+  $pk_columns: access_lists_pk_columns_input!
+  $_set: access_lists_set_input!
+) {
+  update_access_lists_by_pk(pk_columns: $pk_columns, _set: $_set) {
+    id
+  }
+}
+
+mutation DeleteAccessList($id: uuid!) {
+  delete_access_lists_by_pk(id: $id) {
+    id
+  }
+}
+
+mutation CreateAccessList($object: access_lists_insert_input!) {
+  insert_access_lists_one(object: $object) {
+    id
+  }
+}

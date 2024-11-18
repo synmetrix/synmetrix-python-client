@@ -1,0 +1,20 @@
+mutation CreateReport($object: reports_insert_input!) {
+  insert_reports_one(object: $object) {
+    id
+  }
+}
+
+mutation UpdateReport(
+  $pk_columns: reports_pk_columns_input!
+  $_set: reports_set_input!
+) {
+  update_reports_by_pk(pk_columns: $pk_columns, _set: $_set) {
+    id
+  }
+}
+
+mutation DeleteReport($id: uuid!) {
+  delete_reports_by_pk(id: $id) {
+    id
+  }
+}
