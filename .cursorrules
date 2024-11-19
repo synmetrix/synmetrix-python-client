@@ -1,0 +1,114 @@
+{
+  "rules": [
+    {
+      "pattern": "src/synmetrix_python_client/auth.py",
+      "context": {
+        "above": 5,
+        "below": 5
+      },
+      "related": [
+        {
+          "pattern": "tests/unit/test_auth.py",
+          "context": {
+            "above": 3,
+            "below": 3
+          }
+        },
+        {
+          "pattern": "tests/integration/test_auth.py",
+          "context": {
+            "above": 3,
+            "below": 3
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "src/synmetrix_python_client/graphql_client/client.py",
+      "context": {
+        "above": 5,
+        "below": 5
+      },
+      "related": [
+        {
+          "pattern": "src/synmetrix_python_client/graphql/**/*.gql",
+          "context": {
+            "above": 2,
+            "below": 2
+          }
+        },
+        {
+          "pattern": "src/synmetrix_python_client/graphql_client/input_types.py",
+          "context": {
+            "above": 2,
+            "below": 2
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "src/synmetrix_python_client/graphql/**/*.gql",
+      "context": {
+        "above": 2,
+        "below": 2
+      },
+      "related": [
+        {
+          "pattern": "src/synmetrix_python_client/graphql_client/**/*.py",
+          "context": {
+            "above": 2,
+            "below": 2
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "tests/**/*.py",
+      "context": {
+        "above": 3,
+        "below": 3
+      },
+      "related": [
+        {
+          "pattern": "src/synmetrix_python_client/**/*.py",
+          "context": {
+            "above": 2,
+            "below": 2
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "docs/src/synmetrix_python_client/**/*.html",
+      "context": {
+        "above": 0,
+        "below": 0
+      },
+      "related": [
+        {
+          "pattern": "src/synmetrix_python_client/**/*.py",
+          "context": {
+            "above": 2,
+            "below": 2
+          }
+        }
+      ]
+    }
+  ],
+  "ignorePatterns": [
+    "**/__pycache__/**",
+    "**/.pytest_cache/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.venv/**",
+    "**/node_modules/**"
+  ],
+  "description": {
+    "auth.py": "Authentication client for JWT token management and user auth flows",
+    "client.py": "Main GraphQL client with async operations and WebSocket support",
+    "*.gql": "GraphQL query/mutation/subscription definitions",
+    "input_types.py": "GraphQL input type definitions",
+    "tests/": "Unit and integration tests",
+    "docs/": "Generated API documentation"
+  }
+}
