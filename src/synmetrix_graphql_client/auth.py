@@ -1,9 +1,11 @@
+import json
 import logging
 
 from dataclasses import dataclass
 from typing import Any, Optional
 
 import httpx
+import jwt
 
 from pydantic import BaseModel
 
@@ -74,10 +76,14 @@ class AuthTokens:
     Attributes:
         access_token (str): JWT access token for API authentication
         refresh_token (str): Token used to refresh expired JWT tokens
+        access_token_expires_at (int): Expiration timestamp of the access token
+        user_id (str): User ID associated with the access token
     """
 
     access_token: str
     refresh_token: str
+    access_token_expires_at: int
+    user_id: str
 
 
 class AuthClient:
@@ -119,21 +125,21 @@ class AuthClient:
             return {}
         return {"Authorization": f"Bearer {self._access_token}"}
 
+    def parse_access_token(self, access_token: str) -> dict[str, Any]:
+        jwt_payload = jwt.decode(access_token, options={"verify_signature": False})
+        user_id = jwt_payload.get("hasura", {}).get("x-hasura-user-id")
+
+        return {
+            "user_id": user_id,
+            "access_token_expires_at": jwt_payload["exp"],
+        }
+
     async def _validate_response(self, response: httpx.Response) -> dict[str, Any]:
         """Validate and parse response."""
         try:
             # First try to get JSON data
-            data = response.json()
+            data = response.text
             self._logger.debug("Response data: %s", data)
-
-            # If response has error field, raise it directly
-            if "error" in data:
-                self._logger.error("Error in response: %s", data)
-                raise AuthError(
-                    message=data.get("message", ""),
-                    error=data["error"],
-                    status_code=response.status_code,
-                )
 
             # For successful responses (2xx)
             if 200 <= response.status_code < 300:
@@ -141,15 +147,28 @@ class AuthClient:
                     "Successful response with status %d",
                     response.status_code,
                 )
-                return data
 
-            # For error responses with JSON body
-            self._logger.error("HTTP error response: %s", data)
-            raise AuthError(
-                message=data.get("message", str(response.status_code)),
-                error=data.get("error", "http_error"),
-                status_code=response.status_code,
-            )
+                if response.status_code == 204:
+                    return {}
+
+                try:
+                    return json.loads(data)
+                except json.JSONDecodeError as e:
+                    self._logger.error("JSON decode error: %s", str(e), exc_info=True)
+
+                    raise AuthError(
+                        message=data,
+                        error="invalid_response",
+                        status_code=response.status_code,
+                    ) from e
+            else:
+                self._logger.error("HTTP error response: %s", data)
+
+                raise AuthError(
+                    message=data,
+                    error="http_error",
+                    status_code=response.status_code,
+                )
 
         except httpx.HTTPError as e:
             # For HTTP protocol errors
@@ -214,9 +233,12 @@ class AuthClient:
                 self._refresh_token = auth_response.refresh_token
                 self._logger.info("Login successful for user: %s", email)
 
+                parsed_access_token = self.parse_access_token(auth_response.jwt_token)
+
                 return AuthTokens(
                     access_token=auth_response.jwt_token,
                     refresh_token=auth_response.refresh_token,
+                    **parsed_access_token,
                 )
         except Exception as e:
             if isinstance(e, AuthError):
@@ -269,10 +291,12 @@ class AuthClient:
 
             self._access_token = auth_response.jwt_token
             self._refresh_token = auth_response.refresh_token
+            parsed_access_token = self.parse_access_token(auth_response.jwt_token)
 
             return AuthTokens(
                 access_token=auth_response.jwt_token,
                 refresh_token=auth_response.refresh_token,
+                **parsed_access_token,
             )
 
     async def logout(self, all_sessions: bool = True) -> None:
@@ -346,10 +370,12 @@ class AuthClient:
 
             self._access_token = auth_response.jwt_token
             self._refresh_token = auth_response.refresh_token
+            parsed_access_token = self.parse_access_token(auth_response.jwt_token)
 
             return AuthTokens(
                 access_token=auth_response.jwt_token,
                 refresh_token=auth_response.refresh_token,
+                **parsed_access_token,
             )
 
     async def change_password(self, old_password: str, new_password: str) -> None:
@@ -422,7 +448,10 @@ class AuthClient:
             self._access_token = auth_response.jwt_token
             self._refresh_token = auth_response.refresh_token
 
+            parsed_access_token = self.parse_access_token(auth_response.jwt_token)
+
             return AuthTokens(
                 access_token=auth_response.jwt_token,
                 refresh_token=auth_response.refresh_token,
+                **parsed_access_token,
             )

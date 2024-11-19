@@ -118,21 +118,21 @@ and session handling.</p>
             return {}
         return {&#34;Authorization&#34;: f&#34;Bearer {self._access_token}&#34;}
 
+    def parse_access_token(self, access_token: str) -&gt; dict[str, Any]:
+        jwt_payload = jwt.decode(access_token, options={&#34;verify_signature&#34;: False})
+        user_id = jwt_payload.get(&#34;hasura&#34;, {}).get(&#34;x-hasura-user-id&#34;)
+
+        return {
+            &#34;user_id&#34;: user_id,
+            &#34;access_token_expires_at&#34;: jwt_payload[&#34;exp&#34;],
+        }
+
     async def _validate_response(self, response: httpx.Response) -&gt; dict[str, Any]:
         &#34;&#34;&#34;Validate and parse response.&#34;&#34;&#34;
         try:
             # First try to get JSON data
-            data = response.json()
+            data = response.text
             self._logger.debug(&#34;Response data: %s&#34;, data)
-
-            # If response has error field, raise it directly
-            if &#34;error&#34; in data:
-                self._logger.error(&#34;Error in response: %s&#34;, data)
-                raise AuthError(
-                    message=data.get(&#34;message&#34;, &#34;&#34;),
-                    error=data[&#34;error&#34;],
-                    status_code=response.status_code,
-                )
 
             # For successful responses (2xx)
             if 200 &lt;= response.status_code &lt; 300:
@@ -140,15 +140,28 @@ and session handling.</p>
                     &#34;Successful response with status %d&#34;,
                     response.status_code,
                 )
-                return data
 
-            # For error responses with JSON body
-            self._logger.error(&#34;HTTP error response: %s&#34;, data)
-            raise AuthError(
-                message=data.get(&#34;message&#34;, str(response.status_code)),
-                error=data.get(&#34;error&#34;, &#34;http_error&#34;),
-                status_code=response.status_code,
-            )
+                if response.status_code == 204:
+                    return {}
+
+                try:
+                    return json.loads(data)
+                except json.JSONDecodeError as e:
+                    self._logger.error(&#34;JSON decode error: %s&#34;, str(e), exc_info=True)
+
+                    raise AuthError(
+                        message=data,
+                        error=&#34;invalid_response&#34;,
+                        status_code=response.status_code,
+                    ) from e
+            else:
+                self._logger.error(&#34;HTTP error response: %s&#34;, data)
+
+                raise AuthError(
+                    message=data,
+                    error=&#34;http_error&#34;,
+                    status_code=response.status_code,
+                )
 
         except httpx.HTTPError as e:
             # For HTTP protocol errors
@@ -213,9 +226,12 @@ and session handling.</p>
                 self._refresh_token = auth_response.refresh_token
                 self._logger.info(&#34;Login successful for user: %s&#34;, email)
 
+                parsed_access_token = self.parse_access_token(auth_response.jwt_token)
+
                 return AuthTokens(
                     access_token=auth_response.jwt_token,
                     refresh_token=auth_response.refresh_token,
+                    **parsed_access_token,
                 )
         except Exception as e:
             if isinstance(e, AuthError):
@@ -268,10 +284,12 @@ and session handling.</p>
 
             self._access_token = auth_response.jwt_token
             self._refresh_token = auth_response.refresh_token
+            parsed_access_token = self.parse_access_token(auth_response.jwt_token)
 
             return AuthTokens(
                 access_token=auth_response.jwt_token,
                 refresh_token=auth_response.refresh_token,
+                **parsed_access_token,
             )
 
     async def logout(self, all_sessions: bool = True) -&gt; None:
@@ -345,10 +363,12 @@ and session handling.</p>
 
             self._access_token = auth_response.jwt_token
             self._refresh_token = auth_response.refresh_token
+            parsed_access_token = self.parse_access_token(auth_response.jwt_token)
 
             return AuthTokens(
                 access_token=auth_response.jwt_token,
                 refresh_token=auth_response.refresh_token,
+                **parsed_access_token,
             )
 
     async def change_password(self, old_password: str, new_password: str) -&gt; None:
@@ -421,9 +441,12 @@ and session handling.</p>
             self._access_token = auth_response.jwt_token
             self._refresh_token = auth_response.refresh_token
 
+            parsed_access_token = self.parse_access_token(auth_response.jwt_token)
+
             return AuthTokens(
                 access_token=auth_response.jwt_token,
                 refresh_token=auth_response.refresh_token,
+                **parsed_access_token,
             )</code></pre>
 </details>
 <h3>Instance variables</h3>
@@ -528,6 +551,12 @@ print(f&quot;Access token: {tokens.access_token}&quot;)
 <pre><code class="language-python">client = AuthClient(&quot;https://app.synmetrix.org&quot;)
 await client.logout()
 </code></pre></div>
+</dd>
+<dt id="src.synmetrix_graphql_client.auth.AuthClient.parse_access_token"><code class="name flex">
+<span>def <span class="ident">parse_access_token</span></span>(<span>self, access_token: str) ‑> dict[str, typing.Any]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
 </dd>
 <dt id="src.synmetrix_graphql_client.auth.AuthClient.refresh_token"><code class="name flex">
 <span>async def <span class="ident">refresh_token</span></span>(<span>self, refresh_token: Optional[str] = None) ‑> <a title="src.synmetrix_graphql_client.auth.AuthTokens" href="#src.synmetrix_graphql_client.auth.AuthTokens">AuthTokens</a></span>
@@ -755,7 +784,7 @@ validated to form a valid model.</p>
 </dd>
 <dt id="src.synmetrix_graphql_client.auth.AuthTokens"><code class="flex name class">
 <span>class <span class="ident">AuthTokens</span></span>
-<span>(</span><span>access_token: str, refresh_token: str)</span>
+<span>(</span><span>access_token: str, refresh_token: str, access_token_expires_at: int, user_id: str)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Data class for storing authentication tokens.</p>
@@ -765,6 +794,10 @@ validated to form a valid model.</p>
 <dd>JWT access token for API authentication</dd>
 <dt><strong><code>refresh_token</code></strong> :&ensp;<code>str</code></dt>
 <dd>Token used to refresh expired JWT tokens</dd>
+<dt><strong><code>access_token_expires_at</code></strong> :&ensp;<code>int</code></dt>
+<dd>Expiration timestamp of the access token</dd>
+<dt><strong><code>user_id</code></strong> :&ensp;<code>str</code></dt>
+<dd>User ID associated with the access token</dd>
 </dl></div>
 <details class="source">
 <summary>
@@ -777,10 +810,14 @@ class AuthTokens:
     Attributes:
         access_token (str): JWT access token for API authentication
         refresh_token (str): Token used to refresh expired JWT tokens
+        access_token_expires_at (int): Expiration timestamp of the access token
+        user_id (str): User ID associated with the access token
     &#34;&#34;&#34;
 
     access_token: str
-    refresh_token: str</code></pre>
+    refresh_token: str
+    access_token_expires_at: int
+    user_id: str</code></pre>
 </details>
 <h3>Class variables</h3>
 <dl>
@@ -788,7 +825,15 @@ class AuthTokens:
 <dd>
 <div class="desc"></div>
 </dd>
+<dt id="src.synmetrix_graphql_client.auth.AuthTokens.access_token_expires_at"><code class="name">var <span class="ident">access_token_expires_at</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
 <dt id="src.synmetrix_graphql_client.auth.AuthTokens.refresh_token"><code class="name">var <span class="ident">refresh_token</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="src.synmetrix_graphql_client.auth.AuthTokens.user_id"><code class="name">var <span class="ident">user_id</span> : str</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
@@ -816,6 +861,7 @@ class AuthTokens:
 <li><code><a title="src.synmetrix_graphql_client.auth.AuthClient.change_password" href="#src.synmetrix_graphql_client.auth.AuthClient.change_password">change_password</a></code></li>
 <li><code><a title="src.synmetrix_graphql_client.auth.AuthClient.login" href="#src.synmetrix_graphql_client.auth.AuthClient.login">login</a></code></li>
 <li><code><a title="src.synmetrix_graphql_client.auth.AuthClient.logout" href="#src.synmetrix_graphql_client.auth.AuthClient.logout">logout</a></code></li>
+<li><code><a title="src.synmetrix_graphql_client.auth.AuthClient.parse_access_token" href="#src.synmetrix_graphql_client.auth.AuthClient.parse_access_token">parse_access_token</a></code></li>
 <li><code><a title="src.synmetrix_graphql_client.auth.AuthClient.refresh_token" href="#src.synmetrix_graphql_client.auth.AuthClient.refresh_token">refresh_token</a></code></li>
 <li><code><a title="src.synmetrix_graphql_client.auth.AuthClient.register" href="#src.synmetrix_graphql_client.auth.AuthClient.register">register</a></code></li>
 <li><code><a title="src.synmetrix_graphql_client.auth.AuthClient.send_magic_link" href="#src.synmetrix_graphql_client.auth.AuthClient.send_magic_link">send_magic_link</a></code></li>
@@ -842,7 +888,9 @@ class AuthTokens:
 <h4><code><a title="src.synmetrix_graphql_client.auth.AuthTokens" href="#src.synmetrix_graphql_client.auth.AuthTokens">AuthTokens</a></code></h4>
 <ul class="">
 <li><code><a title="src.synmetrix_graphql_client.auth.AuthTokens.access_token" href="#src.synmetrix_graphql_client.auth.AuthTokens.access_token">access_token</a></code></li>
+<li><code><a title="src.synmetrix_graphql_client.auth.AuthTokens.access_token_expires_at" href="#src.synmetrix_graphql_client.auth.AuthTokens.access_token_expires_at">access_token_expires_at</a></code></li>
 <li><code><a title="src.synmetrix_graphql_client.auth.AuthTokens.refresh_token" href="#src.synmetrix_graphql_client.auth.AuthTokens.refresh_token">refresh_token</a></code></li>
+<li><code><a title="src.synmetrix_graphql_client.auth.AuthTokens.user_id" href="#src.synmetrix_graphql_client.auth.AuthTokens.user_id">user_id</a></code></li>
 </ul>
 </li>
 </ul>

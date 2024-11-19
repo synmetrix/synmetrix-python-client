@@ -44,7 +44,7 @@ user_id = jwt_payload.get("hasura", {}).get("x-hasura-user-id")
 
 # Initialize client
 client = Client(
-    url="https://api.synmetrix.org/v1/graphql",
+    url="https://app.synmetrix.org/v1/graphql",
     headers={"Authorization": f"Bearer {access_token}"},
 )
 
