@@ -2,13 +2,10 @@
 
 import enum
 import json
-
-from collections.abc import AsyncIterator
-from typing import IO, Any, Dict, List, Optional, Tuple, TypeVar, cast
+from typing import IO, Any, AsyncIterator, Dict, List, Optional, Tuple, TypeVar, cast
 from uuid import uuid4
 
 import httpx
-
 from pydantic import BaseModel
 from pydantic_core import to_jsonable_python
 
@@ -19,7 +16,6 @@ from .exceptions import (
     GraphQLClientInvalidMessageFormat,
     GraphQLClientInvalidResponseError,
 )
-
 
 try:
     from websockets.client import (  # type: ignore[import-not-found,unused-ignore]
