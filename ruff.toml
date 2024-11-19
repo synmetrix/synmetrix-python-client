@@ -16,12 +16,12 @@ exclude = [
     "__pycache__",
     "build",
     "dist",
-    "src/synmetrix_graphql_client/graphql_client/",
+    "src/synmetrix_python_client/graphql_client/",
 ]
 
 [lint.isort]
 lines-after-imports = 2
-known-first-party = ["synmetrix_graphql_client"]
+known-first-party = ["synmetrix_python_client"]
 lines-between-types = 1
 
 case-sensitive = true

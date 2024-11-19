@@ -1,6 +1,6 @@
-# Synmetrix GraphQL Client
+# Synmetrix Python Client
 
-A Python GraphQL client library for interacting with the Synmetrix API.
+A Python client library for interacting with the Synmetrix API.
 
 ### Key Components
 
@@ -21,13 +21,13 @@ A Python GraphQL client library for interacting with the Synmetrix API.
 ### Using pip
 
 ```bash
-pip install synmetrix-graphql-client
+pip install synmetrix-python-client
 ```
 
 ### Using poetry
 
 ```bash
-poetry add synmetrix-graphql-client
+poetry add synmetrix-python-client
 ```
 
 ## Quick Start
@@ -35,7 +35,7 @@ poetry add synmetrix-graphql-client
 ```python
 import asyncio
 import jwt
-from synmetrix_graphql_client import Client
+from synmetrix_python_client import Client
 
 # Decode JWT token to get user_id
 access_token = "your_access_token"
@@ -67,9 +67,9 @@ asyncio.run(get_current_user())
 
 The library provides comprehensive API documentation in the following formats:
 
-- **HTML Documentation**: Browse the full API reference at [docs/src/synmetrix_graphql_client/](docs/src/synmetrix_graphql_client/)
-  - GraphQL Client API: [docs/src/synmetrix_graphql_client/graphql_client/client.html](docs/src/synmetrix_graphql_client/graphql_client/client.html)
-  - Authentication API: [docs/src/synmetrix_graphql_client/auth.html](docs/src/synmetrix_graphql_client/auth.html)
+- **HTML Documentation**: Browse the full API reference at [docs/src/synmetrix_python_client/](docs/src/synmetrix_python_client/)
+  - GraphQL Client API: [docs/src/synmetrix_python_client/graphql_client/client.html](docs/src/synmetrix_python_client/graphql_client/client.html)
+  - Authentication API: [docs/src/synmetrix_python_client/auth.html](docs/src/synmetrix_python_client/auth.html)
 
 ## Development
 
@@ -82,8 +82,8 @@ The library provides comprehensive API documentation in the following formats:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/ifokeev/synmetrix-graphql-client.git
-cd synmetrix-graphql-client
+git clone https://github.com/ifokeev/synmetrix-python-client.git
+cd synmetrix-python-client
 ```
 
 2. Install dependencies:

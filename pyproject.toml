@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "synmetrix-graphql-client"
+name = "synmetrix-python-client"
 version = "0.1.0"
-description = "A Python GraphQL client library for interacting with the Synmetrix API"
+description = "A Python client library for interacting with the Synmetrix API"
 authors = ["Synmetrix <hello@synmetrix.org>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "synmetrix_graphql_client", from = "src"}]
+packages = [{include = "synmetrix_python_client", from = "src"}]
 
 [tool.poetry.dependencies]
 python = ">=3.9,<3.9.7 || >3.9.7,<3.13"
@@ -32,8 +32,8 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.ariadne-codegen]
-target_package_path = "src/synmetrix_graphql_client/"
-queries_path = "src/synmetrix_graphql_client/graphql"
+target_package_path = "src/synmetrix_python_client/"
+queries_path = "src/synmetrix_python_client/graphql"
 remote_schema_url = "http://localhost/v1/graphql"
 remote_schema_headers = { "X-Hasura-Admin-Secret" = "adminsecret" }
 
