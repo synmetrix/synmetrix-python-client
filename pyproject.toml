@@ -5,7 +5,7 @@ description = "A Python GraphQL client library for interacting with the Synmetri
 authors = ["Synmetrix <hello@synmetrix.org>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "src/synmetrix_graphql_client"}]
+packages = [{include = "synmetrix_graphql_client", from = "src"}]
 
 [tool.poetry.dependencies]
 python = ">=3.9,<3.9.7 || >3.9.7,<3.13"

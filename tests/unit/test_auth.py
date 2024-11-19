@@ -3,7 +3,7 @@ from unittest.mock import patch
 import httpx
 import pytest
 
-from src.synmetrix_graphql_client.auth import (
+from synmetrix_graphql_client.auth import (
     AuthClient,
     AuthError,
     AuthTokens,

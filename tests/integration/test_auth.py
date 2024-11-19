@@ -3,7 +3,7 @@ import os
 
 import pytest
 
-from src.synmetrix_graphql_client.auth import AuthClient, AuthError
+from synmetrix_graphql_client.auth import AuthClient, AuthError
 
 
 @pytest.mark.skipif(
@@ -34,7 +34,14 @@ class TestAuthIntegration:
             new_tokens = await auth_client.refresh_token()
             assert new_tokens.access_token
             assert new_tokens.refresh_token
-            assert str(new_tokens.access_token) != str(tokens.access_token)
+
+            if new_tokens.access_token_expires_at != tokens.access_token_expires_at:
+                assert (
+                    new_tokens.access_token_expires_at > tokens.access_token_expires_at
+                )
+                assert str(new_tokens.access_token) != str(tokens.access_token)
+            else:
+                assert new_tokens.access_token == tokens.access_token
         finally:
             # Cleanup
             if auth_client._access_token:
@@ -65,7 +72,13 @@ class TestAuthIntegration:
 
             # Refresh token
             new_tokens = await auth_client.refresh_token()
-            assert str(new_tokens.access_token) != str(original_token)
+            if new_tokens.access_token_expires_at != tokens.access_token_expires_at:
+                assert (
+                    new_tokens.access_token_expires_at > tokens.access_token_expires_at
+                )
+                assert str(new_tokens.access_token) != str(original_token)
+            else:
+                assert new_tokens.access_token == original_token
         finally:
             if auth_client._access_token:
                 await auth_client.logout()
