@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "synmetrix-python-client"
-version = "0.1.0"
+version = "0.1.1"
 description = "A Python client library for interacting with the Synmetrix API"
 authors = ["Synmetrix <hello@synmetrix.org>"]
 license = "MIT"

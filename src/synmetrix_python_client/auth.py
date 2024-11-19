@@ -84,6 +84,8 @@ class AuthTokens:
     refresh_token: str
     access_token_expires_at: int
     user_id: str
+    allowed_roles: list[str]
+    default_role: str
 
 
 class AuthClient:
@@ -125,13 +127,19 @@ class AuthClient:
             return {}
         return {"Authorization": f"Bearer {self._access_token}"}
 
-    def parse_access_token(self, access_token: str) -> dict[str, Any]:
+    @staticmethod
+    def parse_access_token(access_token: str) -> dict[str, Any]:
         jwt_payload = jwt.decode(access_token, options={"verify_signature": False})
-        user_id = jwt_payload.get("hasura", {}).get("x-hasura-user-id")
+        hasura_payload = jwt_payload.get("hasura", {})
+        user_id = hasura_payload.get("x-hasura-user-id")
+        allowed_roles = hasura_payload.get("allowed_roles", [])
+        default_role = hasura_payload.get("default_role")
 
         return {
             "user_id": user_id,
             "access_token_expires_at": jwt_payload["exp"],
+            "allowed_roles": allowed_roles,
+            "default_role": default_role,
         }
 
     async def _validate_response(self, response: httpx.Response) -> dict[str, Any]:
@@ -233,7 +241,9 @@ class AuthClient:
                 self._refresh_token = auth_response.refresh_token
                 self._logger.info("Login successful for user: %s", email)
 
-                parsed_access_token = self.parse_access_token(auth_response.jwt_token)
+                parsed_access_token = AuthClient.parse_access_token(
+                    auth_response.jwt_token
+                )
 
                 return AuthTokens(
                     access_token=auth_response.jwt_token,
@@ -291,7 +301,7 @@ class AuthClient:
 
             self._access_token = auth_response.jwt_token
             self._refresh_token = auth_response.refresh_token
-            parsed_access_token = self.parse_access_token(auth_response.jwt_token)
+            parsed_access_token = AuthClient.parse_access_token(auth_response.jwt_token)
 
             return AuthTokens(
                 access_token=auth_response.jwt_token,
@@ -370,7 +380,7 @@ class AuthClient:
 
             self._access_token = auth_response.jwt_token
             self._refresh_token = auth_response.refresh_token
-            parsed_access_token = self.parse_access_token(auth_response.jwt_token)
+            parsed_access_token = AuthClient.parse_access_token(auth_response.jwt_token)
 
             return AuthTokens(
                 access_token=auth_response.jwt_token,
@@ -448,7 +458,7 @@ class AuthClient:
             self._access_token = auth_response.jwt_token
             self._refresh_token = auth_response.refresh_token
 
-            parsed_access_token = self.parse_access_token(auth_response.jwt_token)
+            parsed_access_token = AuthClient.parse_access_token(auth_response.jwt_token)
 
             return AuthTokens(
                 access_token=auth_response.jwt_token,

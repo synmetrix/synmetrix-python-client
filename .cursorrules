@@ -8,14 +8,37 @@
       },
       "related": [
         {
-          "pattern": "tests/unit/test_auth.py",
+          "pattern": "tests/unit/test_auth_unit.py",
           "context": {
             "above": 3,
             "below": 3
           }
         },
         {
-          "pattern": "tests/integration/test_auth.py",
+          "pattern": "tests/integration/test_auth_integration.py",
+          "context": {
+            "above": 3,
+            "below": 3
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "src/synmetrix_python_client/use_cases/upload_data_models.py",
+      "context": {
+        "above": 5,
+        "below": 5
+      },
+      "related": [
+        {
+          "pattern": "tests/unit/test_upload_data_models_unit.py",
+          "context": {
+            "above": 3,
+            "below": 3
+          }
+        },
+        {
+          "pattern": "tests/integration/test_upload_data_models_integration.py",
           "context": {
             "above": 3,
             "below": 3
@@ -77,22 +100,6 @@
           }
         }
       ]
-    },
-    {
-      "pattern": "docs/src/synmetrix_python_client/**/*.html",
-      "context": {
-        "above": 0,
-        "below": 0
-      },
-      "related": [
-        {
-          "pattern": "src/synmetrix_python_client/**/*.py",
-          "context": {
-            "above": 2,
-            "below": 2
-          }
-        }
-      ]
     }
   ],
   "ignorePatterns": [
@@ -108,7 +115,8 @@
     "client.py": "Main GraphQL client with async operations and WebSocket support",
     "*.gql": "GraphQL query/mutation/subscription definitions",
     "input_types.py": "GraphQL input type definitions",
-    "tests/": "Unit and integration tests",
-    "docs/": "Generated API documentation"
+    "upload_data_models.py": "Use case for uploading OLAP cube models",
+    "tests/unit/**": "Unit tests for individual components",
+    "tests/integration/**": "Integration tests for end-to-end flows"
   }
 }

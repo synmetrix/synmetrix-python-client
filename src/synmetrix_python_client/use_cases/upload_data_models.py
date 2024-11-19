@@ -11,8 +11,8 @@ import yaml
 from pydantic import BaseModel
 
 from synmetrix_python_client.auth import AuthClient, AuthTokens
-from synmetrix_python_client.graphql_client.client import Client
-from synmetrix_python_client.graphql_client.input_types import (
+from synmetrix_python_client.graphql_client import (
+    CreateVersion,
     branches_bool_exp,
     dataschemas_arr_rel_insert_input,
     dataschemas_insert_input,
@@ -20,6 +20,7 @@ from synmetrix_python_client.graphql_client.input_types import (
     uuid_comparison_exp,
     versions_insert_input,
 )
+from synmetrix_python_client.graphql_client.client import Client
 
 from .utils import setup_logger
 
@@ -32,8 +33,6 @@ class CubeModel(BaseModel):
     """Model representing a cube definition."""
 
     name: str
-    version: str
-    description: Optional[str] = None
     file_path: str
     code: str
 
@@ -89,14 +88,16 @@ async def verify_branch(client: Client, datasource_id: str, branch_id: str) -> b
 async def upload_cube_models(
     client: Client,
     models: list[CubeModel],
+    user_id: str,
     datasource_id: str,
     branch_id: str,
-) -> None:
+) -> CreateVersion:
     """Upload cube models to the server."""
     logger.info(f"Uploading {len(models)} cube models...")
 
     models_data = [
         dataschemas_insert_input(
+            user_id=user_id,
             name=model.name,
             code=model.code,
             datasource_id=datasource_id,
@@ -112,6 +113,7 @@ async def upload_cube_models(
 
         # Create version using proper input types
         version_input: versions_insert_input = versions_insert_input(
+            user_id=user_id,
             checksum=checksum,
             branch_id=branch_id,
             dataschemas=dataschemas_arr_rel_insert_input(data=models_data),
@@ -119,6 +121,7 @@ async def upload_cube_models(
         result = await client.create_version(object=version_input)
         logger.info("Upload successful")
         logger.debug(f"Upload result: {result}")
+        return result
     except Exception as e:
         logger.error(f"Upload failed: {str(e)}")
         raise
@@ -132,7 +135,7 @@ async def main(
     login: Optional[str] = None,
     password: Optional[str] = None,
     access_token: Optional[str] = None,
-):
+) -> Optional[CreateVersion]:
     """Main entry point for the upload script."""
     logger.info(f"Starting cube model upload from {data_models_path}")
     models_path = Path(data_models_path)
@@ -149,6 +152,9 @@ async def main(
         msg = "Either access_token or login/password must be provided"
         logger.error(msg)
         raise ValueError(msg)
+
+    jwt_payload = AuthClient.parse_access_token(access_token)
+    user_id = jwt_payload["user_id"]
 
     # Initialize GraphQL client
     client = Client(
@@ -186,8 +192,7 @@ async def main(
                         continue
 
                     model = CubeModel(
-                        name=model_file.stem,
-                        version="1.0.0",
+                        name=model_file.name,
                         file_path=str(model_file),
                         code=yaml_content,
                     )
@@ -200,8 +205,11 @@ async def main(
                 logger.error(f"Error processing {model_file.name}: {str(e)}")
 
         if valid_models:
-            await upload_cube_models(client, valid_models, datasource_id, branch_id)
+            result = await upload_cube_models(
+                client, valid_models, user_id, datasource_id, branch_id
+            )
             logger.info(f"Successfully uploaded {len(valid_models)} models")
+            return result
         else:
             logger.warning("No valid models found")
 

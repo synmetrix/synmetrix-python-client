@@ -118,13 +118,19 @@ and session handling.</p>
             return {}
         return {&#34;Authorization&#34;: f&#34;Bearer {self._access_token}&#34;}
 
-    def parse_access_token(self, access_token: str) -&gt; dict[str, Any]:
+    @staticmethod
+    def parse_access_token(access_token: str) -&gt; dict[str, Any]:
         jwt_payload = jwt.decode(access_token, options={&#34;verify_signature&#34;: False})
-        user_id = jwt_payload.get(&#34;hasura&#34;, {}).get(&#34;x-hasura-user-id&#34;)
+        hasura_payload = jwt_payload.get(&#34;hasura&#34;, {})
+        user_id = hasura_payload.get(&#34;x-hasura-user-id&#34;)
+        allowed_roles = hasura_payload.get(&#34;allowed_roles&#34;, [])
+        default_role = hasura_payload.get(&#34;default_role&#34;)
 
         return {
             &#34;user_id&#34;: user_id,
             &#34;access_token_expires_at&#34;: jwt_payload[&#34;exp&#34;],
+            &#34;allowed_roles&#34;: allowed_roles,
+            &#34;default_role&#34;: default_role,
         }
 
     async def _validate_response(self, response: httpx.Response) -&gt; dict[str, Any]:
@@ -226,7 +232,9 @@ and session handling.</p>
                 self._refresh_token = auth_response.refresh_token
                 self._logger.info(&#34;Login successful for user: %s&#34;, email)
 
-                parsed_access_token = self.parse_access_token(auth_response.jwt_token)
+                parsed_access_token = AuthClient.parse_access_token(
+                    auth_response.jwt_token
+                )
 
                 return AuthTokens(
                     access_token=auth_response.jwt_token,
@@ -284,7 +292,7 @@ and session handling.</p>
 
             self._access_token = auth_response.jwt_token
             self._refresh_token = auth_response.refresh_token
-            parsed_access_token = self.parse_access_token(auth_response.jwt_token)
+            parsed_access_token = AuthClient.parse_access_token(auth_response.jwt_token)
 
             return AuthTokens(
                 access_token=auth_response.jwt_token,
@@ -363,7 +371,7 @@ and session handling.</p>
 
             self._access_token = auth_response.jwt_token
             self._refresh_token = auth_response.refresh_token
-            parsed_access_token = self.parse_access_token(auth_response.jwt_token)
+            parsed_access_token = AuthClient.parse_access_token(auth_response.jwt_token)
 
             return AuthTokens(
                 access_token=auth_response.jwt_token,
@@ -441,7 +449,7 @@ and session handling.</p>
             self._access_token = auth_response.jwt_token
             self._refresh_token = auth_response.refresh_token
 
-            parsed_access_token = self.parse_access_token(auth_response.jwt_token)
+            parsed_access_token = AuthClient.parse_access_token(auth_response.jwt_token)
 
             return AuthTokens(
                 access_token=auth_response.jwt_token,
@@ -449,6 +457,15 @@ and session handling.</p>
                 **parsed_access_token,
             )</code></pre>
 </details>
+<h3>Static methods</h3>
+<dl>
+<dt id="src.synmetrix_python_client.auth.AuthClient.parse_access_token"><code class="name flex">
+<span>def <span class="ident">parse_access_token</span></span>(<span>access_token: str) ‑> dict[str, typing.Any]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
 <h3>Instance variables</h3>
 <dl>
 <dt id="src.synmetrix_python_client.auth.AuthClient.auth_headers"><code class="name">prop <span class="ident">auth_headers</span> : dict[str, str]</code></dt>
@@ -551,12 +568,6 @@ print(f&quot;Access token: {tokens.access_token}&quot;)
 <pre><code class="language-python">client = AuthClient(&quot;https://app.synmetrix.org&quot;)
 await client.logout()
 </code></pre></div>
-</dd>
-<dt id="src.synmetrix_python_client.auth.AuthClient.parse_access_token"><code class="name flex">
-<span>def <span class="ident">parse_access_token</span></span>(<span>self, access_token: str) ‑> dict[str, typing.Any]</span>
-</code></dt>
-<dd>
-<div class="desc"></div>
 </dd>
 <dt id="src.synmetrix_python_client.auth.AuthClient.refresh_token"><code class="name flex">
 <span>async def <span class="ident">refresh_token</span></span>(<span>self, refresh_token: Optional[str] = None) ‑> <a title="src.synmetrix_python_client.auth.AuthTokens" href="#src.synmetrix_python_client.auth.AuthTokens">AuthTokens</a></span>
@@ -784,7 +795,7 @@ validated to form a valid model.</p>
 </dd>
 <dt id="src.synmetrix_python_client.auth.AuthTokens"><code class="flex name class">
 <span>class <span class="ident">AuthTokens</span></span>
-<span>(</span><span>access_token: str, refresh_token: str, access_token_expires_at: int, user_id: str)</span>
+<span>(</span><span>access_token: str, refresh_token: str, access_token_expires_at: int, user_id: str, allowed_roles: list[str], default_role: str)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Data class for storing authentication tokens.</p>
@@ -817,7 +828,9 @@ class AuthTokens:
     access_token: str
     refresh_token: str
     access_token_expires_at: int
-    user_id: str</code></pre>
+    user_id: str
+    allowed_roles: list[str]
+    default_role: str</code></pre>
 </details>
 <h3>Class variables</h3>
 <dl>
@@ -826,6 +839,14 @@ class AuthTokens:
 <div class="desc"></div>
 </dd>
 <dt id="src.synmetrix_python_client.auth.AuthTokens.access_token_expires_at"><code class="name">var <span class="ident">access_token_expires_at</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="src.synmetrix_python_client.auth.AuthTokens.allowed_roles"><code class="name">var <span class="ident">allowed_roles</span> : list[str]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="src.synmetrix_python_client.auth.AuthTokens.default_role"><code class="name">var <span class="ident">default_role</span> : str</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
@@ -889,6 +910,8 @@ class AuthTokens:
 <ul class="">
 <li><code><a title="src.synmetrix_python_client.auth.AuthTokens.access_token" href="#src.synmetrix_python_client.auth.AuthTokens.access_token">access_token</a></code></li>
 <li><code><a title="src.synmetrix_python_client.auth.AuthTokens.access_token_expires_at" href="#src.synmetrix_python_client.auth.AuthTokens.access_token_expires_at">access_token_expires_at</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthTokens.allowed_roles" href="#src.synmetrix_python_client.auth.AuthTokens.allowed_roles">allowed_roles</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthTokens.default_role" href="#src.synmetrix_python_client.auth.AuthTokens.default_role">default_role</a></code></li>
 <li><code><a title="src.synmetrix_python_client.auth.AuthTokens.refresh_token" href="#src.synmetrix_python_client.auth.AuthTokens.refresh_token">refresh_token</a></code></li>
 <li><code><a title="src.synmetrix_python_client.auth.AuthTokens.user_id" href="#src.synmetrix_python_client.auth.AuthTokens.user_id">user_id</a></code></li>
 </ul>
