@@ -54,45 +54,29 @@ async def get_current_user():
 asyncio.run(get_current_user())
 ```
 
-## API Reference
+## Documentation
 
-### Common Methods
+### API Reference
 
-#### User Management
-- `async def current_user(id: Any) -> CurrentUser`
-  Get current user information
+The library provides comprehensive API documentation in the following formats:
 
-- `async def sub_current_user(id: Any) -> AsyncIterator[SubCurrentUser]`
-  Subscribe to user updates
+- **HTML Documentation**: Browse the full API reference at [docs/synmetrix_graphql_client/](docs/synmetrix_graphql_client/)
+  - GraphQL Client API: [docs/synmetrix_graphql_client/graphql_client/client.html](docs/synmetrix_graphql_client/graphql_client/client.html)
+  - Authentication API: [docs/synmetrix_graphql_client/auth.html](docs/synmetrix_graphql_client/auth.html)
 
-#### Team Management
-- `async def create_team(name: str) -> CreateTeam`
-  Create a new team
+### Key Components
 
-- `async def current_team(id: Any) -> CurrentTeam`
-  Get current team information
+1. **GraphQL Client**
+   - Fully typed async client for GraphQL operations
+   - WebSocket subscription support
+   - Automatic query generation
+   - Error handling and response validation
 
-- `async def team_data(team_id: Any) -> TeamData`
-  Get detailed team data
-
-#### Data Source Operations
-- `async def create_data_source(object: datasources_insert_input) -> CreateDataSource`
-  Create a new data source
-
-- `async def current_data_source(id: Any) -> CurrentDataSource`
-  Get current data source information
-
-- `async def check_connection(id: Any) -> CheckConnection`
-  Check data source connection
-
-#### Access Management
-- `async def create_access_list(object: access_lists_insert_input) -> CreateAccessList`
-  Create new access list
-
-- `async def update_access_list(pk_columns, set) -> UpdateAccessList`
-  Update existing access list
-
-For the complete API reference, see [API Reference](docs/api_reference.md).
+2. **Authentication Client**
+   - JWT token management
+   - User authentication flows
+   - Session handling
+   - Password management
 
 ## Development
 
@@ -105,7 +89,7 @@ For the complete API reference, see [API Reference](docs/api_reference.md).
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/synmetrix/synmetrix-graphql-client.git
+git clone https://github.com/ifokeev/synmetrix-graphql-client.git
 cd synmetrix-graphql-client
 ```
 
@@ -125,10 +109,13 @@ poetry shell
 poetry run pytest
 ```
 
-### Generating API Documentation
+### Generating Documentation
+
+To regenerate the documentation:
 
 ```bash
-./scripts/generate_api_docs.py
+./scripts/generate_auth_api_docs.sh    # Auth documentation
+./scripts/generate_graphql_api_docs.sh # GraphQL documentation
 ```
 
 ### Publishing to PyPI
