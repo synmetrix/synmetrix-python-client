@@ -155,8 +155,7 @@ async def test_upload_cube_models(mock_client):
     """Test uploading cube models."""
     models = [
         CubeModel(
-            name="test_model",
-            version="1.0.0",
+            name="test_model.yml",
             file_path="test.yml",
             code="cubes: {test: {measures: {count: {type: count}}}}",
         )
