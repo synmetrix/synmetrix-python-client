@@ -167,6 +167,7 @@ async def test_upload_cube_models(mock_client):
         models=models,
         datasource_id="test-ds-id",
         branch_id="test-branch-id",
+        user_id="test-user-id",
     )
 
     mock_client.create_version.assert_called_once()
