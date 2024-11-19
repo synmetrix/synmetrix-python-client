@@ -1,122 +1,28 @@
 {
-  "rules": [
-    {
-      "pattern": "src/synmetrix_python_client/auth.py",
-      "context": {
-        "above": 5,
-        "below": 5
-      },
-      "related": [
-        {
-          "pattern": "tests/unit/test_auth_unit.py",
-          "context": {
-            "above": 3,
-            "below": 3
-          }
-        },
-        {
-          "pattern": "tests/integration/test_auth_integration.py",
-          "context": {
-            "above": 3,
-            "below": 3
-          }
-        }
-      ]
-    },
-    {
-      "pattern": "src/synmetrix_python_client/use_cases/upload_data_models.py",
-      "context": {
-        "above": 5,
-        "below": 5
-      },
-      "related": [
-        {
-          "pattern": "tests/unit/test_upload_data_models_unit.py",
-          "context": {
-            "above": 3,
-            "below": 3
-          }
-        },
-        {
-          "pattern": "tests/integration/test_upload_data_models_integration.py",
-          "context": {
-            "above": 3,
-            "below": 3
-          }
-        }
-      ]
-    },
-    {
-      "pattern": "src/synmetrix_python_client/graphql_client/client.py",
-      "context": {
-        "above": 5,
-        "below": 5
-      },
-      "related": [
-        {
-          "pattern": "src/synmetrix_python_client/graphql/**/*.gql",
-          "context": {
-            "above": 2,
-            "below": 2
-          }
-        },
-        {
-          "pattern": "src/synmetrix_python_client/graphql_client/input_types.py",
-          "context": {
-            "above": 2,
-            "below": 2
-          }
-        }
-      ]
-    },
-    {
-      "pattern": "src/synmetrix_python_client/graphql/**/*.gql",
-      "context": {
-        "above": 2,
-        "below": 2
-      },
-      "related": [
-        {
-          "pattern": "src/synmetrix_python_client/graphql_client/**/*.py",
-          "context": {
-            "above": 2,
-            "below": 2
-          }
-        }
-      ]
-    },
-    {
-      "pattern": "tests/**/*.py",
-      "context": {
-        "above": 3,
-        "below": 3
-      },
-      "related": [
-        {
-          "pattern": "src/synmetrix_python_client/**/*.py",
-          "context": {
-            "above": 2,
-            "below": 2
-          }
-        }
-      ]
-    }
-  ],
-  "ignorePatterns": [
-    "**/__pycache__/**",
-    "**/.pytest_cache/**",
-    "**/dist/**",
-    "**/build/**",
-    "**/.venv/**",
-    "**/node_modules/**"
-  ],
   "description": {
-    "auth.py": "Authentication client for JWT token management and user auth flows",
-    "client.py": "Main GraphQL client with async operations and WebSocket support",
-    "*.gql": "GraphQL query/mutation/subscription definitions",
-    "input_types.py": "GraphQL input type definitions",
-    "upload_data_models.py": "Use case for uploading OLAP cube models",
-    "tests/unit/**": "Unit tests for individual components",
-    "tests/integration/**": "Integration tests for end-to-end flows"
+    "project": "Synmetrix Python Client - A Python library for interacting with the Synmetrix API",
+    "structure": {
+      "src/synmetrix_python_client/": "Main package directory",
+      "src/synmetrix_python_client/auth.py": "Authentication client for JWT token management",
+      "src/synmetrix_python_client/graphql_client/": "GraphQL client implementation",
+      "src/synmetrix_python_client/use_cases/": "High-level use cases and utilities",
+      "tests/": "Test directory with unit and integration tests"
+    },
+    "naming_conventions": {
+      "unit_tests": "test_*_unit.py (e.g., test_auth_unit.py)",
+      "integration_tests": "test_*_integration.py (e.g., test_auth_integration.py)",
+      "use_cases": "Descriptive names for specific functionality (e.g., upload_data_models.py)",
+      "graphql_queries": "Descriptive names in snake_case.gql (e.g., current_user.gql)"
+    },
+    "test_organization": {
+      "tests/unit/": "Unit tests focusing on individual components",
+      "tests/integration/": "Integration tests for end-to-end flows",
+      "tests/conftest.py": "Shared test fixtures and configuration"
+    },
+    "key_components": {
+      "auth": "JWT-based authentication with token management",
+      "graphql": "Fully typed async GraphQL client with WebSocket support",
+      "use_cases": "High-level functionality like data model uploads"
+    }
   }
 }
