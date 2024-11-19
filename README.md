@@ -98,7 +98,7 @@ For the complete API reference, see [API Reference](docs/api_reference.md).
 
 ### Prerequisites
 
-- Python 3.8+
+- Python 3.9+
 - Poetry (Python package manager)
 
 ### Setting up the development environment
