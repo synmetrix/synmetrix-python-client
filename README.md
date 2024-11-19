@@ -2,12 +2,19 @@
 
 A Python GraphQL client library for interacting with the Synmetrix API.
 
-## Features
+### Key Components
 
-- Fully typed async GraphQL client
-- Automatic query generation
-- WebSocket subscription support
-- Comprehensive API documentation
+1. **GraphQL Client**
+   - Fully typed async client for GraphQL operations
+   - WebSocket subscription support
+   - Automatic query generation
+   - Error handling and response validation
+
+2. **Authentication Client**
+   - JWT token management
+   - User authentication flows
+   - Session handling
+   - Password management
 
 ## Installation
 
@@ -64,20 +71,6 @@ The library provides comprehensive API documentation in the following formats:
   - GraphQL Client API: [docs/synmetrix_graphql_client/graphql_client/client.html](docs/synmetrix_graphql_client/graphql_client/client.html)
   - Authentication API: [docs/synmetrix_graphql_client/auth.html](docs/synmetrix_graphql_client/auth.html)
 
-### Key Components
-
-1. **GraphQL Client**
-   - Fully typed async client for GraphQL operations
-   - WebSocket subscription support
-   - Automatic query generation
-   - Error handling and response validation
-
-2. **Authentication Client**
-   - JWT token management
-   - User authentication flows
-   - Session handling
-   - Password management
-
 ## Development
 
 ### Prerequisites
@@ -114,8 +107,8 @@ poetry run pytest
 To regenerate the documentation:
 
 ```bash
-./scripts/generate_auth_api_docs.sh    # Auth documentation
 ./scripts/generate_graphql_api_docs.sh # GraphQL documentation
+./scripts/generate_auth_api_docs.sh    # Auth documentation
 ```
 
 ### Publishing to PyPI
