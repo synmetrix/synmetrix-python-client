@@ -67,9 +67,9 @@ asyncio.run(get_current_user())
 
 The library provides comprehensive API documentation in the following formats:
 
-- **HTML Documentation**: Browse the full API reference at [docs/synmetrix_graphql_client/](docs/synmetrix_graphql_client/)
-  - GraphQL Client API: [docs/synmetrix_graphql_client/graphql_client/client.html](docs/synmetrix_graphql_client/graphql_client/client.html)
-  - Authentication API: [docs/synmetrix_graphql_client/auth.html](docs/synmetrix_graphql_client/auth.html)
+- **HTML Documentation**: Browse the full API reference at [docs/src/synmetrix_graphql_client/](docs/src/synmetrix_graphql_client/)
+  - GraphQL Client API: [docs/src/synmetrix_graphql_client/graphql_client/client.html](docs/src/synmetrix_graphql_client/graphql_client/client.html)
+  - Authentication API: [docs/src/synmetrix_graphql_client/auth.html](docs/src/synmetrix_graphql_client/auth.html)
 
 ## Development
 
