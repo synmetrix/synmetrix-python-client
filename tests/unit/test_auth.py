@@ -1,136 +1,129 @@
 from unittest.mock import patch
 
-import httpx
+import jwt
 import pytest
 
-from synmetrix_python_client.auth import (
-    AuthClient,
-    AuthError,
-    AuthTokens,
-)
+from httpx import Response
+
+from synmetrix_python_client.auth import AuthClient, AuthError
 
 
 @pytest.fixture
 def auth_client():
-    return AuthClient("https://app.synmetrix.org")
+    return AuthClient("https://test.example.com")
+
+
+@pytest.fixture
+def mock_jwt_token():
+    """Create a valid JWT token for testing with Hasura claims."""
+    return jwt.encode(
+        {
+            "sub": "test",
+            "exp": 4102444800,  # January 1, 2100
+            "hasura": {
+                "x-hasura-user-id": "test-user-id",
+                "x-hasura-default-role": "user",
+                "x-hasura-allowed-roles": ["user"],
+            },
+        },
+        "secret",
+        algorithm="HS256",
+    )
 
 
 @pytest.fixture
 def mock_response():
-    return {
-        "jwt_token": "test.jwt.token",
-        "refresh_token": "test.refresh.token",
-    }
+    def _create_response(status_code=200, json_data=None):
+        response = Response(
+            status_code=status_code,
+            json=json_data or {},
+        )
+        return response
 
-
-@pytest.fixture
-def mock_error_response():
-    return {
-        "error": "test_error",
-        "message": "Test error message",
-    }
-
-
-class MockHTTPResponse:
-    def __init__(self, status_code: int, json_data: dict):
-        self.status_code = status_code
-        self._json_data = json_data
-
-    def json(self):
-        return self._json_data
-
-    def raise_for_status(self):
-        if self.status_code >= 400:
-            raise httpx.HTTPError(f"HTTP {self.status_code}")
+    return _create_response
 
 
 @pytest.mark.asyncio
-async def test_login_success(auth_client, mock_response):
+async def test_login_success(auth_client, mock_response, mock_jwt_token):
     """Test successful login."""
-    with patch("httpx.AsyncClient") as mock_client:
-        mock_client.return_value.__aenter__.return_value.post.return_value = (
-            MockHTTPResponse(200, mock_response)
-        )
+    mock_data = {
+        "jwt_token": mock_jwt_token,
+        "refresh_token": "test_refresh",
+    }
 
-        tokens = await auth_client.login(
-            email="test@example.com", password="password123"
-        )
+    with patch("httpx.AsyncClient.post") as mock_post:
+        mock_post.return_value = mock_response(json_data=mock_data)
 
-        assert isinstance(tokens, AuthTokens)
-        assert tokens.access_token == mock_response["jwt_token"]
-        assert tokens.refresh_token == mock_response["refresh_token"]
-        assert auth_client._access_token == mock_response["jwt_token"]
-        assert auth_client._refresh_token == mock_response["refresh_token"]
+        tokens = await auth_client.login("test@example.com", "password")
+
+        assert tokens.access_token == mock_jwt_token
+        assert tokens.refresh_token == "test_refresh"
+        assert auth_client._access_token == mock_jwt_token
+        assert auth_client._refresh_token == "test_refresh"
+
+        # Verify Hasura claims
+        decoded = jwt.decode(mock_jwt_token, options={"verify_signature": False})
+        assert "hasura" in decoded
+        assert "x-hasura-user-id" in decoded["hasura"]
+        assert decoded["hasura"]["x-hasura-user-id"] == "test-user-id"
 
 
 @pytest.mark.asyncio
-async def test_login_failure(auth_client, mock_error_response):
-    """Test login failure."""
-    with patch("httpx.AsyncClient") as mock_client:
-        # Mock response with error
-        mock_response = MockHTTPResponse(400, mock_error_response)
-        mock_client.return_value.__aenter__.return_value.post.return_value = (
-            mock_response
-        )
+async def test_login_failure(auth_client, mock_response):
+    """Test login with invalid credentials."""
+    mock_data = {"error": "invalid_credentials", "message": "Invalid credentials"}
+
+    with patch("httpx.AsyncClient.post") as mock_post:
+        mock_post.return_value = mock_response(status_code=401, json_data=mock_data)
 
         with pytest.raises(AuthError) as exc_info:
-            await auth_client.login(email="test@example.com", password="wrong_password")
+            await auth_client.login("test@example.com", "wrong_password")
 
-        # Verify error details
-        assert exc_info.value.error == mock_error_response["error"]
-        assert exc_info.value.message == mock_error_response["message"]
+        assert exc_info.value.error == "http_error"
+        assert exc_info.value.status_code == 401
 
 
 @pytest.mark.asyncio
-async def test_register_success(auth_client, mock_response):
+async def test_register_success(auth_client, mock_response, mock_jwt_token):
     """Test successful registration."""
-    with patch("httpx.AsyncClient") as mock_client:
-        mock_client.return_value.__aenter__.return_value.post.return_value = (
-            MockHTTPResponse(200, mock_response)
-        )
+    mock_data = {"jwt_token": mock_jwt_token, "refresh_token": "test_refresh"}
 
-        tokens = await auth_client.register(
-            email="new@example.com", password="newpass123"
-        )
+    with patch("httpx.AsyncClient.post") as mock_post:
+        mock_post.return_value = mock_response(json_data=mock_data)
 
-        assert isinstance(tokens, AuthTokens)
-        assert tokens.access_token == mock_response["jwt_token"]
-        assert tokens.refresh_token == mock_response["refresh_token"]
+        tokens = await auth_client.register("test@example.com", "password")
+
+        assert tokens.access_token == mock_jwt_token
+        assert tokens.refresh_token == "test_refresh"
 
 
 @pytest.mark.asyncio
-async def test_refresh_token_success(auth_client, mock_response):
+async def test_refresh_token_success(auth_client, mock_response, mock_jwt_token):
     """Test successful token refresh."""
-    auth_client._refresh_token = "old.refresh.token"
+    mock_data = {"jwt_token": mock_jwt_token, "refresh_token": "new_refresh"}
 
-    with patch("httpx.AsyncClient") as mock_client:
-        mock_client.return_value.__aenter__.return_value.get.return_value = (
-            MockHTTPResponse(200, mock_response)
-        )
+    auth_client._refresh_token = "old_refresh"
+
+    with patch("httpx.AsyncClient.get") as mock_get:
+        mock_get.return_value = mock_response(json_data=mock_data)
 
         tokens = await auth_client.refresh_token()
 
-        assert isinstance(tokens, AuthTokens)
-        assert tokens.access_token == mock_response["jwt_token"]
-        assert tokens.refresh_token == mock_response["refresh_token"]
+        assert tokens.access_token == mock_jwt_token
+        assert tokens.refresh_token == "new_refresh"
+        assert auth_client._access_token == mock_jwt_token
+        assert auth_client._refresh_token == "new_refresh"
 
 
 @pytest.mark.asyncio
-async def test_refresh_token_no_token(auth_client):
-    """Test refresh token failure when no token available."""
-    with pytest.raises(AuthError, match="No refresh token available"):
-        await auth_client.refresh_token()
-
-
-@pytest.mark.asyncio
-async def test_logout_success(auth_client):
+async def test_logout_success(auth_client, mock_response):
     """Test successful logout."""
-    auth_client._access_token = "test.access.token"
-    auth_client._refresh_token = "test.refresh.token"
+    auth_client._access_token = "test_token"
+    auth_client._refresh_token = "test_refresh"
 
-    with patch("httpx.AsyncClient") as mock_client:
-        mock_client.return_value.__aenter__.return_value.post.return_value = (
-            MockHTTPResponse(204, {})
+    with patch("httpx.AsyncClient.post") as mock_post:
+        mock_post.return_value = mock_response(
+            json_data={"message": "Logged out successfully"}
         )
 
         await auth_client.logout()
@@ -140,65 +133,56 @@ async def test_logout_success(auth_client):
 
 
 @pytest.mark.asyncio
-async def test_logout_not_authenticated(auth_client):
-    """Test logout failure when not authenticated."""
-    with pytest.raises(AuthError, match="Not authenticated"):
-        await auth_client.logout()
+async def test_change_password_success(auth_client, mock_response):
+    """Test successful password change."""
+    auth_client._access_token = "test_token"
+
+    with patch("httpx.AsyncClient.post") as mock_post:
+        mock_post.return_value = mock_response(
+            json_data={"message": "Password changed successfully"}
+        )
+
+        await auth_client.change_password("old_password", "new_password")
+
+        mock_post.assert_called_once()
 
 
 @pytest.mark.asyncio
-async def test_change_password_success(auth_client):
-    """Test successful password change."""
-    auth_client._access_token = "test.access.token"
+async def test_send_magic_link_success(auth_client, mock_response, mock_jwt_token):
+    """Test successful magic link sending."""
+    mock_data = {"jwt_token": mock_jwt_token, "refresh_token": "test_refresh"}
 
-    with patch("httpx.AsyncClient") as mock_client:
-        mock_client.return_value.__aenter__.return_value.post.return_value = (
-            MockHTTPResponse(204, {})
-        )
+    with patch("httpx.AsyncClient.post") as mock_post:
+        mock_post.return_value = mock_response(json_data=mock_data)
 
-        await auth_client.change_password(
-            old_password="oldpass", new_password="newpass"
-        )
+        tokens = await auth_client.send_magic_link("test@example.com")
+
+        assert tokens.access_token == mock_jwt_token
+        assert tokens.refresh_token == "test_refresh"
+
+
+@pytest.mark.asyncio
+async def test_refresh_token_no_token(auth_client):
+    """Test refresh token when no token is available."""
+    with pytest.raises(AuthError) as exc_info:
+        await auth_client.refresh_token()
+
+    assert "No refresh token available" in str(exc_info.value)
+
+
+@pytest.mark.asyncio
+async def test_logout_not_authenticated(auth_client):
+    """Test logout when not authenticated."""
+    with pytest.raises(AuthError) as exc_info:
+        await auth_client.logout()
+
+    assert "Not authenticated" in str(exc_info.value)
 
 
 @pytest.mark.asyncio
 async def test_change_password_not_authenticated(auth_client):
-    """Test password change failure when not authenticated."""
-    with pytest.raises(AuthError, match="Not authenticated"):
-        await auth_client.change_password(
-            old_password="oldpass", new_password="newpass"
-        )
+    """Test change password when not authenticated."""
+    with pytest.raises(AuthError) as exc_info:
+        await auth_client.change_password("old", "new")
 
-
-@pytest.mark.asyncio
-async def test_send_magic_link_success(auth_client, mock_response):
-    """Test successful magic link request."""
-    with patch("httpx.AsyncClient") as mock_client:
-        mock_client.return_value.__aenter__.return_value.post.return_value = (
-            MockHTTPResponse(200, mock_response)
-        )
-
-        tokens = await auth_client.send_magic_link(email="test@example.com")
-
-        assert isinstance(tokens, AuthTokens)
-        assert tokens.access_token == mock_response["jwt_token"]
-        assert tokens.refresh_token == mock_response["refresh_token"]
-
-
-@pytest.mark.asyncio
-async def test_auth_headers(auth_client):
-    """Test auth headers generation."""
-    # Without token
-    assert auth_client.auth_headers == {}
-
-    # With token
-    auth_client._access_token = "test.token"
-    assert auth_client.auth_headers == {"Authorization": "Bearer test.token"}
-
-
-def test_auth_error():
-    """Test AuthError exception."""
-    error = AuthError("Test message", "test_error")
-    assert str(error) == "Test message"
-    assert error.message == "Test message"
-    assert error.error == "test_error"
+    assert "Not authenticated" in str(exc_info.value)

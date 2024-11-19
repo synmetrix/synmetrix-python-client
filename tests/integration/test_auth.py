@@ -3,7 +3,7 @@ import os
 
 import pytest
 
-from synmetrix_graphql_client.auth import AuthClient, AuthError
+from synmetrix_python_client.auth import AuthClient, AuthError
 
 
 @pytest.mark.skipif(
