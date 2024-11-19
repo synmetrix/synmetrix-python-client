@@ -1,0 +1,867 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.1">
+<title>synmetrix_graphql_client.auth API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>synmetrix_graphql_client.auth</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="synmetrix_graphql_client.auth.get_default_logger"><code class="name flex">
+<span>def <span class="ident">get_default_logger</span></span>(<span>) ‑> logging.Logger</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create a default logger with standard configuration.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>logging.Logger</code></dt>
+<dd>Configured logger instance with standard formatting</dd>
+</dl></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="synmetrix_graphql_client.auth.AuthClient"><code class="flex name class">
+<span>class <span class="ident">AuthClient</span></span>
+<span>(</span><span>base_url: str, logger: Optional[logging.Logger] = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Client for handling authentication operations.</p>
+<p>This client provides methods for user authentication, token management,
+and session handling.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>base_url</code></strong> :&ensp;<code>str</code></dt>
+<dd>Base URL of the authentication service</dd>
+<dt><strong><code>logger</code></strong> :&ensp;<code>Optional[logging.Logger]</code></dt>
+<dd>Custom logger instance</dd>
+</dl>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>base_url</code></strong> :&ensp;<code>str</code></dt>
+<dd>Base URL of the authentication service</dd>
+<dt><strong><code>_access_token</code></strong> :&ensp;<code>Optional[str]</code></dt>
+<dd>Current JWT access token</dd>
+<dt><strong><code>_refresh_token</code></strong> :&ensp;<code>Optional[str]</code></dt>
+<dd>Current refresh token</dd>
+<dt><strong><code>_logger</code></strong> :&ensp;<code>logging.Logger</code></dt>
+<dd>Logger instance</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AuthClient:
+    &#34;&#34;&#34;Client for handling authentication operations.
+
+    This client provides methods for user authentication, token management,
+    and session handling.
+
+    Args:
+        base_url (str): Base URL of the authentication service
+        logger (Optional[logging.Logger]): Custom logger instance
+
+    Attributes:
+        base_url (str): Base URL of the authentication service
+        _access_token (Optional[str]): Current JWT access token
+        _refresh_token (Optional[str]): Current refresh token
+        _logger (logging.Logger): Logger instance
+    &#34;&#34;&#34;
+
+    def __init__(
+        self,
+        base_url: str,
+        logger: Optional[logging.Logger] = None,
+    ):
+        self.base_url = base_url.rstrip(&#34;/&#34;)
+        self._access_token: Optional[str] = None
+        self._refresh_token: Optional[str] = None
+        self._logger = logger or get_default_logger()
+        self._logger.debug(&#34;Initialized AuthClient with base URL: %s&#34;, base_url)
+
+    @property
+    def auth_headers(self) -&gt; dict[str, str]:
+        &#34;&#34;&#34;Get authorization headers using current access token.
+
+        Returns:
+            dict[str, str]: Headers dictionary with Authorization if token exists
+        &#34;&#34;&#34;
+        if not self._access_token:
+            return {}
+        return {&#34;Authorization&#34;: f&#34;Bearer {self._access_token}&#34;}
+
+    async def _validate_response(self, response: httpx.Response) -&gt; dict[str, Any]:
+        &#34;&#34;&#34;Validate and parse response.&#34;&#34;&#34;
+        try:
+            # First try to get JSON data
+            data = response.json()
+            self._logger.debug(&#34;Response data: %s&#34;, data)
+
+            # If response has error field, raise it directly
+            if &#34;error&#34; in data:
+                self._logger.error(&#34;Error in response: %s&#34;, data)
+                raise AuthError(
+                    message=data.get(&#34;message&#34;, &#34;&#34;),
+                    error=data[&#34;error&#34;],
+                    status_code=response.status_code,
+                )
+
+            # For successful responses (2xx)
+            if 200 &lt;= response.status_code &lt; 300:
+                self._logger.debug(
+                    &#34;Successful response with status %d&#34;,
+                    response.status_code,
+                )
+                return data
+
+            # For error responses with JSON body
+            self._logger.error(&#34;HTTP error response: %s&#34;, data)
+            raise AuthError(
+                message=data.get(&#34;message&#34;, str(response.status_code)),
+                error=data.get(&#34;error&#34;, &#34;http_error&#34;),
+                status_code=response.status_code,
+            )
+
+        except httpx.HTTPError as e:
+            # For HTTP protocol errors
+            self._logger.error(&#34;HTTP protocol error: %s&#34;, str(e), exc_info=True)
+            raise e from e
+        except ValueError as e:
+            # For JSON decode errors
+            self._logger.error(&#34;JSON decode error: %s&#34;, str(e), exc_info=True)
+            raise AuthError(
+                message=str(e),
+                error=&#34;invalid_response&#34;,
+                status_code=response.status_code,
+            ) from e
+        except Exception as e:
+            # For any other errors
+            self._logger.error(&#34;Unexpected error: %s&#34;, str(e), exc_info=True)
+            raise e from e
+
+    async def login(
+        self, email: str, password: str, cookie: bool = False
+    ) -&gt; AuthTokens:
+        &#34;&#34;&#34;Authenticate user with email and password.
+
+        Args:
+            email (str): User&#39;s email address
+            password (str): User&#39;s password
+            cookie (bool, optional): Whether to set auth cookie. Defaults to False.
+
+        Returns:
+            AuthTokens: Access and refresh tokens
+
+        Raises:
+            AuthError: If authentication fails
+
+        Example:
+            ```python
+            client = AuthClient(&#34;https://app.synmetrix.org&#34;)
+            tokens = await client.login(
+                email=&#34;user@example.com&#34;,
+                password=&#34;your_password&#34;
+            )
+            print(f&#34;Access token: {tokens.access_token}&#34;)
+            ```
+        &#34;&#34;&#34;
+        self._logger.info(&#34;Attempting login for user: %s&#34;, email)
+        try:
+            async with httpx.AsyncClient() as client:
+                response = await client.post(
+                    f&#34;{self.base_url}/auth/login&#34;,
+                    json={&#34;email&#34;: email, &#34;password&#34;: password, &#34;cookie&#34;: cookie},
+                )
+
+                data = await self._validate_response(response)
+                auth_response = AuthResponse(**data)
+
+                if auth_response.error:
+                    self._logger.error(&#34;Login error: %s&#34;, auth_response.error)
+                    raise AuthError(
+                        message=auth_response.message or &#34;&#34;,
+                        error=auth_response.error,
+                        status_code=auth_response.statusCode,
+                    )
+
+                self._access_token = auth_response.jwt_token
+                self._refresh_token = auth_response.refresh_token
+                self._logger.info(&#34;Login successful for user: %s&#34;, email)
+
+                return AuthTokens(
+                    access_token=auth_response.jwt_token,
+                    refresh_token=auth_response.refresh_token,
+                )
+        except Exception as e:
+            if isinstance(e, AuthError):
+                raise
+            self._logger.error(&#34;Login failed: %s&#34;, str(e), exc_info=True)
+            raise AuthError(
+                message=f&#34;Login failed: {str(e)}&#34;,
+                error=&#34;login_error&#34;,
+            ) from e
+
+    async def register(
+        self, email: str, password: str, cookie: bool = False
+    ) -&gt; AuthTokens:
+        &#34;&#34;&#34;Register a new user.
+
+        Args:
+            email (str): User&#39;s email address
+            password (str): User&#39;s password
+            cookie (bool, optional): Whether to set auth cookie. Defaults to False.
+
+        Returns:
+            AuthTokens: Access and refresh tokens
+
+        Raises:
+            AuthError: If registration fails
+
+        Example:
+            ```python
+            client = AuthClient(&#34;https://app.synmetrix.org&#34;)
+            tokens = await client.register(
+                email=&#34;user@example.com&#34;,
+                password=&#34;your_password&#34;
+            )
+            print(f&#34;Access token: {tokens.access_token}&#34;)
+            ```
+        &#34;&#34;&#34;
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                f&#34;{self.base_url}/auth/register&#34;,
+                json={&#34;email&#34;: email, &#34;password&#34;: password, &#34;cookie&#34;: cookie},
+            )
+
+            data = await self._validate_response(response)
+            auth_response = AuthResponse(**data)
+
+            if auth_response.error:
+                raise AuthError(
+                    message=auth_response.message or &#34;&#34;,
+                    error=auth_response.error,
+                )
+
+            self._access_token = auth_response.jwt_token
+            self._refresh_token = auth_response.refresh_token
+
+            return AuthTokens(
+                access_token=auth_response.jwt_token,
+                refresh_token=auth_response.refresh_token,
+            )
+
+    async def logout(self, all_sessions: bool = True) -&gt; None:
+        &#34;&#34;&#34;Log out the current user.
+
+        Args:
+            all_sessions (bool, optional): Logout from all sessions. Defaults to True.
+
+        Raises:
+            AuthError: If not authenticated or logout fails
+
+        Example:
+            ```python
+            client = AuthClient(&#34;https://app.synmetrix.org&#34;)
+            await client.logout()
+            ```
+        &#34;&#34;&#34;
+        if not self._refresh_token or not self._access_token:
+            raise AuthError(&#34;Not authenticated&#34;)
+
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                f&#34;{self.base_url}/auth/logout&#34;,
+                params={&#34;refresh_token&#34;: self._refresh_token},
+                headers=self.auth_headers,
+                json={&#34;all&#34;: all_sessions},
+            )
+
+            await self._validate_response(response)
+            self._access_token = None
+            self._refresh_token = None
+
+    async def refresh_token(self, refresh_token: Optional[str] = None) -&gt; AuthTokens:
+        &#34;&#34;&#34;Refresh access token using refresh token.
+
+        Args:
+            refresh_token (Optional[str], optional): Refresh token to use.
+                If None, uses stored token. Defaults to None.
+
+        Returns:
+            AuthTokens: New access and refresh tokens
+
+        Raises:
+            AuthError: If refresh fails or no token available
+
+        Example:
+            ```python
+            client = AuthClient(&#34;https://app.synmetrix.org&#34;)
+            tokens = await client.refresh_token()
+            print(f&#34;Access token: {tokens.access_token}&#34;)
+            ```
+        &#34;&#34;&#34;
+        token = refresh_token or self._refresh_token
+        if not token:
+            raise AuthError(&#34;No refresh token available&#34;)
+
+        async with httpx.AsyncClient() as client:
+            response = await client.get(
+                f&#34;{self.base_url}/auth/token/refresh&#34;,
+                params={&#34;refresh_token&#34;: token},
+            )
+
+            data = await self._validate_response(response)
+            auth_response = AuthResponse(**data)
+
+            if auth_response.error:
+                raise AuthError(
+                    message=auth_response.message or &#34;&#34;,
+                    error=auth_response.error,
+                )
+
+            self._access_token = auth_response.jwt_token
+            self._refresh_token = auth_response.refresh_token
+
+            return AuthTokens(
+                access_token=auth_response.jwt_token,
+                refresh_token=auth_response.refresh_token,
+            )
+
+    async def change_password(self, old_password: str, new_password: str) -&gt; None:
+        &#34;&#34;&#34;Change user password.
+
+        Args:
+            old_password (str): Current password
+            new_password (str): New password
+
+        Raises:
+            AuthError: If not authenticated or password change fails
+
+        Example:
+            ```python
+            client = AuthClient(&#34;https://app.synmetrix.org&#34;)
+            await client.change_password(
+                old_password=&#34;old_password&#34;,
+                new_password=&#34;new_password&#34;
+            )
+            ```
+        &#34;&#34;&#34;
+        if not self._access_token:
+            raise AuthError(&#34;Not authenticated&#34;)
+
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                f&#34;{self.base_url}/auth/change-password&#34;,
+                headers=self.auth_headers,
+                json={
+                    &#34;old_password&#34;: old_password,
+                    &#34;new_password&#34;: new_password,
+                },
+            )
+
+            await self._validate_response(response)
+
+    async def send_magic_link(self, email: str) -&gt; AuthTokens:
+        &#34;&#34;&#34;Send magic link for passwordless authentication.
+
+        Args:
+            email (str): User&#39;s email address
+
+        Returns:
+            AuthTokens: Access and refresh tokens after magic link verification
+
+        Raises:
+            AuthError: If magic link sending fails
+
+        Example:
+            ```python
+            client = AuthClient(&#34;https://app.synmetrix.org&#34;)
+            tokens = await client.send_magic_link(email=&#34;user@example.com&#34;)
+            print(f&#34;Access token: {tokens.access_token}&#34;)
+            ```
+        &#34;&#34;&#34;
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                f&#34;{self.base_url}/auth/register&#34;,
+                json={&#34;email&#34;: email, &#34;cookie&#34;: False},
+            )
+
+            data = await self._validate_response(response)
+            auth_response = AuthResponse(**data)
+
+            if auth_response.error:
+                raise AuthError(
+                    message=auth_response.message or &#34;&#34;,
+                    error=auth_response.error,
+                )
+
+            self._access_token = auth_response.jwt_token
+            self._refresh_token = auth_response.refresh_token
+
+            return AuthTokens(
+                access_token=auth_response.jwt_token,
+                refresh_token=auth_response.refresh_token,
+            )</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="synmetrix_graphql_client.auth.AuthClient.auth_headers"><code class="name">prop <span class="ident">auth_headers</span> : dict[str, str]</code></dt>
+<dd>
+<div class="desc"><p>Get authorization headers using current access token.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict[str, str]</code></dt>
+<dd>Headers dictionary with Authorization if token exists</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def auth_headers(self) -&gt; dict[str, str]:
+    &#34;&#34;&#34;Get authorization headers using current access token.
+
+    Returns:
+        dict[str, str]: Headers dictionary with Authorization if token exists
+    &#34;&#34;&#34;
+    if not self._access_token:
+        return {}
+    return {&#34;Authorization&#34;: f&#34;Bearer {self._access_token}&#34;}</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="synmetrix_graphql_client.auth.AuthClient.change_password"><code class="name flex">
+<span>async def <span class="ident">change_password</span></span>(<span>self, old_password: str, new_password: str) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Change user password.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>old_password</code></strong> :&ensp;<code>str</code></dt>
+<dd>Current password</dd>
+<dt><strong><code>new_password</code></strong> :&ensp;<code>str</code></dt>
+<dd>New password</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code><a title="synmetrix_graphql_client.auth.AuthError" href="#synmetrix_graphql_client.auth.AuthError">AuthError</a></code></dt>
+<dd>If not authenticated or password change fails</dd>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">client = AuthClient(&quot;https://app.synmetrix.org&quot;)
+await client.change_password(
+    old_password=&quot;old_password&quot;,
+    new_password=&quot;new_password&quot;
+)
+</code></pre></div>
+</dd>
+<dt id="synmetrix_graphql_client.auth.AuthClient.login"><code class="name flex">
+<span>async def <span class="ident">login</span></span>(<span>self, email: str, password: str, cookie: bool = False) ‑> <a title="synmetrix_graphql_client.auth.AuthTokens" href="#synmetrix_graphql_client.auth.AuthTokens">AuthTokens</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Authenticate user with email and password.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>email</code></strong> :&ensp;<code>str</code></dt>
+<dd>User's email address</dd>
+<dt><strong><code>password</code></strong> :&ensp;<code>str</code></dt>
+<dd>User's password</dd>
+<dt><strong><code>cookie</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Whether to set auth cookie. Defaults to False.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="synmetrix_graphql_client.auth.AuthTokens" href="#synmetrix_graphql_client.auth.AuthTokens">AuthTokens</a></code></dt>
+<dd>Access and refresh tokens</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code><a title="synmetrix_graphql_client.auth.AuthError" href="#synmetrix_graphql_client.auth.AuthError">AuthError</a></code></dt>
+<dd>If authentication fails</dd>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">client = AuthClient(&quot;https://app.synmetrix.org&quot;)
+tokens = await client.login(
+    email=&quot;user@example.com&quot;,
+    password=&quot;your_password&quot;
+)
+print(f&quot;Access token: {tokens.access_token}&quot;)
+</code></pre></div>
+</dd>
+<dt id="synmetrix_graphql_client.auth.AuthClient.logout"><code class="name flex">
+<span>async def <span class="ident">logout</span></span>(<span>self, all_sessions: bool = True) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Log out the current user.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>all_sessions</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Logout from all sessions. Defaults to True.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code><a title="synmetrix_graphql_client.auth.AuthError" href="#synmetrix_graphql_client.auth.AuthError">AuthError</a></code></dt>
+<dd>If not authenticated or logout fails</dd>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">client = AuthClient(&quot;https://app.synmetrix.org&quot;)
+await client.logout()
+</code></pre></div>
+</dd>
+<dt id="synmetrix_graphql_client.auth.AuthClient.refresh_token"><code class="name flex">
+<span>async def <span class="ident">refresh_token</span></span>(<span>self, refresh_token: Optional[str] = None) ‑> <a title="synmetrix_graphql_client.auth.AuthTokens" href="#synmetrix_graphql_client.auth.AuthTokens">AuthTokens</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Refresh access token using refresh token.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>refresh_token</code></strong> :&ensp;<code>Optional[str]</code>, optional</dt>
+<dd>Refresh token to use.
+If None, uses stored token. Defaults to None.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="synmetrix_graphql_client.auth.AuthTokens" href="#synmetrix_graphql_client.auth.AuthTokens">AuthTokens</a></code></dt>
+<dd>New access and refresh tokens</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code><a title="synmetrix_graphql_client.auth.AuthError" href="#synmetrix_graphql_client.auth.AuthError">AuthError</a></code></dt>
+<dd>If refresh fails or no token available</dd>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">client = AuthClient(&quot;https://app.synmetrix.org&quot;)
+tokens = await client.refresh_token()
+print(f&quot;Access token: {tokens.access_token}&quot;)
+</code></pre></div>
+</dd>
+<dt id="synmetrix_graphql_client.auth.AuthClient.register"><code class="name flex">
+<span>async def <span class="ident">register</span></span>(<span>self, email: str, password: str, cookie: bool = False) ‑> <a title="synmetrix_graphql_client.auth.AuthTokens" href="#synmetrix_graphql_client.auth.AuthTokens">AuthTokens</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Register a new user.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>email</code></strong> :&ensp;<code>str</code></dt>
+<dd>User's email address</dd>
+<dt><strong><code>password</code></strong> :&ensp;<code>str</code></dt>
+<dd>User's password</dd>
+<dt><strong><code>cookie</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Whether to set auth cookie. Defaults to False.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="synmetrix_graphql_client.auth.AuthTokens" href="#synmetrix_graphql_client.auth.AuthTokens">AuthTokens</a></code></dt>
+<dd>Access and refresh tokens</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code><a title="synmetrix_graphql_client.auth.AuthError" href="#synmetrix_graphql_client.auth.AuthError">AuthError</a></code></dt>
+<dd>If registration fails</dd>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">client = AuthClient(&quot;https://app.synmetrix.org&quot;)
+tokens = await client.register(
+    email=&quot;user@example.com&quot;,
+    password=&quot;your_password&quot;
+)
+print(f&quot;Access token: {tokens.access_token}&quot;)
+</code></pre></div>
+</dd>
+<dt id="synmetrix_graphql_client.auth.AuthClient.send_magic_link"><code class="name flex">
+<span>async def <span class="ident">send_magic_link</span></span>(<span>self, email: str) ‑> <a title="synmetrix_graphql_client.auth.AuthTokens" href="#synmetrix_graphql_client.auth.AuthTokens">AuthTokens</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Send magic link for passwordless authentication.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>email</code></strong> :&ensp;<code>str</code></dt>
+<dd>User's email address</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="synmetrix_graphql_client.auth.AuthTokens" href="#synmetrix_graphql_client.auth.AuthTokens">AuthTokens</a></code></dt>
+<dd>Access and refresh tokens after magic link verification</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code><a title="synmetrix_graphql_client.auth.AuthError" href="#synmetrix_graphql_client.auth.AuthError">AuthError</a></code></dt>
+<dd>If magic link sending fails</dd>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">client = AuthClient(&quot;https://app.synmetrix.org&quot;)
+tokens = await client.send_magic_link(email=&quot;user@example.com&quot;)
+print(f&quot;Access token: {tokens.access_token}&quot;)
+</code></pre></div>
+</dd>
+</dl>
+</dd>
+<dt id="synmetrix_graphql_client.auth.AuthError"><code class="flex name class">
+<span>class <span class="ident">AuthError</span></span>
+<span>(</span><span>message: str, error: Optional[str] = None, status_code: Optional[int] = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception raised for authentication-related errors.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>message</code></strong> :&ensp;<code>str</code></dt>
+<dd>Human readable error description</dd>
+<dt><strong><code>error</code></strong> :&ensp;<code>Optional[str]</code></dt>
+<dd>Error type or code</dd>
+<dt><strong><code>status_code</code></strong> :&ensp;<code>Optional[int]</code></dt>
+<dd>HTTP status code if applicable</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AuthError(Exception):
+    &#34;&#34;&#34;Exception raised for authentication-related errors.
+
+    Attributes:
+        message (str): Human readable error description
+        error (Optional[str]): Error type or code
+        status_code (Optional[int]): HTTP status code if applicable
+    &#34;&#34;&#34;
+
+    def __init__(
+        self,
+        message: str,
+        error: Optional[str] = None,
+        status_code: Optional[int] = None,
+    ):
+        self.message = message
+        self.error = error
+        self.status_code = status_code
+        super().__init__(message)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="synmetrix_graphql_client.auth.AuthResponse"><code class="flex name class">
+<span>class <span class="ident">AuthResponse</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Response model for authentication operations.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>jwt_token</code></strong> :&ensp;<code>str</code></dt>
+<dd>JWT access token for API authentication</dd>
+<dt><strong><code>refresh_token</code></strong> :&ensp;<code>str</code></dt>
+<dd>Token used to refresh expired JWT tokens</dd>
+<dt><strong><code>magicLink</code></strong> :&ensp;<code>Optional[bool]</code></dt>
+<dd>Flag indicating if magic link authentication was used</dd>
+<dt><strong><code>error</code></strong> :&ensp;<code>Optional[str]</code></dt>
+<dd>Error message if authentication failed</dd>
+<dt><strong><code>message</code></strong> :&ensp;<code>Optional[str]</code></dt>
+<dd>Additional message from the server</dd>
+<dt><strong><code>statusCode</code></strong> :&ensp;<code>Optional[int]</code></dt>
+<dd>HTTP status code of the response</dd>
+</dl>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>self</code> is explicitly positional-only to allow <code>self</code> as a field name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AuthResponse(BaseModel):
+    &#34;&#34;&#34;Response model for authentication operations.
+
+    Attributes:
+        jwt_token (str): JWT access token for API authentication
+        refresh_token (str): Token used to refresh expired JWT tokens
+        magicLink (Optional[bool]): Flag indicating if magic link authentication was used
+        error (Optional[str]): Error message if authentication failed
+        message (Optional[str]): Additional message from the server
+        statusCode (Optional[int]): HTTP status code of the response
+    &#34;&#34;&#34;
+
+    jwt_token: str
+    refresh_token: str
+    magicLink: Optional[bool] = None
+    error: Optional[str] = None
+    message: Optional[str] = None
+    statusCode: Optional[int] = None</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="synmetrix_graphql_client.auth.AuthResponse.error"><code class="name">var <span class="ident">error</span> : Optional[str]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.auth.AuthResponse.jwt_token"><code class="name">var <span class="ident">jwt_token</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.auth.AuthResponse.magicLink"><code class="name">var <span class="ident">magicLink</span> : Optional[bool]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.auth.AuthResponse.message"><code class="name">var <span class="ident">message</span> : Optional[str]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.auth.AuthResponse.model_computed_fields"><code class="name">var <span class="ident">model_computed_fields</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.auth.AuthResponse.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.auth.AuthResponse.model_fields"><code class="name">var <span class="ident">model_fields</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.auth.AuthResponse.refresh_token"><code class="name">var <span class="ident">refresh_token</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.auth.AuthResponse.statusCode"><code class="name">var <span class="ident">statusCode</span> : Optional[int]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="synmetrix_graphql_client.auth.AuthTokens"><code class="flex name class">
+<span>class <span class="ident">AuthTokens</span></span>
+<span>(</span><span>access_token: str, refresh_token: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Data class for storing authentication tokens.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>access_token</code></strong> :&ensp;<code>str</code></dt>
+<dd>JWT access token for API authentication</dd>
+<dt><strong><code>refresh_token</code></strong> :&ensp;<code>str</code></dt>
+<dd>Token used to refresh expired JWT tokens</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class AuthTokens:
+    &#34;&#34;&#34;Data class for storing authentication tokens.
+
+    Attributes:
+        access_token (str): JWT access token for API authentication
+        refresh_token (str): Token used to refresh expired JWT tokens
+    &#34;&#34;&#34;
+
+    access_token: str
+    refresh_token: str</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="synmetrix_graphql_client.auth.AuthTokens.access_token"><code class="name">var <span class="ident">access_token</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.auth.AuthTokens.refresh_token"><code class="name">var <span class="ident">refresh_token</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="synmetrix_graphql_client.auth.get_default_logger" href="#synmetrix_graphql_client.auth.get_default_logger">get_default_logger</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="synmetrix_graphql_client.auth.AuthClient" href="#synmetrix_graphql_client.auth.AuthClient">AuthClient</a></code></h4>
+<ul class="two-column">
+<li><code><a title="synmetrix_graphql_client.auth.AuthClient.auth_headers" href="#synmetrix_graphql_client.auth.AuthClient.auth_headers">auth_headers</a></code></li>
+<li><code><a title="synmetrix_graphql_client.auth.AuthClient.change_password" href="#synmetrix_graphql_client.auth.AuthClient.change_password">change_password</a></code></li>
+<li><code><a title="synmetrix_graphql_client.auth.AuthClient.login" href="#synmetrix_graphql_client.auth.AuthClient.login">login</a></code></li>
+<li><code><a title="synmetrix_graphql_client.auth.AuthClient.logout" href="#synmetrix_graphql_client.auth.AuthClient.logout">logout</a></code></li>
+<li><code><a title="synmetrix_graphql_client.auth.AuthClient.refresh_token" href="#synmetrix_graphql_client.auth.AuthClient.refresh_token">refresh_token</a></code></li>
+<li><code><a title="synmetrix_graphql_client.auth.AuthClient.register" href="#synmetrix_graphql_client.auth.AuthClient.register">register</a></code></li>
+<li><code><a title="synmetrix_graphql_client.auth.AuthClient.send_magic_link" href="#synmetrix_graphql_client.auth.AuthClient.send_magic_link">send_magic_link</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="synmetrix_graphql_client.auth.AuthError" href="#synmetrix_graphql_client.auth.AuthError">AuthError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="synmetrix_graphql_client.auth.AuthResponse" href="#synmetrix_graphql_client.auth.AuthResponse">AuthResponse</a></code></h4>
+<ul class="">
+<li><code><a title="synmetrix_graphql_client.auth.AuthResponse.error" href="#synmetrix_graphql_client.auth.AuthResponse.error">error</a></code></li>
+<li><code><a title="synmetrix_graphql_client.auth.AuthResponse.jwt_token" href="#synmetrix_graphql_client.auth.AuthResponse.jwt_token">jwt_token</a></code></li>
+<li><code><a title="synmetrix_graphql_client.auth.AuthResponse.magicLink" href="#synmetrix_graphql_client.auth.AuthResponse.magicLink">magicLink</a></code></li>
+<li><code><a title="synmetrix_graphql_client.auth.AuthResponse.message" href="#synmetrix_graphql_client.auth.AuthResponse.message">message</a></code></li>
+<li><code><a title="synmetrix_graphql_client.auth.AuthResponse.model_computed_fields" href="#synmetrix_graphql_client.auth.AuthResponse.model_computed_fields">model_computed_fields</a></code></li>
+<li><code><a title="synmetrix_graphql_client.auth.AuthResponse.model_config" href="#synmetrix_graphql_client.auth.AuthResponse.model_config">model_config</a></code></li>
+<li><code><a title="synmetrix_graphql_client.auth.AuthResponse.model_fields" href="#synmetrix_graphql_client.auth.AuthResponse.model_fields">model_fields</a></code></li>
+<li><code><a title="synmetrix_graphql_client.auth.AuthResponse.refresh_token" href="#synmetrix_graphql_client.auth.AuthResponse.refresh_token">refresh_token</a></code></li>
+<li><code><a title="synmetrix_graphql_client.auth.AuthResponse.statusCode" href="#synmetrix_graphql_client.auth.AuthResponse.statusCode">statusCode</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="synmetrix_graphql_client.auth.AuthTokens" href="#synmetrix_graphql_client.auth.AuthTokens">AuthTokens</a></code></h4>
+<ul class="">
+<li><code><a title="synmetrix_graphql_client.auth.AuthTokens.access_token" href="#synmetrix_graphql_client.auth.AuthTokens.access_token">access_token</a></code></li>
+<li><code><a title="synmetrix_graphql_client.auth.AuthTokens.refresh_token" href="#synmetrix_graphql_client.auth.AuthTokens.refresh_token">refresh_token</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+</footer>
+</body>
+</html>

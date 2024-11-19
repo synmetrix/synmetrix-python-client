@@ -1,0 +1,2371 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.1">
+<title>synmetrix_graphql_client.graphql_client.client API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>synmetrix_graphql_client.graphql_client.client</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="synmetrix_graphql_client.graphql_client.client.gql"><code class="name flex">
+<span>def <span class="ident">gql</span></span>(<span>q: str) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client"><code class="flex name class">
+<span>class <span class="ident">Client</span></span>
+<span>(</span><span>url: str = '', headers: Optional[Dict[str, str]] = None, http_client: Optional[httpx.AsyncClient] = None, ws_url: str = '', ws_headers: Optional[Dict[str, Any]] = None, ws_origin: Optional[str] = None, ws_connection_init_payload: Optional[Dict[str, Any]] = None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Client(AsyncBaseClient):
+    async def all_access_lists(
+        self,
+        offset: Union[Optional[int], UnsetType] = UNSET,
+        limit: Union[Optional[int], UnsetType] = UNSET,
+        where: Union[Optional[access_lists_bool_exp], UnsetType] = UNSET,
+        order_by: Union[Optional[List[access_lists_order_by]], UnsetType] = UNSET,
+        **kwargs: Any
+    ) -&gt; AllAccessLists:
+        query = gql(
+            &#34;&#34;&#34;
+            query AllAccessLists($offset: Int, $limit: Int, $where: access_lists_bool_exp, $order_by: [access_lists_order_by!]) {
+              access_lists(offset: $offset, limit: $limit, where: $where, order_by: $order_by) {
+                id
+                name
+                config
+                team_id
+                created_at
+                updated_at
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {
+            &#34;offset&#34;: offset,
+            &#34;limit&#34;: limit,
+            &#34;where&#34;: where,
+            &#34;order_by&#34;: order_by,
+        }
+        response = await self.execute(
+            query=query, operation_name=&#34;AllAccessLists&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return AllAccessLists.model_validate(data)
+
+    async def sub_access_lists(
+        self,
+        offset: Union[Optional[int], UnsetType] = UNSET,
+        limit: Union[Optional[int], UnsetType] = UNSET,
+        where: Union[Optional[access_lists_bool_exp], UnsetType] = UNSET,
+        order_by: Union[Optional[List[access_lists_order_by]], UnsetType] = UNSET,
+        **kwargs: Any
+    ) -&gt; AsyncIterator[SubAccessLists]:
+        query = gql(
+            &#34;&#34;&#34;
+            subscription SubAccessLists($offset: Int, $limit: Int, $where: access_lists_bool_exp, $order_by: [access_lists_order_by!]) {
+              access_lists(offset: $offset, limit: $limit, where: $where, order_by: $order_by) {
+                id
+                name
+                config
+                created_at
+                updated_at
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {
+            &#34;offset&#34;: offset,
+            &#34;limit&#34;: limit,
+            &#34;where&#34;: where,
+            &#34;order_by&#34;: order_by,
+        }
+        async for data in self.execute_ws(
+            query=query, operation_name=&#34;SubAccessLists&#34;, variables=variables, **kwargs
+        ):
+            yield SubAccessLists.model_validate(data)
+
+    async def access_list(self, id: Any, **kwargs: Any) -&gt; AccessList:
+        query = gql(
+            &#34;&#34;&#34;
+            query AccessList($id: uuid!) {
+              access_lists_by_pk(id: $id) {
+                name
+                config
+                team_id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;id&#34;: id}
+        response = await self.execute(
+            query=query, operation_name=&#34;AccessList&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return AccessList.model_validate(data)
+
+    async def update_access_list(
+        self,
+        pk_columns: access_lists_pk_columns_input,
+        set: access_lists_set_input,
+        **kwargs: Any
+    ) -&gt; UpdateAccessList:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation UpdateAccessList($pk_columns: access_lists_pk_columns_input!, $_set: access_lists_set_input!) {
+              update_access_lists_by_pk(pk_columns: $pk_columns, _set: $_set) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;pk_columns&#34;: pk_columns, &#34;_set&#34;: set}
+        response = await self.execute(
+            query=query,
+            operation_name=&#34;UpdateAccessList&#34;,
+            variables=variables,
+            **kwargs
+        )
+        data = self.get_data(response)
+        return UpdateAccessList.model_validate(data)
+
+    async def delete_access_list(self, id: Any, **kwargs: Any) -&gt; DeleteAccessList:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation DeleteAccessList($id: uuid!) {
+              delete_access_lists_by_pk(id: $id) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;id&#34;: id}
+        response = await self.execute(
+            query=query,
+            operation_name=&#34;DeleteAccessList&#34;,
+            variables=variables,
+            **kwargs
+        )
+        data = self.get_data(response)
+        return DeleteAccessList.model_validate(data)
+
+    async def create_access_list(
+        self, object: access_lists_insert_input, **kwargs: Any
+    ) -&gt; CreateAccessList:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation CreateAccessList($object: access_lists_insert_input!) {
+              insert_access_lists_one(object: $object) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;object&#34;: object}
+        response = await self.execute(
+            query=query,
+            operation_name=&#34;CreateAccessList&#34;,
+            variables=variables,
+            **kwargs
+        )
+        data = self.get_data(response)
+        return CreateAccessList.model_validate(data)
+
+    async def create_alert(
+        self, object: alerts_insert_input, **kwargs: Any
+    ) -&gt; CreateAlert:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation CreateAlert($object: alerts_insert_input!) {
+              insert_alerts_one(object: $object) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;object&#34;: object}
+        response = await self.execute(
+            query=query, operation_name=&#34;CreateAlert&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return CreateAlert.model_validate(data)
+
+    async def update_alert(
+        self, pk_columns: alerts_pk_columns_input, set: alerts_set_input, **kwargs: Any
+    ) -&gt; UpdateAlert:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation UpdateAlert($pk_columns: alerts_pk_columns_input!, $_set: alerts_set_input!) {
+              update_alerts_by_pk(pk_columns: $pk_columns, _set: $_set) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;pk_columns&#34;: pk_columns, &#34;_set&#34;: set}
+        response = await self.execute(
+            query=query, operation_name=&#34;UpdateAlert&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return UpdateAlert.model_validate(data)
+
+    async def delete_alert(self, id: Any, **kwargs: Any) -&gt; DeleteAlert:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation DeleteAlert($id: uuid!) {
+              delete_alerts_by_pk(id: $id) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;id&#34;: id}
+        response = await self.execute(
+            query=query, operation_name=&#34;DeleteAlert&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return DeleteAlert.model_validate(data)
+
+    async def send_test_alert(
+        self,
+        delivery_config: Any,
+        delivery_type: str,
+        exploration_id: Union[Optional[Any], UnsetType] = UNSET,
+        name: Union[Optional[str], UnsetType] = UNSET,
+        **kwargs: Any
+    ) -&gt; SendTestAlert:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation SendTestAlert($deliveryConfig: json!, $deliveryType: String!, $explorationId: uuid, $name: String) {
+              send_test_alert(
+                deliveryConfig: $deliveryConfig
+                deliveryType: $deliveryType
+                name: $name
+                explorationId: $explorationId
+              ) {
+                error
+                result
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {
+            &#34;deliveryConfig&#34;: delivery_config,
+            &#34;deliveryType&#34;: delivery_type,
+            &#34;explorationId&#34;: exploration_id,
+            &#34;name&#34;: name,
+        }
+        response = await self.execute(
+            query=query, operation_name=&#34;SendTestAlert&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return SendTestAlert.model_validate(data)
+
+    async def set_default_branch(
+        self, branch_id: Any, datasource_id: Any, **kwargs: Any
+    ) -&gt; SetDefaultBranch:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation SetDefaultBranch($branch_id: uuid!, $datasource_id: uuid!) {
+              update_branches(
+                _set: {status: created}
+                where: {datasource_id: {_eq: $datasource_id}, status: {_eq: active}}
+              ) {
+                affected_rows
+              }
+              update_branches_by_pk(_set: {status: active}, pk_columns: {id: $branch_id}) {
+                id
+                name
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {
+            &#34;branch_id&#34;: branch_id,
+            &#34;datasource_id&#34;: datasource_id,
+        }
+        response = await self.execute(
+            query=query,
+            operation_name=&#34;SetDefaultBranch&#34;,
+            variables=variables,
+            **kwargs
+        )
+        data = self.get_data(response)
+        return SetDefaultBranch.model_validate(data)
+
+    async def export_data(
+        self, branch_id: Union[Optional[str], UnsetType] = UNSET, **kwargs: Any
+    ) -&gt; ExportData:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation ExportData($branch_id: String) {
+              export_data_models(branch_id: $branch_id) {
+                download_url
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;branch_id&#34;: branch_id}
+        response = await self.execute(
+            query=query, operation_name=&#34;ExportData&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return ExportData.model_validate(data)
+
+    async def create_branch(
+        self, object: branches_insert_input, **kwargs: Any
+    ) -&gt; CreateBranch:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation CreateBranch($object: branches_insert_input!) {
+              insert_branches_one(object: $object) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;object&#34;: object}
+        response = await self.execute(
+            query=query, operation_name=&#34;CreateBranch&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return CreateBranch.model_validate(data)
+
+    async def current_user(self, id: Any, **kwargs: Any) -&gt; CurrentUser:
+        query = gql(
+            &#34;&#34;&#34;
+            query CurrentUser($id: uuid!) {
+              users_by_pk(id: $id) {
+                id
+                display_name
+                avatar_url
+                account {
+                  email
+                }
+                members(order_by: {updated_at: desc}) {
+                  member_roles {
+                    team_role
+                  }
+                  user {
+                    id
+                    avatar_url
+                    display_name
+                    account {
+                      email
+                    }
+                  }
+                  team {
+                    ...UserTeamFields
+                  }
+                }
+              }
+            }
+
+            fragment UserTeamFields on teams {
+              id
+              name
+              created_at
+              updated_at
+              members(order_by: {updated_at: desc}) {
+                id
+                user_id
+                member_roles {
+                  team_role
+                }
+                user {
+                  id
+                  avatar_url
+                  display_name
+                  account {
+                    email
+                  }
+                }
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;id&#34;: id}
+        response = await self.execute(
+            query=query, operation_name=&#34;CurrentUser&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return CurrentUser.model_validate(data)
+
+    async def sub_current_user(
+        self, id: Any, **kwargs: Any
+    ) -&gt; AsyncIterator[SubCurrentUser]:
+        query = gql(
+            &#34;&#34;&#34;
+            subscription SubCurrentUser($id: uuid!) {
+              users_by_pk(id: $id) {
+                id
+                display_name
+                avatar_url
+                account {
+                  email
+                }
+                members(order_by: {updated_at: desc}) {
+                  id
+                  user_id
+                  member_roles {
+                    id
+                    team_role
+                    created_at
+                    updated_at
+                    access_list {
+                      id
+                      name
+                      config
+                    }
+                  }
+                  user {
+                    id
+                    avatar_url
+                    display_name
+                    account {
+                      email
+                    }
+                  }
+                  team {
+                    ...UserTeamFields
+                  }
+                }
+              }
+            }
+
+            fragment UserTeamFields on teams {
+              id
+              name
+              created_at
+              updated_at
+              members(order_by: {updated_at: desc}) {
+                id
+                user_id
+                member_roles {
+                  team_role
+                }
+                user {
+                  id
+                  avatar_url
+                  display_name
+                  account {
+                    email
+                  }
+                }
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;id&#34;: id}
+        async for data in self.execute_ws(
+            query=query, operation_name=&#34;SubCurrentUser&#34;, variables=variables, **kwargs
+        ):
+            yield SubCurrentUser.model_validate(data)
+
+    async def team_data(self, team_id: Any, **kwargs: Any) -&gt; TeamData:
+        query = gql(
+            &#34;&#34;&#34;
+            query TeamData($team_id: uuid!) {
+              teams_by_pk(id: $team_id) {
+                ...TeamMembersFields
+                datasources(order_by: {updated_at: desc}) {
+                  id
+                  name
+                  db_params_computed
+                  db_type
+                  created_at
+                  updated_at
+                  branches(
+                    where: {status: {_in: [active, created]}}
+                    order_by: {created_at: desc}
+                  ) {
+                    ...BranchesFields
+                  }
+                  sql_credentials(order_by: {updated_at: desc}) {
+                    id
+                    username
+                    created_at
+                    updated_at
+                    user {
+                      id
+                      display_name
+                    }
+                  }
+                }
+                alerts(order_by: {created_at: desc}) {
+                  id
+                  name
+                  delivery_type
+                  delivery_config
+                  trigger_config
+                  created_at
+                  updated_at
+                  schedule
+                  user {
+                    id
+                    avatar_url
+                    display_name
+                    account {
+                      email
+                    }
+                  }
+                  exploration {
+                    id
+                    playground_state
+                  }
+                }
+                reports(order_by: {created_at: desc}) {
+                  id
+                  name
+                  schedule
+                  delivery_type
+                  delivery_config
+                  created_at
+                  updated_at
+                  user {
+                    id
+                    avatar_url
+                    display_name
+                    account {
+                      email
+                    }
+                  }
+                  exploration {
+                    id
+                    playground_state
+                  }
+                }
+              }
+            }
+
+            fragment BranchesFields on branches {
+              id
+              name
+              status
+            }
+
+            fragment TeamMembersFields on teams {
+              members(order_by: {updated_at: desc}) {
+                id
+                user_id
+                member_roles {
+                  id
+                  team_role
+                  created_at
+                  updated_at
+                  access_list {
+                    id
+                    name
+                    config
+                  }
+                }
+                user {
+                  id
+                  avatar_url
+                  display_name
+                  account {
+                    email
+                  }
+                }
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;team_id&#34;: team_id}
+        response = await self.execute(
+            query=query, operation_name=&#34;TeamData&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return TeamData.model_validate(data)
+
+    async def sub_team_data(
+        self, team_id: Any, **kwargs: Any
+    ) -&gt; AsyncIterator[SubTeamData]:
+        query = gql(
+            &#34;&#34;&#34;
+            subscription SubTeamData($team_id: uuid!) {
+              teams_by_pk(id: $team_id) {
+                ...TeamMembersFields
+                datasources(order_by: {updated_at: desc}) {
+                  id
+                  name
+                  db_params_computed
+                  db_type
+                  created_at
+                  updated_at
+                  branches(
+                    where: {status: {_in: [active, created]}}
+                    order_by: {created_at: desc}
+                  ) {
+                    ...BranchesFields
+                  }
+                  sql_credentials {
+                    id
+                    username
+                    created_at
+                    updated_at
+                    user {
+                      id
+                      display_name
+                    }
+                  }
+                }
+                alerts(order_by: {created_at: desc}) {
+                  id
+                  name
+                  delivery_type
+                  delivery_config
+                  trigger_config
+                  created_at
+                  updated_at
+                  schedule
+                  user {
+                    id
+                    avatar_url
+                    display_name
+                    account {
+                      email
+                    }
+                  }
+                  exploration {
+                    id
+                    playground_state
+                  }
+                }
+                reports(order_by: {created_at: desc}) {
+                  id
+                  name
+                  schedule
+                  delivery_type
+                  delivery_config
+                  created_at
+                  updated_at
+                  user {
+                    id
+                    avatar_url
+                    display_name
+                    account {
+                      email
+                    }
+                  }
+                  exploration {
+                    id
+                    playground_state
+                  }
+                }
+              }
+            }
+
+            fragment BranchesFields on branches {
+              id
+              name
+              status
+            }
+
+            fragment TeamMembersFields on teams {
+              members(order_by: {updated_at: desc}) {
+                id
+                user_id
+                member_roles {
+                  id
+                  team_role
+                  created_at
+                  updated_at
+                  access_list {
+                    id
+                    name
+                    config
+                  }
+                }
+                user {
+                  id
+                  avatar_url
+                  display_name
+                  account {
+                    email
+                  }
+                }
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;team_id&#34;: team_id}
+        async for data in self.execute_ws(
+            query=query, operation_name=&#34;SubTeamData&#34;, variables=variables, **kwargs
+        ):
+            yield SubTeamData.model_validate(data)
+
+    async def update_user_info(
+        self,
+        user_id: Any,
+        display_name: Union[Optional[str], UnsetType] = UNSET,
+        email: Union[Optional[Any], UnsetType] = UNSET,
+        **kwargs: Any
+    ) -&gt; UpdateUserInfo:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation UpdateUserInfo($user_id: uuid!, $display_name: String, $email: citext) {
+              update_users_by_pk(
+                pk_columns: {id: $user_id}
+                _set: {display_name: $display_name}
+              ) {
+                id
+              }
+              update_auth_accounts(where: {user_id: {_eq: $user_id}}, _set: {email: $email}) {
+                affected_rows
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {
+            &#34;user_id&#34;: user_id,
+            &#34;display_name&#34;: display_name,
+            &#34;email&#34;: email,
+        }
+        response = await self.execute(
+            query=query, operation_name=&#34;UpdateUserInfo&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return UpdateUserInfo.model_validate(data)
+
+    async def create_data_source(
+        self, object: datasources_insert_input, **kwargs: Any
+    ) -&gt; CreateDataSource:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation CreateDataSource($object: datasources_insert_input!) {
+              insert_datasources_one(object: $object) {
+                id
+                name
+                branches {
+                  id
+                }
+                sql_credentials {
+                  id
+                }
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;object&#34;: object}
+        response = await self.execute(
+            query=query,
+            operation_name=&#34;CreateDataSource&#34;,
+            variables=variables,
+            **kwargs
+        )
+        data = self.get_data(response)
+        return CreateDataSource.model_validate(data)
+
+    async def datasources(
+        self,
+        offset: Union[Optional[int], UnsetType] = UNSET,
+        limit: Union[Optional[int], UnsetType] = UNSET,
+        where: Union[Optional[datasources_bool_exp], UnsetType] = UNSET,
+        order_by: Union[Optional[List[datasources_order_by]], UnsetType] = UNSET,
+        **kwargs: Any
+    ) -&gt; Datasources:
+        query = gql(
+            &#34;&#34;&#34;
+            query Datasources($offset: Int, $limit: Int, $where: datasources_bool_exp, $order_by: [datasources_order_by!]) {
+              datasources(offset: $offset, limit: $limit, where: $where, order_by: $order_by) {
+                id
+                name
+                db_params_computed
+                db_type
+                created_at
+                updated_at
+                branches(where: {status: {_eq: active}}) {
+                  id
+                }
+                sql_credentials {
+                  id
+                  username
+                  created_at
+                  updated_at
+                  user {
+                    id
+                    display_name
+                  }
+                }
+              }
+              datasources_aggregate(where: $where) {
+                aggregate {
+                  count
+                }
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {
+            &#34;offset&#34;: offset,
+            &#34;limit&#34;: limit,
+            &#34;where&#34;: where,
+            &#34;order_by&#34;: order_by,
+        }
+        response = await self.execute(
+            query=query, operation_name=&#34;Datasources&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return Datasources.model_validate(data)
+
+    async def all_data_sources(
+        self,
+        offset: Union[Optional[int], UnsetType] = UNSET,
+        limit: Union[Optional[int], UnsetType] = UNSET,
+        where: Union[Optional[datasources_bool_exp], UnsetType] = UNSET,
+        order_by: Union[Optional[List[datasources_order_by]], UnsetType] = UNSET,
+        **kwargs: Any
+    ) -&gt; AsyncIterator[AllDataSources]:
+        query = gql(
+            &#34;&#34;&#34;
+            subscription AllDataSources($offset: Int, $limit: Int, $where: datasources_bool_exp, $order_by: [datasources_order_by!]) {
+              datasources(offset: $offset, limit: $limit, where: $where, order_by: $order_by) {
+                id
+                name
+                db_params_computed
+                db_type
+                created_at
+                updated_at
+                branches(where: {status: {_eq: active}}) {
+                  id
+                }
+                sql_credentials {
+                  id
+                  username
+                  created_at
+                  updated_at
+                  user {
+                    id
+                    display_name
+                  }
+                }
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {
+            &#34;offset&#34;: offset,
+            &#34;limit&#34;: limit,
+            &#34;where&#34;: where,
+            &#34;order_by&#34;: order_by,
+        }
+        async for data in self.execute_ws(
+            query=query, operation_name=&#34;AllDataSources&#34;, variables=variables, **kwargs
+        ):
+            yield AllDataSources.model_validate(data)
+
+    async def fetch_tables(self, id: Any, **kwargs: Any) -&gt; FetchTables:
+        query = gql(
+            &#34;&#34;&#34;
+            query FetchTables($id: uuid!) {
+              fetch_tables(datasource_id: $id) {
+                schema
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;id&#34;: id}
+        response = await self.execute(
+            query=query, operation_name=&#34;FetchTables&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return FetchTables.model_validate(data)
+
+    async def fetch_meta(
+        self,
+        datasource_id: Any,
+        branch_id: Union[Optional[Any], UnsetType] = UNSET,
+        **kwargs: Any
+    ) -&gt; FetchMeta:
+        query = gql(
+            &#34;&#34;&#34;
+            query FetchMeta($datasource_id: uuid!, $branch_id: uuid) {
+              fetch_meta(datasource_id: $datasource_id, branch_id: $branch_id) {
+                cubes
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {
+            &#34;datasource_id&#34;: datasource_id,
+            &#34;branch_id&#34;: branch_id,
+        }
+        response = await self.execute(
+            query=query, operation_name=&#34;FetchMeta&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return FetchMeta.model_validate(data)
+
+    async def current_data_source(self, id: Any, **kwargs: Any) -&gt; CurrentDataSource:
+        query = gql(
+            &#34;&#34;&#34;
+            query CurrentDataSource($id: uuid!) {
+              datasources_by_pk(id: $id) {
+                id
+                name
+                db_type
+                db_params_computed
+                created_at
+                updated_at
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;id&#34;: id}
+        response = await self.execute(
+            query=query,
+            operation_name=&#34;CurrentDataSource&#34;,
+            variables=variables,
+            **kwargs
+        )
+        data = self.get_data(response)
+        return CurrentDataSource.model_validate(data)
+
+    async def update_data_source(
+        self,
+        pk_columns: datasources_pk_columns_input,
+        set: datasources_set_input,
+        **kwargs: Any
+    ) -&gt; UpdateDataSource:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation UpdateDataSource($pk_columns: datasources_pk_columns_input!, $_set: datasources_set_input!) {
+              update_datasources_by_pk(pk_columns: $pk_columns, _set: $_set) {
+                id
+                branches(where: {status: {_eq: active}}) {
+                  id
+                }
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;pk_columns&#34;: pk_columns, &#34;_set&#34;: set}
+        response = await self.execute(
+            query=query,
+            operation_name=&#34;UpdateDataSource&#34;,
+            variables=variables,
+            **kwargs
+        )
+        data = self.get_data(response)
+        return UpdateDataSource.model_validate(data)
+
+    async def check_connection(self, id: Any, **kwargs: Any) -&gt; CheckConnection:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation CheckConnection($id: uuid!) {
+              check_connection(datasource_id: $id) {
+                message
+                code
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;id&#34;: id}
+        response = await self.execute(
+            query=query, operation_name=&#34;CheckConnection&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return CheckConnection.model_validate(data)
+
+    async def delete_data_source(self, id: Any, **kwargs: Any) -&gt; DeleteDataSource:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation DeleteDataSource($id: uuid!) {
+              delete_datasources_by_pk(id: $id) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;id&#34;: id}
+        response = await self.execute(
+            query=query,
+            operation_name=&#34;DeleteDataSource&#34;,
+            variables=variables,
+            **kwargs
+        )
+        data = self.get_data(response)
+        return DeleteDataSource.model_validate(data)
+
+    async def gen_data_schemas(
+        self,
+        datasource_id: Any,
+        branch_id: Any,
+        tables: List[SourceTable],
+        overwrite: Union[Optional[bool], UnsetType] = UNSET,
+        format: Union[Optional[str], UnsetType] = UNSET,
+        **kwargs: Any
+    ) -&gt; GenDataSchemas:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation GenDataSchemas($datasource_id: uuid!, $branch_id: uuid!, $tables: [SourceTable!]!, $overwrite: Boolean, $format: String) {
+              gen_dataschemas(
+                datasource_id: $datasource_id
+                branch_id: $branch_id
+                tables: $tables
+                overwrite: $overwrite
+                format: $format
+              ) {
+                code
+                message
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {
+            &#34;datasource_id&#34;: datasource_id,
+            &#34;branch_id&#34;: branch_id,
+            &#34;tables&#34;: tables,
+            &#34;overwrite&#34;: overwrite,
+            &#34;format&#34;: format,
+        }
+        response = await self.execute(
+            query=query, operation_name=&#34;GenDataSchemas&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return GenDataSchemas.model_validate(data)
+
+    async def run_source_sql_query(
+        self, datasource_id: Any, query: str, limit: int, **kwargs: Any
+    ) -&gt; RunSourceSQLQuery:
+        _query = gql(
+            &#34;&#34;&#34;
+            mutation RunSourceSQLQuery($datasource_id: uuid!, $query: String!, $limit: Int!) {
+              run_query(datasource_id: $datasource_id, query: $query, limit: $limit) {
+                result
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {
+            &#34;datasource_id&#34;: datasource_id,
+            &#34;query&#34;: query,
+            &#34;limit&#34;: limit,
+        }
+        response = await self.execute(
+            query=_query,
+            operation_name=&#34;RunSourceSQLQuery&#34;,
+            variables=variables,
+            **kwargs
+        )
+        data = self.get_data(response)
+        return RunSourceSQLQuery.model_validate(data)
+
+    async def create_exploration(
+        self, object: explorations_insert_input, **kwargs: Any
+    ) -&gt; CreateExploration:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation CreateExploration($object: explorations_insert_input!) {
+              insert_explorations_one(object: $object) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;object&#34;: object}
+        response = await self.execute(
+            query=query,
+            operation_name=&#34;CreateExploration&#34;,
+            variables=variables,
+            **kwargs
+        )
+        data = self.get_data(response)
+        return CreateExploration.model_validate(data)
+
+    async def gen_sql(self, exploration_id: Any, **kwargs: Any) -&gt; GenSQL:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation GenSQL($exploration_id: uuid!) {
+              gen_sql(exploration_id: $exploration_id) {
+                result
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;exploration_id&#34;: exploration_id}
+        response = await self.execute(
+            query=query, operation_name=&#34;GenSQL&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return GenSQL.model_validate(data)
+
+    async def current_exploration(
+        self,
+        id: Any,
+        offset: Union[Optional[int], UnsetType] = UNSET,
+        limit: Union[Optional[int], UnsetType] = UNSET,
+        **kwargs: Any
+    ) -&gt; CurrentExploration:
+        query = gql(
+            &#34;&#34;&#34;
+            query CurrentExploration($id: uuid!, $offset: Int, $limit: Int) {
+              explorations_by_pk(id: $id) {
+                id
+                branch_id
+                datasource_id
+                playground_state
+                playground_settings
+                created_at
+                updated_at
+              }
+              fetch_dataset(exploration_id: $id, offset: $offset, limit: $limit) {
+                annotation
+                data
+                query
+                progress
+                hitLimit
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;id&#34;: id, &#34;offset&#34;: offset, &#34;limit&#34;: limit}
+        response = await self.execute(
+            query=query,
+            operation_name=&#34;CurrentExploration&#34;,
+            variables=variables,
+            **kwargs
+        )
+        data = self.get_data(response)
+        return CurrentExploration.model_validate(data)
+
+    async def members(
+        self,
+        offset: Union[Optional[int], UnsetType] = UNSET,
+        limit: Union[Optional[int], UnsetType] = UNSET,
+        where: Union[Optional[members_bool_exp], UnsetType] = UNSET,
+        order_by: Union[Optional[List[members_order_by]], UnsetType] = UNSET,
+        **kwargs: Any
+    ) -&gt; Members:
+        query = gql(
+            &#34;&#34;&#34;
+            query Members($offset: Int, $limit: Int, $where: members_bool_exp, $order_by: [members_order_by!]) {
+              members(offset: $offset, limit: $limit, where: $where, order_by: $order_by) {
+                id
+                user {
+                  id
+                  display_name
+                  account {
+                    email
+                  }
+                }
+                member_roles {
+                  id
+                  team_role
+                  access_list {
+                    id
+                    name
+                  }
+                  updated_at
+                  created_at
+                }
+                updated_at
+                created_at
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {
+            &#34;offset&#34;: offset,
+            &#34;limit&#34;: limit,
+            &#34;where&#34;: where,
+            &#34;order_by&#34;: order_by,
+        }
+        response = await self.execute(
+            query=query, operation_name=&#34;Members&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return Members.model_validate(data)
+
+    async def update_member(
+        self,
+        pk_columns: members_pk_columns_input,
+        set: members_set_input,
+        **kwargs: Any
+    ) -&gt; UpdateMember:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation UpdateMember($pk_columns: members_pk_columns_input!, $_set: members_set_input!) {
+              update_members_by_pk(pk_columns: $pk_columns, _set: $_set) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;pk_columns&#34;: pk_columns, &#34;_set&#34;: set}
+        response = await self.execute(
+            query=query, operation_name=&#34;UpdateMember&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return UpdateMember.model_validate(data)
+
+    async def update_member_role(
+        self,
+        pk_columns: member_roles_pk_columns_input,
+        set: member_roles_set_input,
+        **kwargs: Any
+    ) -&gt; UpdateMemberRole:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation UpdateMemberRole($pk_columns: member_roles_pk_columns_input!, $_set: member_roles_set_input!) {
+              update_member_roles_by_pk(pk_columns: $pk_columns, _set: $_set) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;pk_columns&#34;: pk_columns, &#34;_set&#34;: set}
+        response = await self.execute(
+            query=query,
+            operation_name=&#34;UpdateMemberRole&#34;,
+            variables=variables,
+            **kwargs
+        )
+        data = self.get_data(response)
+        return UpdateMemberRole.model_validate(data)
+
+    async def delete_member(self, id: Any, **kwargs: Any) -&gt; DeleteMember:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation DeleteMember($id: uuid!) {
+              delete_members_by_pk(id: $id) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;id&#34;: id}
+        response = await self.execute(
+            query=query, operation_name=&#34;DeleteMember&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return DeleteMember.model_validate(data)
+
+    async def invite_member(
+        self,
+        email: str,
+        team_id: Any,
+        role: Union[Optional[str], UnsetType] = UNSET,
+        **kwargs: Any
+    ) -&gt; InviteMember:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation InviteMember($email: String!, $teamId: uuid!, $role: String) {
+              invite_team_member(email: $email, teamId: $teamId, role: $role) {
+                memberId
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;email&#34;: email, &#34;teamId&#34;: team_id, &#34;role&#34;: role}
+        response = await self.execute(
+            query=query, operation_name=&#34;InviteMember&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return InviteMember.model_validate(data)
+
+    async def current_log(self, id: Any, **kwargs: Any) -&gt; CurrentLog:
+        query = gql(
+            &#34;&#34;&#34;
+            query CurrentLog($id: uuid!) {
+              request_logs_by_pk(id: $id) {
+                ...DefaultFields
+                end_time
+                request_id
+                updated_at
+                request_event_logs(order_by: {timestamp: desc}) {
+                  id
+                  duration
+                  event
+                  path
+                  query
+                  query_key
+                  query_sql
+                  query_key_md5
+                  queue_prefix
+                  time_in_queue
+                  timestamp
+                  error
+                }
+              }
+            }
+
+            fragment DefaultFields on request_logs {
+              id
+              created_at
+              start_time
+              duration
+              path
+              user_id
+              datasource_id
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;id&#34;: id}
+        response = await self.execute(
+            query=query, operation_name=&#34;CurrentLog&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return CurrentLog.model_validate(data)
+
+    async def all_logs(
+        self,
+        offset: Union[Optional[int], UnsetType] = UNSET,
+        limit: Union[Optional[int], UnsetType] = UNSET,
+        where: Union[Optional[request_logs_bool_exp], UnsetType] = UNSET,
+        order_by: Union[Optional[List[request_logs_order_by]], UnsetType] = UNSET,
+        **kwargs: Any
+    ) -&gt; AllLogs:
+        query = gql(
+            &#34;&#34;&#34;
+            query AllLogs($offset: Int, $limit: Int, $where: request_logs_bool_exp, $order_by: [request_logs_order_by!]) {
+              request_logs(offset: $offset, limit: $limit, where: $where, order_by: $order_by) {
+                ...DefaultFields
+                request_event_logs_aggregate {
+                  aggregate {
+                    count
+                  }
+                }
+              }
+              request_logs_aggregate(where: $where) {
+                aggregate {
+                  count
+                }
+              }
+            }
+
+            fragment DefaultFields on request_logs {
+              id
+              created_at
+              start_time
+              duration
+              path
+              user_id
+              datasource_id
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {
+            &#34;offset&#34;: offset,
+            &#34;limit&#34;: limit,
+            &#34;where&#34;: where,
+            &#34;order_by&#34;: order_by,
+        }
+        response = await self.execute(
+            query=query, operation_name=&#34;AllLogs&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return AllLogs.model_validate(data)
+
+    async def sub_all_logs(
+        self,
+        offset: Union[Optional[int], UnsetType] = UNSET,
+        limit: Union[Optional[int], UnsetType] = UNSET,
+        where: Union[Optional[request_logs_bool_exp], UnsetType] = UNSET,
+        order_by: Union[Optional[List[request_logs_order_by]], UnsetType] = UNSET,
+        **kwargs: Any
+    ) -&gt; AsyncIterator[SubAllLogs]:
+        query = gql(
+            &#34;&#34;&#34;
+            subscription SubAllLogs($offset: Int, $limit: Int, $where: request_logs_bool_exp, $order_by: [request_logs_order_by!]) {
+              request_logs(offset: $offset, limit: $limit, where: $where, order_by: $order_by) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {
+            &#34;offset&#34;: offset,
+            &#34;limit&#34;: limit,
+            &#34;where&#34;: where,
+            &#34;order_by&#34;: order_by,
+        }
+        async for data in self.execute_ws(
+            query=query, operation_name=&#34;SubAllLogs&#34;, variables=variables, **kwargs
+        ):
+            yield SubAllLogs.model_validate(data)
+
+    async def create_report(
+        self, object: reports_insert_input, **kwargs: Any
+    ) -&gt; CreateReport:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation CreateReport($object: reports_insert_input!) {
+              insert_reports_one(object: $object) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;object&#34;: object}
+        response = await self.execute(
+            query=query, operation_name=&#34;CreateReport&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return CreateReport.model_validate(data)
+
+    async def update_report(
+        self,
+        pk_columns: reports_pk_columns_input,
+        set: reports_set_input,
+        **kwargs: Any
+    ) -&gt; UpdateReport:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation UpdateReport($pk_columns: reports_pk_columns_input!, $_set: reports_set_input!) {
+              update_reports_by_pk(pk_columns: $pk_columns, _set: $_set) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;pk_columns&#34;: pk_columns, &#34;_set&#34;: set}
+        response = await self.execute(
+            query=query, operation_name=&#34;UpdateReport&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return UpdateReport.model_validate(data)
+
+    async def delete_report(self, id: Any, **kwargs: Any) -&gt; DeleteReport:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation DeleteReport($id: uuid!) {
+              delete_reports_by_pk(id: $id) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;id&#34;: id}
+        response = await self.execute(
+            query=query, operation_name=&#34;DeleteReport&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return DeleteReport.model_validate(data)
+
+    async def all_schemas(
+        self,
+        offset: Union[Optional[int], UnsetType] = UNSET,
+        limit: Union[Optional[int], UnsetType] = UNSET,
+        where: Union[Optional[dataschemas_bool_exp], UnsetType] = UNSET,
+        order_by: Union[Optional[List[dataschemas_order_by]], UnsetType] = UNSET,
+        **kwargs: Any
+    ) -&gt; AsyncIterator[AllSchemas]:
+        query = gql(
+            &#34;&#34;&#34;
+            subscription AllSchemas($offset: Int, $limit: Int, $where: dataschemas_bool_exp, $order_by: [dataschemas_order_by!]) {
+              dataschemas(offset: $offset, limit: $limit, where: $where, order_by: $order_by) {
+                id
+                user_id
+                name
+                checksum
+                datasource {
+                  team_id
+                }
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {
+            &#34;offset&#34;: offset,
+            &#34;limit&#34;: limit,
+            &#34;where&#34;: where,
+            &#34;order_by&#34;: order_by,
+        }
+        async for data in self.execute_ws(
+            query=query, operation_name=&#34;AllSchemas&#34;, variables=variables, **kwargs
+        ):
+            yield AllSchemas.model_validate(data)
+
+    async def all_data_schemas(
+        self,
+        offset: Union[Optional[int], UnsetType] = UNSET,
+        limit: Union[Optional[int], UnsetType] = UNSET,
+        where: Union[Optional[branches_bool_exp], UnsetType] = UNSET,
+        order_by: Union[Optional[List[branches_order_by]], UnsetType] = UNSET,
+        **kwargs: Any
+    ) -&gt; AllDataSchemas:
+        query = gql(
+            &#34;&#34;&#34;
+            query AllDataSchemas($offset: Int, $limit: Int, $where: branches_bool_exp, $order_by: [branches_order_by!]) {
+              branches(offset: $offset, limit: $limit, where: $where, order_by: $order_by) {
+                id
+                name
+                status
+                versions(order_by: {created_at: desc}) {
+                  id
+                  checksum
+                  created_at
+                  updated_at
+                  user {
+                    display_name
+                  }
+                  dataschemas {
+                    id
+                    name
+                    code
+                    created_at
+                    updated_at
+                    datasource_id
+                  }
+                }
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {
+            &#34;offset&#34;: offset,
+            &#34;limit&#34;: limit,
+            &#34;where&#34;: where,
+            &#34;order_by&#34;: order_by,
+        }
+        response = await self.execute(
+            query=query, operation_name=&#34;AllDataSchemas&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return AllDataSchemas.model_validate(data)
+
+    async def delete_schema(self, id: Any, **kwargs: Any) -&gt; DeleteSchema:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation DeleteSchema($id: uuid!) {
+              update_branches_by_pk(_set: {status: archived}, pk_columns: {id: $id}) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;id&#34;: id}
+        response = await self.execute(
+            query=query, operation_name=&#34;DeleteSchema&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return DeleteSchema.model_validate(data)
+
+    async def credentials(self, team_id: Any, **kwargs: Any) -&gt; Credentials:
+        query = gql(
+            &#34;&#34;&#34;
+            query Credentials($teamId: uuid!) {
+              sql_credentials(
+                where: {datasource: {team_id: {_eq: $teamId}}}
+                order_by: {created_at: desc}
+              ) {
+                id
+                username
+                created_at
+                user {
+                  id
+                  display_name
+                }
+                datasource {
+                  id
+                  name
+                  db_type
+                  db_params_computed
+                }
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;teamId&#34;: team_id}
+        response = await self.execute(
+            query=query, operation_name=&#34;Credentials&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return Credentials.model_validate(data)
+
+    async def sub_credentials(
+        self, team_id: Any, **kwargs: Any
+    ) -&gt; AsyncIterator[SubCredentials]:
+        query = gql(
+            &#34;&#34;&#34;
+            subscription SubCredentials($teamId: uuid!) {
+              sql_credentials(where: {datasource: {team_id: {_eq: $teamId}}}) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;teamId&#34;: team_id}
+        async for data in self.execute_ws(
+            query=query, operation_name=&#34;SubCredentials&#34;, variables=variables, **kwargs
+        ):
+            yield SubCredentials.model_validate(data)
+
+    async def insert_sql_credentials(
+        self, object: sql_credentials_insert_input, **kwargs: Any
+    ) -&gt; InsertSqlCredentials:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation InsertSqlCredentials($object: sql_credentials_insert_input!) {
+              insert_sql_credentials_one(object: $object) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;object&#34;: object}
+        response = await self.execute(
+            query=query,
+            operation_name=&#34;InsertSqlCredentials&#34;,
+            variables=variables,
+            **kwargs
+        )
+        data = self.get_data(response)
+        return InsertSqlCredentials.model_validate(data)
+
+    async def delete_credentials(self, id: Any, **kwargs: Any) -&gt; DeleteCredentials:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation DeleteCredentials($id: uuid!) {
+              delete_sql_credentials_by_pk(id: $id) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;id&#34;: id}
+        response = await self.execute(
+            query=query,
+            operation_name=&#34;DeleteCredentials&#34;,
+            variables=variables,
+            **kwargs
+        )
+        data = self.get_data(response)
+        return DeleteCredentials.model_validate(data)
+
+    async def create_team(self, name: str, **kwargs: Any) -&gt; CreateTeam:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation CreateTeam($name: String!) {
+              create_team(name: $name) {
+                id
+                name
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;name&#34;: name}
+        response = await self.execute(
+            query=query, operation_name=&#34;CreateTeam&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return CreateTeam.model_validate(data)
+
+    async def edit_team(
+        self, pk_columns: teams_pk_columns_input, set: teams_set_input, **kwargs: Any
+    ) -&gt; EditTeam:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation EditTeam($pk_columns: teams_pk_columns_input!, $_set: teams_set_input!) {
+              update_teams_by_pk(pk_columns: $pk_columns, _set: $_set) {
+                id
+                name
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;pk_columns&#34;: pk_columns, &#34;_set&#34;: set}
+        response = await self.execute(
+            query=query, operation_name=&#34;EditTeam&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return EditTeam.model_validate(data)
+
+    async def delete_team(self, id: Any, **kwargs: Any) -&gt; DeleteTeam:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation DeleteTeam($id: uuid!) {
+              delete_teams_by_pk(id: $id) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;id&#34;: id}
+        response = await self.execute(
+            query=query, operation_name=&#34;DeleteTeam&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return DeleteTeam.model_validate(data)
+
+    async def current_team(self, id: Any, **kwargs: Any) -&gt; CurrentTeam:
+        query = gql(
+            &#34;&#34;&#34;
+            query CurrentTeam($id: uuid!) {
+              teams_by_pk(id: $id) {
+                id
+                created_at
+                updated_at
+                members {
+                  user {
+                    display_name
+                  }
+                }
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;id&#34;: id}
+        response = await self.execute(
+            query=query, operation_name=&#34;CurrentTeam&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return CurrentTeam.model_validate(data)
+
+    async def get_users(self, **kwargs: Any) -&gt; GetUsers:
+        query = gql(
+            &#34;&#34;&#34;
+            query GetUsers {
+              users {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {}
+        response = await self.execute(
+            query=query, operation_name=&#34;GetUsers&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return GetUsers.model_validate(data)
+
+    async def version_doc(self, id: Any, **kwargs: Any) -&gt; AsyncIterator[VersionDoc]:
+        query = gql(
+            &#34;&#34;&#34;
+            subscription VersionDoc($id: uuid!) {
+              versions_by_pk(id: $id) {
+                markdown_doc
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;id&#34;: id}
+        async for data in self.execute_ws(
+            query=query, operation_name=&#34;VersionDoc&#34;, variables=variables, **kwargs
+        ):
+            yield VersionDoc.model_validate(data)
+
+    async def create_version(
+        self, object: versions_insert_input, **kwargs: Any
+    ) -&gt; CreateVersion:
+        query = gql(
+            &#34;&#34;&#34;
+            mutation CreateVersion($object: versions_insert_input!) {
+              insert_versions_one(object: $object) {
+                id
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;object&#34;: object}
+        response = await self.execute(
+            query=query, operation_name=&#34;CreateVersion&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return CreateVersion.model_validate(data)
+
+    async def version_by_branch_id(
+        self,
+        branch_id: Any,
+        limit: Union[Optional[int], UnsetType] = UNSET,
+        offset: Union[Optional[int], UnsetType] = UNSET,
+        **kwargs: Any
+    ) -&gt; VersionByBranchId:
+        query = gql(
+            &#34;&#34;&#34;
+            query versionByBranchId($branch_id: uuid!, $limit: Int, $offset: Int) {
+              versions(
+                limit: $limit
+                offset: $offset
+                order_by: {created_at: desc}
+                where: {branch_id: {_eq: $branch_id}}
+              ) {
+                id
+                checksum
+                updated_at
+                created_at
+                user {
+                  display_name
+                }
+                dataschemas(order_by: {name: asc}) {
+                  created_at
+                  updated_at
+                  datasource_id
+                  id
+                  user_id
+                  name
+                  code
+                  checksum
+                }
+              }
+              versions_aggregate(where: {branch_id: {_eq: $branch_id}}) {
+                aggregate {
+                  count
+                }
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {
+            &#34;branch_id&#34;: branch_id,
+            &#34;limit&#34;: limit,
+            &#34;offset&#34;: offset,
+        }
+        response = await self.execute(
+            query=query,
+            operation_name=&#34;versionByBranchId&#34;,
+            variables=variables,
+            **kwargs
+        )
+        data = self.get_data(response)
+        return VersionByBranchId.model_validate(data)
+
+    async def current_version(self, branch_id: Any, **kwargs: Any) -&gt; CurrentVersion:
+        query = gql(
+            &#34;&#34;&#34;
+            query CurrentVersion($branch_id: uuid!) {
+              versions(
+                limit: 1
+                offset: 0
+                order_by: {created_at: desc}
+                where: {branch_id: {_eq: $branch_id}}
+              ) {
+                id
+                checksum
+                dataschemas(order_by: {name: asc}) {
+                  created_at
+                  updated_at
+                  datasource_id
+                  id
+                  user_id
+                  name
+                  code
+                  checksum
+                }
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;branch_id&#34;: branch_id}
+        response = await self.execute(
+            query=query, operation_name=&#34;CurrentVersion&#34;, variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return CurrentVersion.model_validate(data)
+
+    async def versions_count(
+        self, branch_id: Any, **kwargs: Any
+    ) -&gt; AsyncIterator[VersionsCount]:
+        query = gql(
+            &#34;&#34;&#34;
+            subscription VersionsCount($branch_id: uuid!) {
+              versions_aggregate(where: {branch_id: {_eq: $branch_id}}) {
+                aggregate {
+                  count
+                }
+              }
+            }
+            &#34;&#34;&#34;
+        )
+        variables: Dict[str, object] = {&#34;branch_id&#34;: branch_id}
+        async for data in self.execute_ws(
+            query=query, operation_name=&#34;VersionsCount&#34;, variables=variables, **kwargs
+        ):
+            yield VersionsCount.model_validate(data)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>synmetrix_graphql_client.graphql_client.async_base_client.AsyncBaseClient</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.access_list"><code class="name flex">
+<span>async def <span class="ident">access_list</span></span>(<span>self, id: Any, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.access_list.AccessList</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.all_access_lists"><code class="name flex">
+<span>async def <span class="ident">all_access_lists</span></span>(<span>self, offset: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, where: Union[synmetrix_graphql_client.graphql_client.input_types.access_lists_bool_exp, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[synmetrix_graphql_client.graphql_client.input_types.access_lists_order_by], ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.all_access_lists.AllAccessLists</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.all_data_schemas"><code class="name flex">
+<span>async def <span class="ident">all_data_schemas</span></span>(<span>self, offset: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, where: Union[synmetrix_graphql_client.graphql_client.input_types.branches_bool_exp, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[synmetrix_graphql_client.graphql_client.input_types.branches_order_by], ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.all_data_schemas.AllDataSchemas</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.all_data_sources"><code class="name flex">
+<span>async def <span class="ident">all_data_sources</span></span>(<span>self, offset: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, where: Union[synmetrix_graphql_client.graphql_client.input_types.datasources_bool_exp, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[synmetrix_graphql_client.graphql_client.input_types.datasources_order_by], ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> AsyncIterator[synmetrix_graphql_client.graphql_client.all_data_sources.AllDataSources]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.all_logs"><code class="name flex">
+<span>async def <span class="ident">all_logs</span></span>(<span>self, offset: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, where: Union[synmetrix_graphql_client.graphql_client.input_types.request_logs_bool_exp, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[synmetrix_graphql_client.graphql_client.input_types.request_logs_order_by], ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.all_logs.AllLogs</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.all_schemas"><code class="name flex">
+<span>async def <span class="ident">all_schemas</span></span>(<span>self, offset: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, where: Union[synmetrix_graphql_client.graphql_client.input_types.dataschemas_bool_exp, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[synmetrix_graphql_client.graphql_client.input_types.dataschemas_order_by], ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> AsyncIterator[synmetrix_graphql_client.graphql_client.all_schemas.AllSchemas]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.check_connection"><code class="name flex">
+<span>async def <span class="ident">check_connection</span></span>(<span>self, id: Any, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.check_connection.CheckConnection</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.create_access_list"><code class="name flex">
+<span>async def <span class="ident">create_access_list</span></span>(<span>self, object: synmetrix_graphql_client.graphql_client.input_types.access_lists_insert_input, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.create_access_list.CreateAccessList</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.create_alert"><code class="name flex">
+<span>async def <span class="ident">create_alert</span></span>(<span>self, object: synmetrix_graphql_client.graphql_client.input_types.alerts_insert_input, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.create_alert.CreateAlert</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.create_branch"><code class="name flex">
+<span>async def <span class="ident">create_branch</span></span>(<span>self, object: synmetrix_graphql_client.graphql_client.input_types.branches_insert_input, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.create_branch.CreateBranch</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.create_data_source"><code class="name flex">
+<span>async def <span class="ident">create_data_source</span></span>(<span>self, object: synmetrix_graphql_client.graphql_client.input_types.datasources_insert_input, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.create_data_source.CreateDataSource</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.create_exploration"><code class="name flex">
+<span>async def <span class="ident">create_exploration</span></span>(<span>self, object: synmetrix_graphql_client.graphql_client.input_types.explorations_insert_input, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.create_exploration.CreateExploration</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.create_report"><code class="name flex">
+<span>async def <span class="ident">create_report</span></span>(<span>self, object: synmetrix_graphql_client.graphql_client.input_types.reports_insert_input, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.create_report.CreateReport</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.create_team"><code class="name flex">
+<span>async def <span class="ident">create_team</span></span>(<span>self, name: str, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.create_team.CreateTeam</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.create_version"><code class="name flex">
+<span>async def <span class="ident">create_version</span></span>(<span>self, object: synmetrix_graphql_client.graphql_client.input_types.versions_insert_input, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.create_version.CreateVersion</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.credentials"><code class="name flex">
+<span>async def <span class="ident">credentials</span></span>(<span>self, team_id: Any, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.credentials.Credentials</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.current_data_source"><code class="name flex">
+<span>async def <span class="ident">current_data_source</span></span>(<span>self, id: Any, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.current_data_source.CurrentDataSource</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.current_exploration"><code class="name flex">
+<span>async def <span class="ident">current_exploration</span></span>(<span>self, id: Any, offset: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.current_exploration.CurrentExploration</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.current_log"><code class="name flex">
+<span>async def <span class="ident">current_log</span></span>(<span>self, id: Any, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.current_log.CurrentLog</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.current_team"><code class="name flex">
+<span>async def <span class="ident">current_team</span></span>(<span>self, id: Any, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.current_team.CurrentTeam</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.current_user"><code class="name flex">
+<span>async def <span class="ident">current_user</span></span>(<span>self, id: Any, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.current_user.CurrentUser</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.current_version"><code class="name flex">
+<span>async def <span class="ident">current_version</span></span>(<span>self, branch_id: Any, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.current_version.CurrentVersion</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.datasources"><code class="name flex">
+<span>async def <span class="ident">datasources</span></span>(<span>self, offset: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, where: Union[synmetrix_graphql_client.graphql_client.input_types.datasources_bool_exp, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[synmetrix_graphql_client.graphql_client.input_types.datasources_order_by], ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.datasources.Datasources</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.delete_access_list"><code class="name flex">
+<span>async def <span class="ident">delete_access_list</span></span>(<span>self, id: Any, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.delete_access_list.DeleteAccessList</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.delete_alert"><code class="name flex">
+<span>async def <span class="ident">delete_alert</span></span>(<span>self, id: Any, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.delete_alert.DeleteAlert</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.delete_credentials"><code class="name flex">
+<span>async def <span class="ident">delete_credentials</span></span>(<span>self, id: Any, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.delete_credentials.DeleteCredentials</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.delete_data_source"><code class="name flex">
+<span>async def <span class="ident">delete_data_source</span></span>(<span>self, id: Any, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.delete_data_source.DeleteDataSource</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.delete_member"><code class="name flex">
+<span>async def <span class="ident">delete_member</span></span>(<span>self, id: Any, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.delete_member.DeleteMember</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.delete_report"><code class="name flex">
+<span>async def <span class="ident">delete_report</span></span>(<span>self, id: Any, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.delete_report.DeleteReport</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.delete_schema"><code class="name flex">
+<span>async def <span class="ident">delete_schema</span></span>(<span>self, id: Any, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.delete_schema.DeleteSchema</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.delete_team"><code class="name flex">
+<span>async def <span class="ident">delete_team</span></span>(<span>self, id: Any, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.delete_team.DeleteTeam</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.edit_team"><code class="name flex">
+<span>async def <span class="ident">edit_team</span></span>(<span>self, pk_columns: synmetrix_graphql_client.graphql_client.input_types.teams_pk_columns_input, set: synmetrix_graphql_client.graphql_client.input_types.teams_set_input, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.edit_team.EditTeam</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.export_data"><code class="name flex">
+<span>async def <span class="ident">export_data</span></span>(<span>self, branch_id: Union[str, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.export_data.ExportData</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.fetch_meta"><code class="name flex">
+<span>async def <span class="ident">fetch_meta</span></span>(<span>self, datasource_id: Any, branch_id: Union[Any, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.fetch_meta.FetchMeta</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.fetch_tables"><code class="name flex">
+<span>async def <span class="ident">fetch_tables</span></span>(<span>self, id: Any, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.fetch_tables.FetchTables</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.gen_data_schemas"><code class="name flex">
+<span>async def <span class="ident">gen_data_schemas</span></span>(<span>self, datasource_id: Any, branch_id: Any, tables: List[synmetrix_graphql_client.graphql_client.input_types.SourceTable], overwrite: Union[bool, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, format: Union[str, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.gen_data_schemas.GenDataSchemas</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.gen_sql"><code class="name flex">
+<span>async def <span class="ident">gen_sql</span></span>(<span>self, exploration_id: Any, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.gen_sql.GenSQL</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.get_users"><code class="name flex">
+<span>async def <span class="ident">get_users</span></span>(<span>self, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.get_users.GetUsers</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.insert_sql_credentials"><code class="name flex">
+<span>async def <span class="ident">insert_sql_credentials</span></span>(<span>self, object: synmetrix_graphql_client.graphql_client.input_types.sql_credentials_insert_input, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.insert_sql_credentials.InsertSqlCredentials</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.invite_member"><code class="name flex">
+<span>async def <span class="ident">invite_member</span></span>(<span>self, email: str, team_id: Any, role: Union[str, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.invite_member.InviteMember</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.members"><code class="name flex">
+<span>async def <span class="ident">members</span></span>(<span>self, offset: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, where: Union[synmetrix_graphql_client.graphql_client.input_types.members_bool_exp, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[synmetrix_graphql_client.graphql_client.input_types.members_order_by], ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.members.Members</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.run_source_sql_query"><code class="name flex">
+<span>async def <span class="ident">run_source_sql_query</span></span>(<span>self, datasource_id: Any, query: str, limit: int, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.run_source_sql_query.RunSourceSQLQuery</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.send_test_alert"><code class="name flex">
+<span>async def <span class="ident">send_test_alert</span></span>(<span>self, delivery_config: Any, delivery_type: str, exploration_id: Union[Any, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, name: Union[str, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.send_test_alert.SendTestAlert</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.set_default_branch"><code class="name flex">
+<span>async def <span class="ident">set_default_branch</span></span>(<span>self, branch_id: Any, datasource_id: Any, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.set_default_branch.SetDefaultBranch</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.sub_access_lists"><code class="name flex">
+<span>async def <span class="ident">sub_access_lists</span></span>(<span>self, offset: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, where: Union[synmetrix_graphql_client.graphql_client.input_types.access_lists_bool_exp, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[synmetrix_graphql_client.graphql_client.input_types.access_lists_order_by], ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> AsyncIterator[synmetrix_graphql_client.graphql_client.sub_access_lists.SubAccessLists]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.sub_all_logs"><code class="name flex">
+<span>async def <span class="ident">sub_all_logs</span></span>(<span>self, offset: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, where: Union[synmetrix_graphql_client.graphql_client.input_types.request_logs_bool_exp, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[synmetrix_graphql_client.graphql_client.input_types.request_logs_order_by], ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> AsyncIterator[synmetrix_graphql_client.graphql_client.sub_all_logs.SubAllLogs]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.sub_credentials"><code class="name flex">
+<span>async def <span class="ident">sub_credentials</span></span>(<span>self, team_id: Any, **kwargs: Any) ‑> AsyncIterator[synmetrix_graphql_client.graphql_client.sub_credentials.SubCredentials]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.sub_current_user"><code class="name flex">
+<span>async def <span class="ident">sub_current_user</span></span>(<span>self, id: Any, **kwargs: Any) ‑> AsyncIterator[synmetrix_graphql_client.graphql_client.sub_current_user.SubCurrentUser]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.sub_team_data"><code class="name flex">
+<span>async def <span class="ident">sub_team_data</span></span>(<span>self, team_id: Any, **kwargs: Any) ‑> AsyncIterator[synmetrix_graphql_client.graphql_client.sub_team_data.SubTeamData]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.team_data"><code class="name flex">
+<span>async def <span class="ident">team_data</span></span>(<span>self, team_id: Any, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.team_data.TeamData</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.update_access_list"><code class="name flex">
+<span>async def <span class="ident">update_access_list</span></span>(<span>self, pk_columns: synmetrix_graphql_client.graphql_client.input_types.access_lists_pk_columns_input, set: synmetrix_graphql_client.graphql_client.input_types.access_lists_set_input, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.update_access_list.UpdateAccessList</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.update_alert"><code class="name flex">
+<span>async def <span class="ident">update_alert</span></span>(<span>self, pk_columns: synmetrix_graphql_client.graphql_client.input_types.alerts_pk_columns_input, set: synmetrix_graphql_client.graphql_client.input_types.alerts_set_input, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.update_alert.UpdateAlert</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.update_data_source"><code class="name flex">
+<span>async def <span class="ident">update_data_source</span></span>(<span>self, pk_columns: synmetrix_graphql_client.graphql_client.input_types.datasources_pk_columns_input, set: synmetrix_graphql_client.graphql_client.input_types.datasources_set_input, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.update_data_source.UpdateDataSource</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.update_member"><code class="name flex">
+<span>async def <span class="ident">update_member</span></span>(<span>self, pk_columns: synmetrix_graphql_client.graphql_client.input_types.members_pk_columns_input, set: synmetrix_graphql_client.graphql_client.input_types.members_set_input, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.update_member.UpdateMember</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.update_member_role"><code class="name flex">
+<span>async def <span class="ident">update_member_role</span></span>(<span>self, pk_columns: synmetrix_graphql_client.graphql_client.input_types.member_roles_pk_columns_input, set: synmetrix_graphql_client.graphql_client.input_types.member_roles_set_input, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.update_member_role.UpdateMemberRole</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.update_report"><code class="name flex">
+<span>async def <span class="ident">update_report</span></span>(<span>self, pk_columns: synmetrix_graphql_client.graphql_client.input_types.reports_pk_columns_input, set: synmetrix_graphql_client.graphql_client.input_types.reports_set_input, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.update_report.UpdateReport</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.update_user_info"><code class="name flex">
+<span>async def <span class="ident">update_user_info</span></span>(<span>self, user_id: Any, display_name: Union[str, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, email: Union[Any, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.update_user_info.UpdateUserInfo</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.version_by_branch_id"><code class="name flex">
+<span>async def <span class="ident">version_by_branch_id</span></span>(<span>self, branch_id: Any, limit: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, offset: Union[int, ForwardRef(None), synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> synmetrix_graphql_client.graphql_client.version_by_branch_id.VersionByBranchId</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.version_doc"><code class="name flex">
+<span>async def <span class="ident">version_doc</span></span>(<span>self, id: Any, **kwargs: Any) ‑> AsyncIterator[synmetrix_graphql_client.graphql_client.version_doc.VersionDoc]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="synmetrix_graphql_client.graphql_client.client.Client.versions_count"><code class="name flex">
+<span>async def <span class="ident">versions_count</span></span>(<span>self, branch_id: Any, **kwargs: Any) ‑> AsyncIterator[synmetrix_graphql_client.graphql_client.versions_count.VersionsCount]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.gql" href="#synmetrix_graphql_client.graphql_client.client.gql">gql</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="synmetrix_graphql_client.graphql_client.client.Client" href="#synmetrix_graphql_client.graphql_client.client.Client">Client</a></code></h4>
+<ul class="">
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.access_list" href="#synmetrix_graphql_client.graphql_client.client.Client.access_list">access_list</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.all_access_lists" href="#synmetrix_graphql_client.graphql_client.client.Client.all_access_lists">all_access_lists</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.all_data_schemas" href="#synmetrix_graphql_client.graphql_client.client.Client.all_data_schemas">all_data_schemas</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.all_data_sources" href="#synmetrix_graphql_client.graphql_client.client.Client.all_data_sources">all_data_sources</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.all_logs" href="#synmetrix_graphql_client.graphql_client.client.Client.all_logs">all_logs</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.all_schemas" href="#synmetrix_graphql_client.graphql_client.client.Client.all_schemas">all_schemas</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.check_connection" href="#synmetrix_graphql_client.graphql_client.client.Client.check_connection">check_connection</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.create_access_list" href="#synmetrix_graphql_client.graphql_client.client.Client.create_access_list">create_access_list</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.create_alert" href="#synmetrix_graphql_client.graphql_client.client.Client.create_alert">create_alert</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.create_branch" href="#synmetrix_graphql_client.graphql_client.client.Client.create_branch">create_branch</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.create_data_source" href="#synmetrix_graphql_client.graphql_client.client.Client.create_data_source">create_data_source</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.create_exploration" href="#synmetrix_graphql_client.graphql_client.client.Client.create_exploration">create_exploration</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.create_report" href="#synmetrix_graphql_client.graphql_client.client.Client.create_report">create_report</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.create_team" href="#synmetrix_graphql_client.graphql_client.client.Client.create_team">create_team</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.create_version" href="#synmetrix_graphql_client.graphql_client.client.Client.create_version">create_version</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.credentials" href="#synmetrix_graphql_client.graphql_client.client.Client.credentials">credentials</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.current_data_source" href="#synmetrix_graphql_client.graphql_client.client.Client.current_data_source">current_data_source</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.current_exploration" href="#synmetrix_graphql_client.graphql_client.client.Client.current_exploration">current_exploration</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.current_log" href="#synmetrix_graphql_client.graphql_client.client.Client.current_log">current_log</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.current_team" href="#synmetrix_graphql_client.graphql_client.client.Client.current_team">current_team</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.current_user" href="#synmetrix_graphql_client.graphql_client.client.Client.current_user">current_user</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.current_version" href="#synmetrix_graphql_client.graphql_client.client.Client.current_version">current_version</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.datasources" href="#synmetrix_graphql_client.graphql_client.client.Client.datasources">datasources</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.delete_access_list" href="#synmetrix_graphql_client.graphql_client.client.Client.delete_access_list">delete_access_list</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.delete_alert" href="#synmetrix_graphql_client.graphql_client.client.Client.delete_alert">delete_alert</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.delete_credentials" href="#synmetrix_graphql_client.graphql_client.client.Client.delete_credentials">delete_credentials</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.delete_data_source" href="#synmetrix_graphql_client.graphql_client.client.Client.delete_data_source">delete_data_source</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.delete_member" href="#synmetrix_graphql_client.graphql_client.client.Client.delete_member">delete_member</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.delete_report" href="#synmetrix_graphql_client.graphql_client.client.Client.delete_report">delete_report</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.delete_schema" href="#synmetrix_graphql_client.graphql_client.client.Client.delete_schema">delete_schema</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.delete_team" href="#synmetrix_graphql_client.graphql_client.client.Client.delete_team">delete_team</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.edit_team" href="#synmetrix_graphql_client.graphql_client.client.Client.edit_team">edit_team</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.export_data" href="#synmetrix_graphql_client.graphql_client.client.Client.export_data">export_data</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.fetch_meta" href="#synmetrix_graphql_client.graphql_client.client.Client.fetch_meta">fetch_meta</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.fetch_tables" href="#synmetrix_graphql_client.graphql_client.client.Client.fetch_tables">fetch_tables</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.gen_data_schemas" href="#synmetrix_graphql_client.graphql_client.client.Client.gen_data_schemas">gen_data_schemas</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.gen_sql" href="#synmetrix_graphql_client.graphql_client.client.Client.gen_sql">gen_sql</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.get_users" href="#synmetrix_graphql_client.graphql_client.client.Client.get_users">get_users</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.insert_sql_credentials" href="#synmetrix_graphql_client.graphql_client.client.Client.insert_sql_credentials">insert_sql_credentials</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.invite_member" href="#synmetrix_graphql_client.graphql_client.client.Client.invite_member">invite_member</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.members" href="#synmetrix_graphql_client.graphql_client.client.Client.members">members</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.run_source_sql_query" href="#synmetrix_graphql_client.graphql_client.client.Client.run_source_sql_query">run_source_sql_query</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.send_test_alert" href="#synmetrix_graphql_client.graphql_client.client.Client.send_test_alert">send_test_alert</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.set_default_branch" href="#synmetrix_graphql_client.graphql_client.client.Client.set_default_branch">set_default_branch</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.sub_access_lists" href="#synmetrix_graphql_client.graphql_client.client.Client.sub_access_lists">sub_access_lists</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.sub_all_logs" href="#synmetrix_graphql_client.graphql_client.client.Client.sub_all_logs">sub_all_logs</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.sub_credentials" href="#synmetrix_graphql_client.graphql_client.client.Client.sub_credentials">sub_credentials</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.sub_current_user" href="#synmetrix_graphql_client.graphql_client.client.Client.sub_current_user">sub_current_user</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.sub_team_data" href="#synmetrix_graphql_client.graphql_client.client.Client.sub_team_data">sub_team_data</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.team_data" href="#synmetrix_graphql_client.graphql_client.client.Client.team_data">team_data</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.update_access_list" href="#synmetrix_graphql_client.graphql_client.client.Client.update_access_list">update_access_list</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.update_alert" href="#synmetrix_graphql_client.graphql_client.client.Client.update_alert">update_alert</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.update_data_source" href="#synmetrix_graphql_client.graphql_client.client.Client.update_data_source">update_data_source</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.update_member" href="#synmetrix_graphql_client.graphql_client.client.Client.update_member">update_member</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.update_member_role" href="#synmetrix_graphql_client.graphql_client.client.Client.update_member_role">update_member_role</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.update_report" href="#synmetrix_graphql_client.graphql_client.client.Client.update_report">update_report</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.update_user_info" href="#synmetrix_graphql_client.graphql_client.client.Client.update_user_info">update_user_info</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.version_by_branch_id" href="#synmetrix_graphql_client.graphql_client.client.Client.version_by_branch_id">version_by_branch_id</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.version_doc" href="#synmetrix_graphql_client.graphql_client.client.Client.version_doc">version_doc</a></code></li>
+<li><code><a title="synmetrix_graphql_client.graphql_client.client.Client.versions_count" href="#synmetrix_graphql_client.graphql_client.client.Client.versions_count">versions_count</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+</footer>
+</body>
+</html>

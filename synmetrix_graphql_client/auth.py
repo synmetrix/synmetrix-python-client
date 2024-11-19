@@ -9,7 +9,11 @@ from pydantic import BaseModel
 
 
 def get_default_logger() -> logging.Logger:
-    """Create a default logger with standard configuration."""
+    """Create a default logger with standard configuration.
+
+    Returns:
+        logging.Logger: Configured logger instance with standard formatting
+    """
     logger = logging.getLogger("synmetrix.auth")
     if not logger.handlers:
         handler = logging.StreamHandler()
@@ -23,6 +27,17 @@ def get_default_logger() -> logging.Logger:
 
 
 class AuthResponse(BaseModel):
+    """Response model for authentication operations.
+
+    Attributes:
+        jwt_token (str): JWT access token for API authentication
+        refresh_token (str): Token used to refresh expired JWT tokens
+        magicLink (Optional[bool]): Flag indicating if magic link authentication was used
+        error (Optional[str]): Error message if authentication failed
+        message (Optional[str]): Additional message from the server
+        statusCode (Optional[int]): HTTP status code of the response
+    """
+
     jwt_token: str
     refresh_token: str
     magicLink: Optional[bool] = None
@@ -32,6 +47,14 @@ class AuthResponse(BaseModel):
 
 
 class AuthError(Exception):
+    """Exception raised for authentication-related errors.
+
+    Attributes:
+        message (str): Human readable error description
+        error (Optional[str]): Error type or code
+        status_code (Optional[int]): HTTP status code if applicable
+    """
+
     def __init__(
         self,
         message: str,
@@ -41,17 +64,39 @@ class AuthError(Exception):
         self.message = message
         self.error = error
         self.status_code = status_code
-
         super().__init__(message)
 
 
 @dataclass
 class AuthTokens:
+    """Data class for storing authentication tokens.
+
+    Attributes:
+        access_token (str): JWT access token for API authentication
+        refresh_token (str): Token used to refresh expired JWT tokens
+    """
+
     access_token: str
     refresh_token: str
 
 
 class AuthClient:
+    """Client for handling authentication operations.
+
+    This client provides methods for user authentication, token management,
+    and session handling.
+
+    Args:
+        base_url (str): Base URL of the authentication service
+        logger (Optional[logging.Logger]): Custom logger instance
+
+    Attributes:
+        base_url (str): Base URL of the authentication service
+        _access_token (Optional[str]): Current JWT access token
+        _refresh_token (Optional[str]): Current refresh token
+        _logger (logging.Logger): Logger instance
+    """
+
     def __init__(
         self,
         base_url: str,
@@ -65,6 +110,11 @@ class AuthClient:
 
     @property
     def auth_headers(self) -> dict[str, str]:
+        """Get authorization headers using current access token.
+
+        Returns:
+            dict[str, str]: Headers dictionary with Authorization if token exists
+        """
         if not self._access_token:
             return {}
         return {"Authorization": f"Bearer {self._access_token}"}
@@ -121,7 +171,26 @@ class AuthClient:
     async def login(
         self, email: str, password: str, cookie: bool = False
     ) -> AuthTokens:
-        """Login user and return tokens."""
+        """Authenticate user with email and password.
+
+        Args:
+            email (str): User's email address
+            password (str): User's password
+            cookie (bool, optional): Whether to set auth cookie. Defaults to False.
+
+        Returns:
+            AuthTokens: Access and refresh tokens
+
+        Raises:
+            AuthError: If authentication fails
+
+        Example:
+            ```python
+            client = AuthClient("https://app.synmetrix.org")
+            tokens = await client.login(email="user@example.com", password="your_password")
+            print(f"Access token: {tokens.access_token}")
+            ```
+        """
         self._logger.info("Attempting login for user: %s", email)
         try:
             async with httpx.AsyncClient() as client:
@@ -161,7 +230,28 @@ class AuthClient:
     async def register(
         self, email: str, password: str, cookie: bool = False
     ) -> AuthTokens:
-        """Register new user."""
+        """Register a new user.
+
+        Args:
+            email (str): User's email address
+            password (str): User's password
+            cookie (bool, optional): Whether to set auth cookie. Defaults to False.
+
+        Returns:
+            AuthTokens: Access and refresh tokens
+
+        Raises:
+            AuthError: If registration fails
+
+        Example:
+            ```python
+            client = AuthClient("https://app.synmetrix.org")
+            tokens = await client.register(
+                email="user@example.com", password="your_password"
+            )
+            print(f"Access token: {tokens.access_token}")
+            ```
+        """
         async with httpx.AsyncClient() as client:
             response = await client.post(
                 f"{self.base_url}/auth/register",
@@ -186,7 +276,20 @@ class AuthClient:
             )
 
     async def logout(self, all_sessions: bool = True) -> None:
-        """Logout user."""
+        """Log out the current user.
+
+        Args:
+            all_sessions (bool, optional): Logout from all sessions. Defaults to True.
+
+        Raises:
+            AuthError: If not authenticated or logout fails
+
+        Example:
+            ```python
+            client = AuthClient("https://app.synmetrix.org")
+            await client.logout()
+            ```
+        """
         if not self._refresh_token or not self._access_token:
             raise AuthError("Not authenticated")
 
@@ -203,7 +306,25 @@ class AuthClient:
             self._refresh_token = None
 
     async def refresh_token(self, refresh_token: Optional[str] = None) -> AuthTokens:
-        """Refresh access token using refresh token."""
+        """Refresh access token using refresh token.
+
+        Args:
+            refresh_token (Optional[str], optional): Refresh token to use.
+                If None, uses stored token. Defaults to None.
+
+        Returns:
+            AuthTokens: New access and refresh tokens
+
+        Raises:
+            AuthError: If refresh fails or no token available
+
+        Example:
+            ```python
+            client = AuthClient("https://app.synmetrix.org")
+            tokens = await client.refresh_token()
+            print(f"Access token: {tokens.access_token}")
+            ```
+        """
         token = refresh_token or self._refresh_token
         if not token:
             raise AuthError("No refresh token available")
@@ -232,7 +353,23 @@ class AuthClient:
             )
 
     async def change_password(self, old_password: str, new_password: str) -> None:
-        """Change user password."""
+        """Change user password.
+
+        Args:
+            old_password (str): Current password
+            new_password (str): New password
+
+        Raises:
+            AuthError: If not authenticated or password change fails
+
+        Example:
+            ```python
+            client = AuthClient("https://app.synmetrix.org")
+            await client.change_password(
+                old_password="old_password", new_password="new_password"
+            )
+            ```
+        """
         if not self._access_token:
             raise AuthError("Not authenticated")
 
@@ -249,7 +386,24 @@ class AuthClient:
             await self._validate_response(response)
 
     async def send_magic_link(self, email: str) -> AuthTokens:
-        """Send magic link for passwordless authentication."""
+        """Send magic link for passwordless authentication.
+
+        Args:
+            email (str): User's email address
+
+        Returns:
+            AuthTokens: Access and refresh tokens after magic link verification
+
+        Raises:
+            AuthError: If magic link sending fails
+
+        Example:
+            ```python
+            client = AuthClient("https://app.synmetrix.org")
+            tokens = await client.send_magic_link(email="user@example.com")
+            print(f"Access token: {tokens.access_token}")
+            ```
+        """
         async with httpx.AsyncClient() as client:
             response = await client.post(
                 f"{self.base_url}/auth/register",
