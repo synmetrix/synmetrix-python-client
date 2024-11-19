@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 <meta name="generator" content="pdoc3 0.11.1">
-<title>src.synmetrix_graphql_client.graphql_client.client API documentation</title>
+<title>src.synmetrix_python_client.graphql_client.client API documentation</title>
 <meta name="description" content="">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
@@ -22,7 +22,7 @@ hljs.highlightAll();
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>src.synmetrix_graphql_client.graphql_client.client</code></h1>
+<h1 class="title">Module <code>src.synmetrix_python_client.graphql_client.client</code></h1>
 </header>
 <section id="section-intro">
 </section>
@@ -33,7 +33,7 @@ hljs.highlightAll();
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.gql"><code class="name flex">
+<dt id="src.synmetrix_python_client.graphql_client.client.gql"><code class="name flex">
 <span>def <span class="ident">gql</span></span>(<span>q: str) ‑> str</span>
 </code></dt>
 <dd>
@@ -44,7 +44,7 @@ hljs.highlightAll();
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client"><code class="flex name class">
+<dt id="src.synmetrix_python_client.graphql_client.client.Client"><code class="flex name class">
 <span>class <span class="ident">Client</span></span>
 <span>(</span><span>url: str = '', headers: Optional[Dict[str, str]] = None, http_client: Optional[httpx.AsyncClient] = None, ws_url: str = '', ws_headers: Optional[Dict[str, Any]] = None, ws_origin: Optional[str] = None, ws_connection_init_payload: Optional[Dict[str, Any]] = None)</span>
 </code></dt>
@@ -1913,366 +1913,366 @@ hljs.highlightAll();
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
-<li>src.synmetrix_graphql_client.graphql_client.async_base_client.AsyncBaseClient</li>
+<li>src.synmetrix_python_client.graphql_client.async_base_client.AsyncBaseClient</li>
 </ul>
 <h3>Methods</h3>
 <dl>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.access_list"><code class="name flex">
-<span>async def <span class="ident">access_list</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.access_list.AccessList</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.access_list"><code class="name flex">
+<span>async def <span class="ident">access_list</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.access_list.AccessList</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.all_access_lists"><code class="name flex">
-<span>async def <span class="ident">all_access_lists</span></span>(<span>self, offset: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, where: Union[src.synmetrix_graphql_client.graphql_client.input_types.access_lists_bool_exp, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[src.synmetrix_graphql_client.graphql_client.input_types.access_lists_order_by], ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.all_access_lists.AllAccessLists</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.all_access_lists"><code class="name flex">
+<span>async def <span class="ident">all_access_lists</span></span>(<span>self, offset: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, where: Union[src.synmetrix_python_client.graphql_client.input_types.access_lists_bool_exp, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[src.synmetrix_python_client.graphql_client.input_types.access_lists_order_by], ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.all_access_lists.AllAccessLists</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.all_data_schemas"><code class="name flex">
-<span>async def <span class="ident">all_data_schemas</span></span>(<span>self, offset: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, where: Union[src.synmetrix_graphql_client.graphql_client.input_types.branches_bool_exp, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[src.synmetrix_graphql_client.graphql_client.input_types.branches_order_by], ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.all_data_schemas.AllDataSchemas</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.all_data_schemas"><code class="name flex">
+<span>async def <span class="ident">all_data_schemas</span></span>(<span>self, offset: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, where: Union[src.synmetrix_python_client.graphql_client.input_types.branches_bool_exp, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[src.synmetrix_python_client.graphql_client.input_types.branches_order_by], ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.all_data_schemas.AllDataSchemas</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.all_data_sources"><code class="name flex">
-<span>async def <span class="ident">all_data_sources</span></span>(<span>self, offset: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, where: Union[src.synmetrix_graphql_client.graphql_client.input_types.datasources_bool_exp, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[src.synmetrix_graphql_client.graphql_client.input_types.datasources_order_by], ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> AsyncIterator[src.synmetrix_graphql_client.graphql_client.all_data_sources.AllDataSources]</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.all_data_sources"><code class="name flex">
+<span>async def <span class="ident">all_data_sources</span></span>(<span>self, offset: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, where: Union[src.synmetrix_python_client.graphql_client.input_types.datasources_bool_exp, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[src.synmetrix_python_client.graphql_client.input_types.datasources_order_by], ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> AsyncIterator[src.synmetrix_python_client.graphql_client.all_data_sources.AllDataSources]</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.all_logs"><code class="name flex">
-<span>async def <span class="ident">all_logs</span></span>(<span>self, offset: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, where: Union[src.synmetrix_graphql_client.graphql_client.input_types.request_logs_bool_exp, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[src.synmetrix_graphql_client.graphql_client.input_types.request_logs_order_by], ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.all_logs.AllLogs</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.all_logs"><code class="name flex">
+<span>async def <span class="ident">all_logs</span></span>(<span>self, offset: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, where: Union[src.synmetrix_python_client.graphql_client.input_types.request_logs_bool_exp, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[src.synmetrix_python_client.graphql_client.input_types.request_logs_order_by], ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.all_logs.AllLogs</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.all_schemas"><code class="name flex">
-<span>async def <span class="ident">all_schemas</span></span>(<span>self, offset: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, where: Union[src.synmetrix_graphql_client.graphql_client.input_types.dataschemas_bool_exp, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[src.synmetrix_graphql_client.graphql_client.input_types.dataschemas_order_by], ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> AsyncIterator[src.synmetrix_graphql_client.graphql_client.all_schemas.AllSchemas]</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.all_schemas"><code class="name flex">
+<span>async def <span class="ident">all_schemas</span></span>(<span>self, offset: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, where: Union[src.synmetrix_python_client.graphql_client.input_types.dataschemas_bool_exp, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[src.synmetrix_python_client.graphql_client.input_types.dataschemas_order_by], ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> AsyncIterator[src.synmetrix_python_client.graphql_client.all_schemas.AllSchemas]</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.check_connection"><code class="name flex">
-<span>async def <span class="ident">check_connection</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.check_connection.CheckConnection</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.check_connection"><code class="name flex">
+<span>async def <span class="ident">check_connection</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.check_connection.CheckConnection</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.create_access_list"><code class="name flex">
-<span>async def <span class="ident">create_access_list</span></span>(<span>self, object: src.synmetrix_graphql_client.graphql_client.input_types.access_lists_insert_input, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.create_access_list.CreateAccessList</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.create_access_list"><code class="name flex">
+<span>async def <span class="ident">create_access_list</span></span>(<span>self, object: src.synmetrix_python_client.graphql_client.input_types.access_lists_insert_input, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.create_access_list.CreateAccessList</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.create_alert"><code class="name flex">
-<span>async def <span class="ident">create_alert</span></span>(<span>self, object: src.synmetrix_graphql_client.graphql_client.input_types.alerts_insert_input, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.create_alert.CreateAlert</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.create_alert"><code class="name flex">
+<span>async def <span class="ident">create_alert</span></span>(<span>self, object: src.synmetrix_python_client.graphql_client.input_types.alerts_insert_input, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.create_alert.CreateAlert</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.create_branch"><code class="name flex">
-<span>async def <span class="ident">create_branch</span></span>(<span>self, object: src.synmetrix_graphql_client.graphql_client.input_types.branches_insert_input, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.create_branch.CreateBranch</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.create_branch"><code class="name flex">
+<span>async def <span class="ident">create_branch</span></span>(<span>self, object: src.synmetrix_python_client.graphql_client.input_types.branches_insert_input, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.create_branch.CreateBranch</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.create_data_source"><code class="name flex">
-<span>async def <span class="ident">create_data_source</span></span>(<span>self, object: src.synmetrix_graphql_client.graphql_client.input_types.datasources_insert_input, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.create_data_source.CreateDataSource</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.create_data_source"><code class="name flex">
+<span>async def <span class="ident">create_data_source</span></span>(<span>self, object: src.synmetrix_python_client.graphql_client.input_types.datasources_insert_input, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.create_data_source.CreateDataSource</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.create_exploration"><code class="name flex">
-<span>async def <span class="ident">create_exploration</span></span>(<span>self, object: src.synmetrix_graphql_client.graphql_client.input_types.explorations_insert_input, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.create_exploration.CreateExploration</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.create_exploration"><code class="name flex">
+<span>async def <span class="ident">create_exploration</span></span>(<span>self, object: src.synmetrix_python_client.graphql_client.input_types.explorations_insert_input, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.create_exploration.CreateExploration</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.create_report"><code class="name flex">
-<span>async def <span class="ident">create_report</span></span>(<span>self, object: src.synmetrix_graphql_client.graphql_client.input_types.reports_insert_input, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.create_report.CreateReport</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.create_report"><code class="name flex">
+<span>async def <span class="ident">create_report</span></span>(<span>self, object: src.synmetrix_python_client.graphql_client.input_types.reports_insert_input, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.create_report.CreateReport</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.create_team"><code class="name flex">
-<span>async def <span class="ident">create_team</span></span>(<span>self, name: str, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.create_team.CreateTeam</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.create_team"><code class="name flex">
+<span>async def <span class="ident">create_team</span></span>(<span>self, name: str, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.create_team.CreateTeam</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.create_version"><code class="name flex">
-<span>async def <span class="ident">create_version</span></span>(<span>self, object: src.synmetrix_graphql_client.graphql_client.input_types.versions_insert_input, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.create_version.CreateVersion</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.create_version"><code class="name flex">
+<span>async def <span class="ident">create_version</span></span>(<span>self, object: src.synmetrix_python_client.graphql_client.input_types.versions_insert_input, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.create_version.CreateVersion</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.credentials"><code class="name flex">
-<span>async def <span class="ident">credentials</span></span>(<span>self, team_id: Any, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.credentials.Credentials</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.credentials"><code class="name flex">
+<span>async def <span class="ident">credentials</span></span>(<span>self, team_id: Any, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.credentials.Credentials</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.current_data_source"><code class="name flex">
-<span>async def <span class="ident">current_data_source</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.current_data_source.CurrentDataSource</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.current_data_source"><code class="name flex">
+<span>async def <span class="ident">current_data_source</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.current_data_source.CurrentDataSource</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.current_exploration"><code class="name flex">
-<span>async def <span class="ident">current_exploration</span></span>(<span>self, id: Any, offset: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.current_exploration.CurrentExploration</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.current_exploration"><code class="name flex">
+<span>async def <span class="ident">current_exploration</span></span>(<span>self, id: Any, offset: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.current_exploration.CurrentExploration</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.current_log"><code class="name flex">
-<span>async def <span class="ident">current_log</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.current_log.CurrentLog</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.current_log"><code class="name flex">
+<span>async def <span class="ident">current_log</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.current_log.CurrentLog</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.current_team"><code class="name flex">
-<span>async def <span class="ident">current_team</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.current_team.CurrentTeam</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.current_team"><code class="name flex">
+<span>async def <span class="ident">current_team</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.current_team.CurrentTeam</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.current_user"><code class="name flex">
-<span>async def <span class="ident">current_user</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.current_user.CurrentUser</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.current_user"><code class="name flex">
+<span>async def <span class="ident">current_user</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.current_user.CurrentUser</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.current_version"><code class="name flex">
-<span>async def <span class="ident">current_version</span></span>(<span>self, branch_id: Any, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.current_version.CurrentVersion</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.current_version"><code class="name flex">
+<span>async def <span class="ident">current_version</span></span>(<span>self, branch_id: Any, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.current_version.CurrentVersion</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.datasources"><code class="name flex">
-<span>async def <span class="ident">datasources</span></span>(<span>self, offset: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, where: Union[src.synmetrix_graphql_client.graphql_client.input_types.datasources_bool_exp, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[src.synmetrix_graphql_client.graphql_client.input_types.datasources_order_by], ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.datasources.Datasources</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.datasources"><code class="name flex">
+<span>async def <span class="ident">datasources</span></span>(<span>self, offset: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, where: Union[src.synmetrix_python_client.graphql_client.input_types.datasources_bool_exp, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[src.synmetrix_python_client.graphql_client.input_types.datasources_order_by], ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.datasources.Datasources</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.delete_access_list"><code class="name flex">
-<span>async def <span class="ident">delete_access_list</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.delete_access_list.DeleteAccessList</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.delete_access_list"><code class="name flex">
+<span>async def <span class="ident">delete_access_list</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.delete_access_list.DeleteAccessList</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.delete_alert"><code class="name flex">
-<span>async def <span class="ident">delete_alert</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.delete_alert.DeleteAlert</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.delete_alert"><code class="name flex">
+<span>async def <span class="ident">delete_alert</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.delete_alert.DeleteAlert</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.delete_credentials"><code class="name flex">
-<span>async def <span class="ident">delete_credentials</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.delete_credentials.DeleteCredentials</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.delete_credentials"><code class="name flex">
+<span>async def <span class="ident">delete_credentials</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.delete_credentials.DeleteCredentials</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.delete_data_source"><code class="name flex">
-<span>async def <span class="ident">delete_data_source</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.delete_data_source.DeleteDataSource</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.delete_data_source"><code class="name flex">
+<span>async def <span class="ident">delete_data_source</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.delete_data_source.DeleteDataSource</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.delete_member"><code class="name flex">
-<span>async def <span class="ident">delete_member</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.delete_member.DeleteMember</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.delete_member"><code class="name flex">
+<span>async def <span class="ident">delete_member</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.delete_member.DeleteMember</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.delete_report"><code class="name flex">
-<span>async def <span class="ident">delete_report</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.delete_report.DeleteReport</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.delete_report"><code class="name flex">
+<span>async def <span class="ident">delete_report</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.delete_report.DeleteReport</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.delete_schema"><code class="name flex">
-<span>async def <span class="ident">delete_schema</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.delete_schema.DeleteSchema</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.delete_schema"><code class="name flex">
+<span>async def <span class="ident">delete_schema</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.delete_schema.DeleteSchema</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.delete_team"><code class="name flex">
-<span>async def <span class="ident">delete_team</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.delete_team.DeleteTeam</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.delete_team"><code class="name flex">
+<span>async def <span class="ident">delete_team</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.delete_team.DeleteTeam</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.edit_team"><code class="name flex">
-<span>async def <span class="ident">edit_team</span></span>(<span>self, pk_columns: src.synmetrix_graphql_client.graphql_client.input_types.teams_pk_columns_input, set: src.synmetrix_graphql_client.graphql_client.input_types.teams_set_input, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.edit_team.EditTeam</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.edit_team"><code class="name flex">
+<span>async def <span class="ident">edit_team</span></span>(<span>self, pk_columns: src.synmetrix_python_client.graphql_client.input_types.teams_pk_columns_input, set: src.synmetrix_python_client.graphql_client.input_types.teams_set_input, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.edit_team.EditTeam</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.export_data"><code class="name flex">
-<span>async def <span class="ident">export_data</span></span>(<span>self, branch_id: Union[str, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.export_data.ExportData</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.export_data"><code class="name flex">
+<span>async def <span class="ident">export_data</span></span>(<span>self, branch_id: Union[str, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.export_data.ExportData</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.fetch_meta"><code class="name flex">
-<span>async def <span class="ident">fetch_meta</span></span>(<span>self, datasource_id: Any, branch_id: Union[Any, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.fetch_meta.FetchMeta</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.fetch_meta"><code class="name flex">
+<span>async def <span class="ident">fetch_meta</span></span>(<span>self, datasource_id: Any, branch_id: Union[Any, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.fetch_meta.FetchMeta</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.fetch_tables"><code class="name flex">
-<span>async def <span class="ident">fetch_tables</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.fetch_tables.FetchTables</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.fetch_tables"><code class="name flex">
+<span>async def <span class="ident">fetch_tables</span></span>(<span>self, id: Any, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.fetch_tables.FetchTables</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.gen_data_schemas"><code class="name flex">
-<span>async def <span class="ident">gen_data_schemas</span></span>(<span>self, datasource_id: Any, branch_id: Any, tables: List[src.synmetrix_graphql_client.graphql_client.input_types.SourceTable], overwrite: Union[bool, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, format: Union[str, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.gen_data_schemas.GenDataSchemas</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.gen_data_schemas"><code class="name flex">
+<span>async def <span class="ident">gen_data_schemas</span></span>(<span>self, datasource_id: Any, branch_id: Any, tables: List[src.synmetrix_python_client.graphql_client.input_types.SourceTable], overwrite: Union[bool, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, format: Union[str, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.gen_data_schemas.GenDataSchemas</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.gen_sql"><code class="name flex">
-<span>async def <span class="ident">gen_sql</span></span>(<span>self, exploration_id: Any, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.gen_sql.GenSQL</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.gen_sql"><code class="name flex">
+<span>async def <span class="ident">gen_sql</span></span>(<span>self, exploration_id: Any, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.gen_sql.GenSQL</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.get_users"><code class="name flex">
-<span>async def <span class="ident">get_users</span></span>(<span>self, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.get_users.GetUsers</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.get_users"><code class="name flex">
+<span>async def <span class="ident">get_users</span></span>(<span>self, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.get_users.GetUsers</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.insert_sql_credentials"><code class="name flex">
-<span>async def <span class="ident">insert_sql_credentials</span></span>(<span>self, object: src.synmetrix_graphql_client.graphql_client.input_types.sql_credentials_insert_input, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.insert_sql_credentials.InsertSqlCredentials</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.insert_sql_credentials"><code class="name flex">
+<span>async def <span class="ident">insert_sql_credentials</span></span>(<span>self, object: src.synmetrix_python_client.graphql_client.input_types.sql_credentials_insert_input, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.insert_sql_credentials.InsertSqlCredentials</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.invite_member"><code class="name flex">
-<span>async def <span class="ident">invite_member</span></span>(<span>self, email: str, team_id: Any, role: Union[str, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.invite_member.InviteMember</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.invite_member"><code class="name flex">
+<span>async def <span class="ident">invite_member</span></span>(<span>self, email: str, team_id: Any, role: Union[str, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.invite_member.InviteMember</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.members"><code class="name flex">
-<span>async def <span class="ident">members</span></span>(<span>self, offset: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, where: Union[src.synmetrix_graphql_client.graphql_client.input_types.members_bool_exp, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[src.synmetrix_graphql_client.graphql_client.input_types.members_order_by], ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.members.Members</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.members"><code class="name flex">
+<span>async def <span class="ident">members</span></span>(<span>self, offset: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, where: Union[src.synmetrix_python_client.graphql_client.input_types.members_bool_exp, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[src.synmetrix_python_client.graphql_client.input_types.members_order_by], ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.members.Members</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.run_source_sql_query"><code class="name flex">
-<span>async def <span class="ident">run_source_sql_query</span></span>(<span>self, datasource_id: Any, query: str, limit: int, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.run_source_sql_query.RunSourceSQLQuery</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.run_source_sql_query"><code class="name flex">
+<span>async def <span class="ident">run_source_sql_query</span></span>(<span>self, datasource_id: Any, query: str, limit: int, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.run_source_sql_query.RunSourceSQLQuery</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.send_test_alert"><code class="name flex">
-<span>async def <span class="ident">send_test_alert</span></span>(<span>self, delivery_config: Any, delivery_type: str, exploration_id: Union[Any, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, name: Union[str, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.send_test_alert.SendTestAlert</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.send_test_alert"><code class="name flex">
+<span>async def <span class="ident">send_test_alert</span></span>(<span>self, delivery_config: Any, delivery_type: str, exploration_id: Union[Any, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, name: Union[str, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.send_test_alert.SendTestAlert</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.set_default_branch"><code class="name flex">
-<span>async def <span class="ident">set_default_branch</span></span>(<span>self, branch_id: Any, datasource_id: Any, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.set_default_branch.SetDefaultBranch</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.set_default_branch"><code class="name flex">
+<span>async def <span class="ident">set_default_branch</span></span>(<span>self, branch_id: Any, datasource_id: Any, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.set_default_branch.SetDefaultBranch</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.sub_access_lists"><code class="name flex">
-<span>async def <span class="ident">sub_access_lists</span></span>(<span>self, offset: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, where: Union[src.synmetrix_graphql_client.graphql_client.input_types.access_lists_bool_exp, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[src.synmetrix_graphql_client.graphql_client.input_types.access_lists_order_by], ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> AsyncIterator[src.synmetrix_graphql_client.graphql_client.sub_access_lists.SubAccessLists]</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.sub_access_lists"><code class="name flex">
+<span>async def <span class="ident">sub_access_lists</span></span>(<span>self, offset: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, where: Union[src.synmetrix_python_client.graphql_client.input_types.access_lists_bool_exp, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[src.synmetrix_python_client.graphql_client.input_types.access_lists_order_by], ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> AsyncIterator[src.synmetrix_python_client.graphql_client.sub_access_lists.SubAccessLists]</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.sub_all_logs"><code class="name flex">
-<span>async def <span class="ident">sub_all_logs</span></span>(<span>self, offset: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, where: Union[src.synmetrix_graphql_client.graphql_client.input_types.request_logs_bool_exp, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[src.synmetrix_graphql_client.graphql_client.input_types.request_logs_order_by], ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> AsyncIterator[src.synmetrix_graphql_client.graphql_client.sub_all_logs.SubAllLogs]</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.sub_all_logs"><code class="name flex">
+<span>async def <span class="ident">sub_all_logs</span></span>(<span>self, offset: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, limit: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, where: Union[src.synmetrix_python_client.graphql_client.input_types.request_logs_bool_exp, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, order_by: Union[List[src.synmetrix_python_client.graphql_client.input_types.request_logs_order_by], ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> AsyncIterator[src.synmetrix_python_client.graphql_client.sub_all_logs.SubAllLogs]</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.sub_credentials"><code class="name flex">
-<span>async def <span class="ident">sub_credentials</span></span>(<span>self, team_id: Any, **kwargs: Any) ‑> AsyncIterator[src.synmetrix_graphql_client.graphql_client.sub_credentials.SubCredentials]</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.sub_credentials"><code class="name flex">
+<span>async def <span class="ident">sub_credentials</span></span>(<span>self, team_id: Any, **kwargs: Any) ‑> AsyncIterator[src.synmetrix_python_client.graphql_client.sub_credentials.SubCredentials]</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.sub_current_user"><code class="name flex">
-<span>async def <span class="ident">sub_current_user</span></span>(<span>self, id: Any, **kwargs: Any) ‑> AsyncIterator[src.synmetrix_graphql_client.graphql_client.sub_current_user.SubCurrentUser]</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.sub_current_user"><code class="name flex">
+<span>async def <span class="ident">sub_current_user</span></span>(<span>self, id: Any, **kwargs: Any) ‑> AsyncIterator[src.synmetrix_python_client.graphql_client.sub_current_user.SubCurrentUser]</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.sub_team_data"><code class="name flex">
-<span>async def <span class="ident">sub_team_data</span></span>(<span>self, team_id: Any, **kwargs: Any) ‑> AsyncIterator[src.synmetrix_graphql_client.graphql_client.sub_team_data.SubTeamData]</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.sub_team_data"><code class="name flex">
+<span>async def <span class="ident">sub_team_data</span></span>(<span>self, team_id: Any, **kwargs: Any) ‑> AsyncIterator[src.synmetrix_python_client.graphql_client.sub_team_data.SubTeamData]</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.team_data"><code class="name flex">
-<span>async def <span class="ident">team_data</span></span>(<span>self, team_id: Any, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.team_data.TeamData</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.team_data"><code class="name flex">
+<span>async def <span class="ident">team_data</span></span>(<span>self, team_id: Any, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.team_data.TeamData</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.update_access_list"><code class="name flex">
-<span>async def <span class="ident">update_access_list</span></span>(<span>self, pk_columns: src.synmetrix_graphql_client.graphql_client.input_types.access_lists_pk_columns_input, set: src.synmetrix_graphql_client.graphql_client.input_types.access_lists_set_input, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.update_access_list.UpdateAccessList</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.update_access_list"><code class="name flex">
+<span>async def <span class="ident">update_access_list</span></span>(<span>self, pk_columns: src.synmetrix_python_client.graphql_client.input_types.access_lists_pk_columns_input, set: src.synmetrix_python_client.graphql_client.input_types.access_lists_set_input, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.update_access_list.UpdateAccessList</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.update_alert"><code class="name flex">
-<span>async def <span class="ident">update_alert</span></span>(<span>self, pk_columns: src.synmetrix_graphql_client.graphql_client.input_types.alerts_pk_columns_input, set: src.synmetrix_graphql_client.graphql_client.input_types.alerts_set_input, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.update_alert.UpdateAlert</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.update_alert"><code class="name flex">
+<span>async def <span class="ident">update_alert</span></span>(<span>self, pk_columns: src.synmetrix_python_client.graphql_client.input_types.alerts_pk_columns_input, set: src.synmetrix_python_client.graphql_client.input_types.alerts_set_input, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.update_alert.UpdateAlert</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.update_data_source"><code class="name flex">
-<span>async def <span class="ident">update_data_source</span></span>(<span>self, pk_columns: src.synmetrix_graphql_client.graphql_client.input_types.datasources_pk_columns_input, set: src.synmetrix_graphql_client.graphql_client.input_types.datasources_set_input, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.update_data_source.UpdateDataSource</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.update_data_source"><code class="name flex">
+<span>async def <span class="ident">update_data_source</span></span>(<span>self, pk_columns: src.synmetrix_python_client.graphql_client.input_types.datasources_pk_columns_input, set: src.synmetrix_python_client.graphql_client.input_types.datasources_set_input, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.update_data_source.UpdateDataSource</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.update_member"><code class="name flex">
-<span>async def <span class="ident">update_member</span></span>(<span>self, pk_columns: src.synmetrix_graphql_client.graphql_client.input_types.members_pk_columns_input, set: src.synmetrix_graphql_client.graphql_client.input_types.members_set_input, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.update_member.UpdateMember</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.update_member"><code class="name flex">
+<span>async def <span class="ident">update_member</span></span>(<span>self, pk_columns: src.synmetrix_python_client.graphql_client.input_types.members_pk_columns_input, set: src.synmetrix_python_client.graphql_client.input_types.members_set_input, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.update_member.UpdateMember</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.update_member_role"><code class="name flex">
-<span>async def <span class="ident">update_member_role</span></span>(<span>self, pk_columns: src.synmetrix_graphql_client.graphql_client.input_types.member_roles_pk_columns_input, set: src.synmetrix_graphql_client.graphql_client.input_types.member_roles_set_input, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.update_member_role.UpdateMemberRole</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.update_member_role"><code class="name flex">
+<span>async def <span class="ident">update_member_role</span></span>(<span>self, pk_columns: src.synmetrix_python_client.graphql_client.input_types.member_roles_pk_columns_input, set: src.synmetrix_python_client.graphql_client.input_types.member_roles_set_input, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.update_member_role.UpdateMemberRole</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.update_report"><code class="name flex">
-<span>async def <span class="ident">update_report</span></span>(<span>self, pk_columns: src.synmetrix_graphql_client.graphql_client.input_types.reports_pk_columns_input, set: src.synmetrix_graphql_client.graphql_client.input_types.reports_set_input, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.update_report.UpdateReport</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.update_report"><code class="name flex">
+<span>async def <span class="ident">update_report</span></span>(<span>self, pk_columns: src.synmetrix_python_client.graphql_client.input_types.reports_pk_columns_input, set: src.synmetrix_python_client.graphql_client.input_types.reports_set_input, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.update_report.UpdateReport</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.update_user_info"><code class="name flex">
-<span>async def <span class="ident">update_user_info</span></span>(<span>self, user_id: Any, display_name: Union[str, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, email: Union[Any, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.update_user_info.UpdateUserInfo</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.update_user_info"><code class="name flex">
+<span>async def <span class="ident">update_user_info</span></span>(<span>self, user_id: Any, display_name: Union[str, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, email: Union[Any, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.update_user_info.UpdateUserInfo</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.version_by_branch_id"><code class="name flex">
-<span>async def <span class="ident">version_by_branch_id</span></span>(<span>self, branch_id: Any, limit: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, offset: Union[int, ForwardRef(None), src.synmetrix_graphql_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_graphql_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_graphql_client.graphql_client.version_by_branch_id.VersionByBranchId</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.version_by_branch_id"><code class="name flex">
+<span>async def <span class="ident">version_by_branch_id</span></span>(<span>self, branch_id: Any, limit: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, offset: Union[int, ForwardRef(None), src.synmetrix_python_client.graphql_client.base_model.UnsetType] = &lt;src.synmetrix_python_client.graphql_client.base_model.UnsetType object&gt;, **kwargs: Any) ‑> src.synmetrix_python_client.graphql_client.version_by_branch_id.VersionByBranchId</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.version_doc"><code class="name flex">
-<span>async def <span class="ident">version_doc</span></span>(<span>self, id: Any, **kwargs: Any) ‑> AsyncIterator[src.synmetrix_graphql_client.graphql_client.version_doc.VersionDoc]</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.version_doc"><code class="name flex">
+<span>async def <span class="ident">version_doc</span></span>(<span>self, id: Any, **kwargs: Any) ‑> AsyncIterator[src.synmetrix_python_client.graphql_client.version_doc.VersionDoc]</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.graphql_client.client.Client.versions_count"><code class="name flex">
-<span>async def <span class="ident">versions_count</span></span>(<span>self, branch_id: Any, **kwargs: Any) ‑> AsyncIterator[src.synmetrix_graphql_client.graphql_client.versions_count.VersionsCount]</span>
+<dt id="src.synmetrix_python_client.graphql_client.client.Client.versions_count"><code class="name flex">
+<span>async def <span class="ident">versions_count</span></span>(<span>self, branch_id: Any, **kwargs: Any) ‑> AsyncIterator[src.synmetrix_python_client.graphql_client.versions_count.VersionsCount]</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -2289,74 +2289,74 @@ hljs.highlightAll();
 <ul id="index">
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.gql" href="#src.synmetrix_graphql_client.graphql_client.client.gql">gql</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.gql" href="#src.synmetrix_python_client.graphql_client.client.gql">gql</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
-<h4><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client" href="#src.synmetrix_graphql_client.graphql_client.client.Client">Client</a></code></h4>
+<h4><code><a title="src.synmetrix_python_client.graphql_client.client.Client" href="#src.synmetrix_python_client.graphql_client.client.Client">Client</a></code></h4>
 <ul class="">
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.access_list" href="#src.synmetrix_graphql_client.graphql_client.client.Client.access_list">access_list</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.all_access_lists" href="#src.synmetrix_graphql_client.graphql_client.client.Client.all_access_lists">all_access_lists</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.all_data_schemas" href="#src.synmetrix_graphql_client.graphql_client.client.Client.all_data_schemas">all_data_schemas</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.all_data_sources" href="#src.synmetrix_graphql_client.graphql_client.client.Client.all_data_sources">all_data_sources</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.all_logs" href="#src.synmetrix_graphql_client.graphql_client.client.Client.all_logs">all_logs</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.all_schemas" href="#src.synmetrix_graphql_client.graphql_client.client.Client.all_schemas">all_schemas</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.check_connection" href="#src.synmetrix_graphql_client.graphql_client.client.Client.check_connection">check_connection</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.create_access_list" href="#src.synmetrix_graphql_client.graphql_client.client.Client.create_access_list">create_access_list</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.create_alert" href="#src.synmetrix_graphql_client.graphql_client.client.Client.create_alert">create_alert</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.create_branch" href="#src.synmetrix_graphql_client.graphql_client.client.Client.create_branch">create_branch</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.create_data_source" href="#src.synmetrix_graphql_client.graphql_client.client.Client.create_data_source">create_data_source</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.create_exploration" href="#src.synmetrix_graphql_client.graphql_client.client.Client.create_exploration">create_exploration</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.create_report" href="#src.synmetrix_graphql_client.graphql_client.client.Client.create_report">create_report</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.create_team" href="#src.synmetrix_graphql_client.graphql_client.client.Client.create_team">create_team</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.create_version" href="#src.synmetrix_graphql_client.graphql_client.client.Client.create_version">create_version</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.credentials" href="#src.synmetrix_graphql_client.graphql_client.client.Client.credentials">credentials</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.current_data_source" href="#src.synmetrix_graphql_client.graphql_client.client.Client.current_data_source">current_data_source</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.current_exploration" href="#src.synmetrix_graphql_client.graphql_client.client.Client.current_exploration">current_exploration</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.current_log" href="#src.synmetrix_graphql_client.graphql_client.client.Client.current_log">current_log</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.current_team" href="#src.synmetrix_graphql_client.graphql_client.client.Client.current_team">current_team</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.current_user" href="#src.synmetrix_graphql_client.graphql_client.client.Client.current_user">current_user</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.current_version" href="#src.synmetrix_graphql_client.graphql_client.client.Client.current_version">current_version</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.datasources" href="#src.synmetrix_graphql_client.graphql_client.client.Client.datasources">datasources</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.delete_access_list" href="#src.synmetrix_graphql_client.graphql_client.client.Client.delete_access_list">delete_access_list</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.delete_alert" href="#src.synmetrix_graphql_client.graphql_client.client.Client.delete_alert">delete_alert</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.delete_credentials" href="#src.synmetrix_graphql_client.graphql_client.client.Client.delete_credentials">delete_credentials</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.delete_data_source" href="#src.synmetrix_graphql_client.graphql_client.client.Client.delete_data_source">delete_data_source</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.delete_member" href="#src.synmetrix_graphql_client.graphql_client.client.Client.delete_member">delete_member</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.delete_report" href="#src.synmetrix_graphql_client.graphql_client.client.Client.delete_report">delete_report</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.delete_schema" href="#src.synmetrix_graphql_client.graphql_client.client.Client.delete_schema">delete_schema</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.delete_team" href="#src.synmetrix_graphql_client.graphql_client.client.Client.delete_team">delete_team</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.edit_team" href="#src.synmetrix_graphql_client.graphql_client.client.Client.edit_team">edit_team</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.export_data" href="#src.synmetrix_graphql_client.graphql_client.client.Client.export_data">export_data</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.fetch_meta" href="#src.synmetrix_graphql_client.graphql_client.client.Client.fetch_meta">fetch_meta</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.fetch_tables" href="#src.synmetrix_graphql_client.graphql_client.client.Client.fetch_tables">fetch_tables</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.gen_data_schemas" href="#src.synmetrix_graphql_client.graphql_client.client.Client.gen_data_schemas">gen_data_schemas</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.gen_sql" href="#src.synmetrix_graphql_client.graphql_client.client.Client.gen_sql">gen_sql</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.get_users" href="#src.synmetrix_graphql_client.graphql_client.client.Client.get_users">get_users</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.insert_sql_credentials" href="#src.synmetrix_graphql_client.graphql_client.client.Client.insert_sql_credentials">insert_sql_credentials</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.invite_member" href="#src.synmetrix_graphql_client.graphql_client.client.Client.invite_member">invite_member</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.members" href="#src.synmetrix_graphql_client.graphql_client.client.Client.members">members</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.run_source_sql_query" href="#src.synmetrix_graphql_client.graphql_client.client.Client.run_source_sql_query">run_source_sql_query</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.send_test_alert" href="#src.synmetrix_graphql_client.graphql_client.client.Client.send_test_alert">send_test_alert</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.set_default_branch" href="#src.synmetrix_graphql_client.graphql_client.client.Client.set_default_branch">set_default_branch</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.sub_access_lists" href="#src.synmetrix_graphql_client.graphql_client.client.Client.sub_access_lists">sub_access_lists</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.sub_all_logs" href="#src.synmetrix_graphql_client.graphql_client.client.Client.sub_all_logs">sub_all_logs</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.sub_credentials" href="#src.synmetrix_graphql_client.graphql_client.client.Client.sub_credentials">sub_credentials</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.sub_current_user" href="#src.synmetrix_graphql_client.graphql_client.client.Client.sub_current_user">sub_current_user</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.sub_team_data" href="#src.synmetrix_graphql_client.graphql_client.client.Client.sub_team_data">sub_team_data</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.team_data" href="#src.synmetrix_graphql_client.graphql_client.client.Client.team_data">team_data</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.update_access_list" href="#src.synmetrix_graphql_client.graphql_client.client.Client.update_access_list">update_access_list</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.update_alert" href="#src.synmetrix_graphql_client.graphql_client.client.Client.update_alert">update_alert</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.update_data_source" href="#src.synmetrix_graphql_client.graphql_client.client.Client.update_data_source">update_data_source</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.update_member" href="#src.synmetrix_graphql_client.graphql_client.client.Client.update_member">update_member</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.update_member_role" href="#src.synmetrix_graphql_client.graphql_client.client.Client.update_member_role">update_member_role</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.update_report" href="#src.synmetrix_graphql_client.graphql_client.client.Client.update_report">update_report</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.update_user_info" href="#src.synmetrix_graphql_client.graphql_client.client.Client.update_user_info">update_user_info</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.version_by_branch_id" href="#src.synmetrix_graphql_client.graphql_client.client.Client.version_by_branch_id">version_by_branch_id</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.version_doc" href="#src.synmetrix_graphql_client.graphql_client.client.Client.version_doc">version_doc</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.graphql_client.client.Client.versions_count" href="#src.synmetrix_graphql_client.graphql_client.client.Client.versions_count">versions_count</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.access_list" href="#src.synmetrix_python_client.graphql_client.client.Client.access_list">access_list</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.all_access_lists" href="#src.synmetrix_python_client.graphql_client.client.Client.all_access_lists">all_access_lists</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.all_data_schemas" href="#src.synmetrix_python_client.graphql_client.client.Client.all_data_schemas">all_data_schemas</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.all_data_sources" href="#src.synmetrix_python_client.graphql_client.client.Client.all_data_sources">all_data_sources</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.all_logs" href="#src.synmetrix_python_client.graphql_client.client.Client.all_logs">all_logs</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.all_schemas" href="#src.synmetrix_python_client.graphql_client.client.Client.all_schemas">all_schemas</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.check_connection" href="#src.synmetrix_python_client.graphql_client.client.Client.check_connection">check_connection</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.create_access_list" href="#src.synmetrix_python_client.graphql_client.client.Client.create_access_list">create_access_list</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.create_alert" href="#src.synmetrix_python_client.graphql_client.client.Client.create_alert">create_alert</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.create_branch" href="#src.synmetrix_python_client.graphql_client.client.Client.create_branch">create_branch</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.create_data_source" href="#src.synmetrix_python_client.graphql_client.client.Client.create_data_source">create_data_source</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.create_exploration" href="#src.synmetrix_python_client.graphql_client.client.Client.create_exploration">create_exploration</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.create_report" href="#src.synmetrix_python_client.graphql_client.client.Client.create_report">create_report</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.create_team" href="#src.synmetrix_python_client.graphql_client.client.Client.create_team">create_team</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.create_version" href="#src.synmetrix_python_client.graphql_client.client.Client.create_version">create_version</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.credentials" href="#src.synmetrix_python_client.graphql_client.client.Client.credentials">credentials</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.current_data_source" href="#src.synmetrix_python_client.graphql_client.client.Client.current_data_source">current_data_source</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.current_exploration" href="#src.synmetrix_python_client.graphql_client.client.Client.current_exploration">current_exploration</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.current_log" href="#src.synmetrix_python_client.graphql_client.client.Client.current_log">current_log</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.current_team" href="#src.synmetrix_python_client.graphql_client.client.Client.current_team">current_team</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.current_user" href="#src.synmetrix_python_client.graphql_client.client.Client.current_user">current_user</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.current_version" href="#src.synmetrix_python_client.graphql_client.client.Client.current_version">current_version</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.datasources" href="#src.synmetrix_python_client.graphql_client.client.Client.datasources">datasources</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.delete_access_list" href="#src.synmetrix_python_client.graphql_client.client.Client.delete_access_list">delete_access_list</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.delete_alert" href="#src.synmetrix_python_client.graphql_client.client.Client.delete_alert">delete_alert</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.delete_credentials" href="#src.synmetrix_python_client.graphql_client.client.Client.delete_credentials">delete_credentials</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.delete_data_source" href="#src.synmetrix_python_client.graphql_client.client.Client.delete_data_source">delete_data_source</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.delete_member" href="#src.synmetrix_python_client.graphql_client.client.Client.delete_member">delete_member</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.delete_report" href="#src.synmetrix_python_client.graphql_client.client.Client.delete_report">delete_report</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.delete_schema" href="#src.synmetrix_python_client.graphql_client.client.Client.delete_schema">delete_schema</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.delete_team" href="#src.synmetrix_python_client.graphql_client.client.Client.delete_team">delete_team</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.edit_team" href="#src.synmetrix_python_client.graphql_client.client.Client.edit_team">edit_team</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.export_data" href="#src.synmetrix_python_client.graphql_client.client.Client.export_data">export_data</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.fetch_meta" href="#src.synmetrix_python_client.graphql_client.client.Client.fetch_meta">fetch_meta</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.fetch_tables" href="#src.synmetrix_python_client.graphql_client.client.Client.fetch_tables">fetch_tables</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.gen_data_schemas" href="#src.synmetrix_python_client.graphql_client.client.Client.gen_data_schemas">gen_data_schemas</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.gen_sql" href="#src.synmetrix_python_client.graphql_client.client.Client.gen_sql">gen_sql</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.get_users" href="#src.synmetrix_python_client.graphql_client.client.Client.get_users">get_users</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.insert_sql_credentials" href="#src.synmetrix_python_client.graphql_client.client.Client.insert_sql_credentials">insert_sql_credentials</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.invite_member" href="#src.synmetrix_python_client.graphql_client.client.Client.invite_member">invite_member</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.members" href="#src.synmetrix_python_client.graphql_client.client.Client.members">members</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.run_source_sql_query" href="#src.synmetrix_python_client.graphql_client.client.Client.run_source_sql_query">run_source_sql_query</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.send_test_alert" href="#src.synmetrix_python_client.graphql_client.client.Client.send_test_alert">send_test_alert</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.set_default_branch" href="#src.synmetrix_python_client.graphql_client.client.Client.set_default_branch">set_default_branch</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.sub_access_lists" href="#src.synmetrix_python_client.graphql_client.client.Client.sub_access_lists">sub_access_lists</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.sub_all_logs" href="#src.synmetrix_python_client.graphql_client.client.Client.sub_all_logs">sub_all_logs</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.sub_credentials" href="#src.synmetrix_python_client.graphql_client.client.Client.sub_credentials">sub_credentials</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.sub_current_user" href="#src.synmetrix_python_client.graphql_client.client.Client.sub_current_user">sub_current_user</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.sub_team_data" href="#src.synmetrix_python_client.graphql_client.client.Client.sub_team_data">sub_team_data</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.team_data" href="#src.synmetrix_python_client.graphql_client.client.Client.team_data">team_data</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.update_access_list" href="#src.synmetrix_python_client.graphql_client.client.Client.update_access_list">update_access_list</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.update_alert" href="#src.synmetrix_python_client.graphql_client.client.Client.update_alert">update_alert</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.update_data_source" href="#src.synmetrix_python_client.graphql_client.client.Client.update_data_source">update_data_source</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.update_member" href="#src.synmetrix_python_client.graphql_client.client.Client.update_member">update_member</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.update_member_role" href="#src.synmetrix_python_client.graphql_client.client.Client.update_member_role">update_member_role</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.update_report" href="#src.synmetrix_python_client.graphql_client.client.Client.update_report">update_report</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.update_user_info" href="#src.synmetrix_python_client.graphql_client.client.Client.update_user_info">update_user_info</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.version_by_branch_id" href="#src.synmetrix_python_client.graphql_client.client.Client.version_by_branch_id">version_by_branch_id</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.version_doc" href="#src.synmetrix_python_client.graphql_client.client.Client.version_doc">version_doc</a></code></li>
+<li><code><a title="src.synmetrix_python_client.graphql_client.client.Client.versions_count" href="#src.synmetrix_python_client.graphql_client.client.Client.versions_count">versions_count</a></code></li>
 </ul>
 </li>
 </ul>

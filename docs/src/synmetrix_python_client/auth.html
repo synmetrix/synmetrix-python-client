@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 <meta name="generator" content="pdoc3 0.11.1">
-<title>src.synmetrix_graphql_client.auth API documentation</title>
+<title>src.synmetrix_python_client.auth API documentation</title>
 <meta name="description" content="">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
@@ -22,7 +22,7 @@ hljs.highlightAll();
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>src.synmetrix_graphql_client.auth</code></h1>
+<h1 class="title">Module <code>src.synmetrix_python_client.auth</code></h1>
 </header>
 <section id="section-intro">
 </section>
@@ -33,7 +33,7 @@ hljs.highlightAll();
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="src.synmetrix_graphql_client.auth.get_default_logger"><code class="name flex">
+<dt id="src.synmetrix_python_client.auth.get_default_logger"><code class="name flex">
 <span>def <span class="ident">get_default_logger</span></span>(<span>) ‑> logging.Logger</span>
 </code></dt>
 <dd>
@@ -49,7 +49,7 @@ hljs.highlightAll();
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="src.synmetrix_graphql_client.auth.AuthClient"><code class="flex name class">
+<dt id="src.synmetrix_python_client.auth.AuthClient"><code class="flex name class">
 <span>class <span class="ident">AuthClient</span></span>
 <span>(</span><span>base_url: str, logger: Optional[logging.Logger] = None)</span>
 </code></dt>
@@ -451,7 +451,7 @@ and session handling.</p>
 </details>
 <h3>Instance variables</h3>
 <dl>
-<dt id="src.synmetrix_graphql_client.auth.AuthClient.auth_headers"><code class="name">prop <span class="ident">auth_headers</span> : dict[str, str]</code></dt>
+<dt id="src.synmetrix_python_client.auth.AuthClient.auth_headers"><code class="name">prop <span class="ident">auth_headers</span> : dict[str, str]</code></dt>
 <dd>
 <div class="desc"><p>Get authorization headers using current access token.</p>
 <h2 id="returns">Returns</h2>
@@ -478,7 +478,7 @@ def auth_headers(self) -&gt; dict[str, str]:
 </dl>
 <h3>Methods</h3>
 <dl>
-<dt id="src.synmetrix_graphql_client.auth.AuthClient.change_password"><code class="name flex">
+<dt id="src.synmetrix_python_client.auth.AuthClient.change_password"><code class="name flex">
 <span>async def <span class="ident">change_password</span></span>(<span>self, old_password: str, new_password: str) ‑> None</span>
 </code></dt>
 <dd>
@@ -492,7 +492,7 @@ def auth_headers(self) -&gt; dict[str, str]:
 </dl>
 <h2 id="raises">Raises</h2>
 <dl>
-<dt><code><a title="src.synmetrix_graphql_client.auth.AuthError" href="#src.synmetrix_graphql_client.auth.AuthError">AuthError</a></code></dt>
+<dt><code><a title="src.synmetrix_python_client.auth.AuthError" href="#src.synmetrix_python_client.auth.AuthError">AuthError</a></code></dt>
 <dd>If not authenticated or password change fails</dd>
 </dl>
 <h2 id="example">Example</h2>
@@ -502,8 +502,8 @@ await client.change_password(
 )
 </code></pre></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.auth.AuthClient.login"><code class="name flex">
-<span>async def <span class="ident">login</span></span>(<span>self, email: str, password: str, cookie: bool = False) ‑> <a title="src.synmetrix_graphql_client.auth.AuthTokens" href="#src.synmetrix_graphql_client.auth.AuthTokens">AuthTokens</a></span>
+<dt id="src.synmetrix_python_client.auth.AuthClient.login"><code class="name flex">
+<span>async def <span class="ident">login</span></span>(<span>self, email: str, password: str, cookie: bool = False) ‑> <a title="src.synmetrix_python_client.auth.AuthTokens" href="#src.synmetrix_python_client.auth.AuthTokens">AuthTokens</a></span>
 </code></dt>
 <dd>
 <div class="desc"><p>Authenticate user with email and password.</p>
@@ -518,12 +518,12 @@ await client.change_password(
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
-<dt><code><a title="src.synmetrix_graphql_client.auth.AuthTokens" href="#src.synmetrix_graphql_client.auth.AuthTokens">AuthTokens</a></code></dt>
+<dt><code><a title="src.synmetrix_python_client.auth.AuthTokens" href="#src.synmetrix_python_client.auth.AuthTokens">AuthTokens</a></code></dt>
 <dd>Access and refresh tokens</dd>
 </dl>
 <h2 id="raises">Raises</h2>
 <dl>
-<dt><code><a title="src.synmetrix_graphql_client.auth.AuthError" href="#src.synmetrix_graphql_client.auth.AuthError">AuthError</a></code></dt>
+<dt><code><a title="src.synmetrix_python_client.auth.AuthError" href="#src.synmetrix_python_client.auth.AuthError">AuthError</a></code></dt>
 <dd>If authentication fails</dd>
 </dl>
 <h2 id="example">Example</h2>
@@ -532,7 +532,7 @@ tokens = await client.login(email=&quot;user@example.com&quot;, password=&quot;y
 print(f&quot;Access token: {tokens.access_token}&quot;)
 </code></pre></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.auth.AuthClient.logout"><code class="name flex">
+<dt id="src.synmetrix_python_client.auth.AuthClient.logout"><code class="name flex">
 <span>async def <span class="ident">logout</span></span>(<span>self, all_sessions: bool = True) ‑> None</span>
 </code></dt>
 <dd>
@@ -544,7 +544,7 @@ print(f&quot;Access token: {tokens.access_token}&quot;)
 </dl>
 <h2 id="raises">Raises</h2>
 <dl>
-<dt><code><a title="src.synmetrix_graphql_client.auth.AuthError" href="#src.synmetrix_graphql_client.auth.AuthError">AuthError</a></code></dt>
+<dt><code><a title="src.synmetrix_python_client.auth.AuthError" href="#src.synmetrix_python_client.auth.AuthError">AuthError</a></code></dt>
 <dd>If not authenticated or logout fails</dd>
 </dl>
 <h2 id="example">Example</h2>
@@ -552,14 +552,14 @@ print(f&quot;Access token: {tokens.access_token}&quot;)
 await client.logout()
 </code></pre></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.auth.AuthClient.parse_access_token"><code class="name flex">
+<dt id="src.synmetrix_python_client.auth.AuthClient.parse_access_token"><code class="name flex">
 <span>def <span class="ident">parse_access_token</span></span>(<span>self, access_token: str) ‑> dict[str, typing.Any]</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.auth.AuthClient.refresh_token"><code class="name flex">
-<span>async def <span class="ident">refresh_token</span></span>(<span>self, refresh_token: Optional[str] = None) ‑> <a title="src.synmetrix_graphql_client.auth.AuthTokens" href="#src.synmetrix_graphql_client.auth.AuthTokens">AuthTokens</a></span>
+<dt id="src.synmetrix_python_client.auth.AuthClient.refresh_token"><code class="name flex">
+<span>async def <span class="ident">refresh_token</span></span>(<span>self, refresh_token: Optional[str] = None) ‑> <a title="src.synmetrix_python_client.auth.AuthTokens" href="#src.synmetrix_python_client.auth.AuthTokens">AuthTokens</a></span>
 </code></dt>
 <dd>
 <div class="desc"><p>Refresh access token using refresh token.</p>
@@ -571,12 +571,12 @@ If None, uses stored token. Defaults to None.</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
-<dt><code><a title="src.synmetrix_graphql_client.auth.AuthTokens" href="#src.synmetrix_graphql_client.auth.AuthTokens">AuthTokens</a></code></dt>
+<dt><code><a title="src.synmetrix_python_client.auth.AuthTokens" href="#src.synmetrix_python_client.auth.AuthTokens">AuthTokens</a></code></dt>
 <dd>New access and refresh tokens</dd>
 </dl>
 <h2 id="raises">Raises</h2>
 <dl>
-<dt><code><a title="src.synmetrix_graphql_client.auth.AuthError" href="#src.synmetrix_graphql_client.auth.AuthError">AuthError</a></code></dt>
+<dt><code><a title="src.synmetrix_python_client.auth.AuthError" href="#src.synmetrix_python_client.auth.AuthError">AuthError</a></code></dt>
 <dd>If refresh fails or no token available</dd>
 </dl>
 <h2 id="example">Example</h2>
@@ -585,8 +585,8 @@ tokens = await client.refresh_token()
 print(f&quot;Access token: {tokens.access_token}&quot;)
 </code></pre></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.auth.AuthClient.register"><code class="name flex">
-<span>async def <span class="ident">register</span></span>(<span>self, email: str, password: str, cookie: bool = False) ‑> <a title="src.synmetrix_graphql_client.auth.AuthTokens" href="#src.synmetrix_graphql_client.auth.AuthTokens">AuthTokens</a></span>
+<dt id="src.synmetrix_python_client.auth.AuthClient.register"><code class="name flex">
+<span>async def <span class="ident">register</span></span>(<span>self, email: str, password: str, cookie: bool = False) ‑> <a title="src.synmetrix_python_client.auth.AuthTokens" href="#src.synmetrix_python_client.auth.AuthTokens">AuthTokens</a></span>
 </code></dt>
 <dd>
 <div class="desc"><p>Register a new user.</p>
@@ -601,12 +601,12 @@ print(f&quot;Access token: {tokens.access_token}&quot;)
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
-<dt><code><a title="src.synmetrix_graphql_client.auth.AuthTokens" href="#src.synmetrix_graphql_client.auth.AuthTokens">AuthTokens</a></code></dt>
+<dt><code><a title="src.synmetrix_python_client.auth.AuthTokens" href="#src.synmetrix_python_client.auth.AuthTokens">AuthTokens</a></code></dt>
 <dd>Access and refresh tokens</dd>
 </dl>
 <h2 id="raises">Raises</h2>
 <dl>
-<dt><code><a title="src.synmetrix_graphql_client.auth.AuthError" href="#src.synmetrix_graphql_client.auth.AuthError">AuthError</a></code></dt>
+<dt><code><a title="src.synmetrix_python_client.auth.AuthError" href="#src.synmetrix_python_client.auth.AuthError">AuthError</a></code></dt>
 <dd>If registration fails</dd>
 </dl>
 <h2 id="example">Example</h2>
@@ -617,8 +617,8 @@ tokens = await client.register(
 print(f&quot;Access token: {tokens.access_token}&quot;)
 </code></pre></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.auth.AuthClient.send_magic_link"><code class="name flex">
-<span>async def <span class="ident">send_magic_link</span></span>(<span>self, email: str) ‑> <a title="src.synmetrix_graphql_client.auth.AuthTokens" href="#src.synmetrix_graphql_client.auth.AuthTokens">AuthTokens</a></span>
+<dt id="src.synmetrix_python_client.auth.AuthClient.send_magic_link"><code class="name flex">
+<span>async def <span class="ident">send_magic_link</span></span>(<span>self, email: str) ‑> <a title="src.synmetrix_python_client.auth.AuthTokens" href="#src.synmetrix_python_client.auth.AuthTokens">AuthTokens</a></span>
 </code></dt>
 <dd>
 <div class="desc"><p>Send magic link for passwordless authentication.</p>
@@ -629,12 +629,12 @@ print(f&quot;Access token: {tokens.access_token}&quot;)
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
-<dt><code><a title="src.synmetrix_graphql_client.auth.AuthTokens" href="#src.synmetrix_graphql_client.auth.AuthTokens">AuthTokens</a></code></dt>
+<dt><code><a title="src.synmetrix_python_client.auth.AuthTokens" href="#src.synmetrix_python_client.auth.AuthTokens">AuthTokens</a></code></dt>
 <dd>Access and refresh tokens after magic link verification</dd>
 </dl>
 <h2 id="raises">Raises</h2>
 <dl>
-<dt><code><a title="src.synmetrix_graphql_client.auth.AuthError" href="#src.synmetrix_graphql_client.auth.AuthError">AuthError</a></code></dt>
+<dt><code><a title="src.synmetrix_python_client.auth.AuthError" href="#src.synmetrix_python_client.auth.AuthError">AuthError</a></code></dt>
 <dd>If magic link sending fails</dd>
 </dl>
 <h2 id="example">Example</h2>
@@ -645,7 +645,7 @@ print(f&quot;Access token: {tokens.access_token}&quot;)
 </dd>
 </dl>
 </dd>
-<dt id="src.synmetrix_graphql_client.auth.AuthError"><code class="flex name class">
+<dt id="src.synmetrix_python_client.auth.AuthError"><code class="flex name class">
 <span>class <span class="ident">AuthError</span></span>
 <span>(</span><span>message: str, error: Optional[str] = None, status_code: Optional[int] = None)</span>
 </code></dt>
@@ -690,7 +690,7 @@ print(f&quot;Access token: {tokens.access_token}&quot;)
 <li>builtins.BaseException</li>
 </ul>
 </dd>
-<dt id="src.synmetrix_graphql_client.auth.AuthResponse"><code class="flex name class">
+<dt id="src.synmetrix_python_client.auth.AuthResponse"><code class="flex name class">
 <span>class <span class="ident">AuthResponse</span></span>
 <span>(</span><span>**data: Any)</span>
 </code></dt>
@@ -744,45 +744,45 @@ validated to form a valid model.</p>
 </ul>
 <h3>Class variables</h3>
 <dl>
-<dt id="src.synmetrix_graphql_client.auth.AuthResponse.error"><code class="name">var <span class="ident">error</span> : Optional[str]</code></dt>
+<dt id="src.synmetrix_python_client.auth.AuthResponse.error"><code class="name">var <span class="ident">error</span> : Optional[str]</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.auth.AuthResponse.jwt_token"><code class="name">var <span class="ident">jwt_token</span> : str</code></dt>
+<dt id="src.synmetrix_python_client.auth.AuthResponse.jwt_token"><code class="name">var <span class="ident">jwt_token</span> : str</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.auth.AuthResponse.magicLink"><code class="name">var <span class="ident">magicLink</span> : Optional[bool]</code></dt>
+<dt id="src.synmetrix_python_client.auth.AuthResponse.magicLink"><code class="name">var <span class="ident">magicLink</span> : Optional[bool]</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.auth.AuthResponse.message"><code class="name">var <span class="ident">message</span> : Optional[str]</code></dt>
+<dt id="src.synmetrix_python_client.auth.AuthResponse.message"><code class="name">var <span class="ident">message</span> : Optional[str]</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.auth.AuthResponse.model_computed_fields"><code class="name">var <span class="ident">model_computed_fields</span></code></dt>
+<dt id="src.synmetrix_python_client.auth.AuthResponse.model_computed_fields"><code class="name">var <span class="ident">model_computed_fields</span></code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.auth.AuthResponse.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dt id="src.synmetrix_python_client.auth.AuthResponse.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.auth.AuthResponse.model_fields"><code class="name">var <span class="ident">model_fields</span></code></dt>
+<dt id="src.synmetrix_python_client.auth.AuthResponse.model_fields"><code class="name">var <span class="ident">model_fields</span></code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.auth.AuthResponse.refresh_token"><code class="name">var <span class="ident">refresh_token</span> : str</code></dt>
+<dt id="src.synmetrix_python_client.auth.AuthResponse.refresh_token"><code class="name">var <span class="ident">refresh_token</span> : str</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.auth.AuthResponse.statusCode"><code class="name">var <span class="ident">statusCode</span> : Optional[int]</code></dt>
+<dt id="src.synmetrix_python_client.auth.AuthResponse.statusCode"><code class="name">var <span class="ident">statusCode</span> : Optional[int]</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
 </dl>
 </dd>
-<dt id="src.synmetrix_graphql_client.auth.AuthTokens"><code class="flex name class">
+<dt id="src.synmetrix_python_client.auth.AuthTokens"><code class="flex name class">
 <span>class <span class="ident">AuthTokens</span></span>
 <span>(</span><span>access_token: str, refresh_token: str, access_token_expires_at: int, user_id: str)</span>
 </code></dt>
@@ -821,19 +821,19 @@ class AuthTokens:
 </details>
 <h3>Class variables</h3>
 <dl>
-<dt id="src.synmetrix_graphql_client.auth.AuthTokens.access_token"><code class="name">var <span class="ident">access_token</span> : str</code></dt>
+<dt id="src.synmetrix_python_client.auth.AuthTokens.access_token"><code class="name">var <span class="ident">access_token</span> : str</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.auth.AuthTokens.access_token_expires_at"><code class="name">var <span class="ident">access_token_expires_at</span> : int</code></dt>
+<dt id="src.synmetrix_python_client.auth.AuthTokens.access_token_expires_at"><code class="name">var <span class="ident">access_token_expires_at</span> : int</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.auth.AuthTokens.refresh_token"><code class="name">var <span class="ident">refresh_token</span> : str</code></dt>
+<dt id="src.synmetrix_python_client.auth.AuthTokens.refresh_token"><code class="name">var <span class="ident">refresh_token</span> : str</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="src.synmetrix_graphql_client.auth.AuthTokens.user_id"><code class="name">var <span class="ident">user_id</span> : str</code></dt>
+<dt id="src.synmetrix_python_client.auth.AuthTokens.user_id"><code class="name">var <span class="ident">user_id</span> : str</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
@@ -849,48 +849,48 @@ class AuthTokens:
 <ul id="index">
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
-<li><code><a title="src.synmetrix_graphql_client.auth.get_default_logger" href="#src.synmetrix_graphql_client.auth.get_default_logger">get_default_logger</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.get_default_logger" href="#src.synmetrix_python_client.auth.get_default_logger">get_default_logger</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
-<h4><code><a title="src.synmetrix_graphql_client.auth.AuthClient" href="#src.synmetrix_graphql_client.auth.AuthClient">AuthClient</a></code></h4>
+<h4><code><a title="src.synmetrix_python_client.auth.AuthClient" href="#src.synmetrix_python_client.auth.AuthClient">AuthClient</a></code></h4>
 <ul class="two-column">
-<li><code><a title="src.synmetrix_graphql_client.auth.AuthClient.auth_headers" href="#src.synmetrix_graphql_client.auth.AuthClient.auth_headers">auth_headers</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.auth.AuthClient.change_password" href="#src.synmetrix_graphql_client.auth.AuthClient.change_password">change_password</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.auth.AuthClient.login" href="#src.synmetrix_graphql_client.auth.AuthClient.login">login</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.auth.AuthClient.logout" href="#src.synmetrix_graphql_client.auth.AuthClient.logout">logout</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.auth.AuthClient.parse_access_token" href="#src.synmetrix_graphql_client.auth.AuthClient.parse_access_token">parse_access_token</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.auth.AuthClient.refresh_token" href="#src.synmetrix_graphql_client.auth.AuthClient.refresh_token">refresh_token</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.auth.AuthClient.register" href="#src.synmetrix_graphql_client.auth.AuthClient.register">register</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.auth.AuthClient.send_magic_link" href="#src.synmetrix_graphql_client.auth.AuthClient.send_magic_link">send_magic_link</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthClient.auth_headers" href="#src.synmetrix_python_client.auth.AuthClient.auth_headers">auth_headers</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthClient.change_password" href="#src.synmetrix_python_client.auth.AuthClient.change_password">change_password</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthClient.login" href="#src.synmetrix_python_client.auth.AuthClient.login">login</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthClient.logout" href="#src.synmetrix_python_client.auth.AuthClient.logout">logout</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthClient.parse_access_token" href="#src.synmetrix_python_client.auth.AuthClient.parse_access_token">parse_access_token</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthClient.refresh_token" href="#src.synmetrix_python_client.auth.AuthClient.refresh_token">refresh_token</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthClient.register" href="#src.synmetrix_python_client.auth.AuthClient.register">register</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthClient.send_magic_link" href="#src.synmetrix_python_client.auth.AuthClient.send_magic_link">send_magic_link</a></code></li>
 </ul>
 </li>
 <li>
-<h4><code><a title="src.synmetrix_graphql_client.auth.AuthError" href="#src.synmetrix_graphql_client.auth.AuthError">AuthError</a></code></h4>
+<h4><code><a title="src.synmetrix_python_client.auth.AuthError" href="#src.synmetrix_python_client.auth.AuthError">AuthError</a></code></h4>
 </li>
 <li>
-<h4><code><a title="src.synmetrix_graphql_client.auth.AuthResponse" href="#src.synmetrix_graphql_client.auth.AuthResponse">AuthResponse</a></code></h4>
+<h4><code><a title="src.synmetrix_python_client.auth.AuthResponse" href="#src.synmetrix_python_client.auth.AuthResponse">AuthResponse</a></code></h4>
 <ul class="">
-<li><code><a title="src.synmetrix_graphql_client.auth.AuthResponse.error" href="#src.synmetrix_graphql_client.auth.AuthResponse.error">error</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.auth.AuthResponse.jwt_token" href="#src.synmetrix_graphql_client.auth.AuthResponse.jwt_token">jwt_token</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.auth.AuthResponse.magicLink" href="#src.synmetrix_graphql_client.auth.AuthResponse.magicLink">magicLink</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.auth.AuthResponse.message" href="#src.synmetrix_graphql_client.auth.AuthResponse.message">message</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.auth.AuthResponse.model_computed_fields" href="#src.synmetrix_graphql_client.auth.AuthResponse.model_computed_fields">model_computed_fields</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.auth.AuthResponse.model_config" href="#src.synmetrix_graphql_client.auth.AuthResponse.model_config">model_config</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.auth.AuthResponse.model_fields" href="#src.synmetrix_graphql_client.auth.AuthResponse.model_fields">model_fields</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.auth.AuthResponse.refresh_token" href="#src.synmetrix_graphql_client.auth.AuthResponse.refresh_token">refresh_token</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.auth.AuthResponse.statusCode" href="#src.synmetrix_graphql_client.auth.AuthResponse.statusCode">statusCode</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthResponse.error" href="#src.synmetrix_python_client.auth.AuthResponse.error">error</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthResponse.jwt_token" href="#src.synmetrix_python_client.auth.AuthResponse.jwt_token">jwt_token</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthResponse.magicLink" href="#src.synmetrix_python_client.auth.AuthResponse.magicLink">magicLink</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthResponse.message" href="#src.synmetrix_python_client.auth.AuthResponse.message">message</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthResponse.model_computed_fields" href="#src.synmetrix_python_client.auth.AuthResponse.model_computed_fields">model_computed_fields</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthResponse.model_config" href="#src.synmetrix_python_client.auth.AuthResponse.model_config">model_config</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthResponse.model_fields" href="#src.synmetrix_python_client.auth.AuthResponse.model_fields">model_fields</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthResponse.refresh_token" href="#src.synmetrix_python_client.auth.AuthResponse.refresh_token">refresh_token</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthResponse.statusCode" href="#src.synmetrix_python_client.auth.AuthResponse.statusCode">statusCode</a></code></li>
 </ul>
 </li>
 <li>
-<h4><code><a title="src.synmetrix_graphql_client.auth.AuthTokens" href="#src.synmetrix_graphql_client.auth.AuthTokens">AuthTokens</a></code></h4>
+<h4><code><a title="src.synmetrix_python_client.auth.AuthTokens" href="#src.synmetrix_python_client.auth.AuthTokens">AuthTokens</a></code></h4>
 <ul class="">
-<li><code><a title="src.synmetrix_graphql_client.auth.AuthTokens.access_token" href="#src.synmetrix_graphql_client.auth.AuthTokens.access_token">access_token</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.auth.AuthTokens.access_token_expires_at" href="#src.synmetrix_graphql_client.auth.AuthTokens.access_token_expires_at">access_token_expires_at</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.auth.AuthTokens.refresh_token" href="#src.synmetrix_graphql_client.auth.AuthTokens.refresh_token">refresh_token</a></code></li>
-<li><code><a title="src.synmetrix_graphql_client.auth.AuthTokens.user_id" href="#src.synmetrix_graphql_client.auth.AuthTokens.user_id">user_id</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthTokens.access_token" href="#src.synmetrix_python_client.auth.AuthTokens.access_token">access_token</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthTokens.access_token_expires_at" href="#src.synmetrix_python_client.auth.AuthTokens.access_token_expires_at">access_token_expires_at</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthTokens.refresh_token" href="#src.synmetrix_python_client.auth.AuthTokens.refresh_token">refresh_token</a></code></li>
+<li><code><a title="src.synmetrix_python_client.auth.AuthTokens.user_id" href="#src.synmetrix_python_client.auth.AuthTokens.user_id">user_id</a></code></li>
 </ul>
 </li>
 </ul>
