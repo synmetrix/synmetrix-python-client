@@ -16,7 +16,7 @@ exclude = [
     "__pycache__",
     "build",
     "dist",
-    "synmetrix_graphql_client/graphql_client/",
+    "src/synmetrix_graphql_client/graphql_client/",
 ]
 
 [lint.isort]
