@@ -34,13 +34,13 @@ poetry add synmetrix-python-client
 
 ```python
 import asyncio
-import jwt
-from synmetrix_python_client import Client
+from synmetrix_python_client.graphql_client import Client
+from synmetrix_python_client.auth import AuthClient
 
 # Decode JWT token to get user_id
 access_token = "your_access_token"
-jwt_payload = jwt.decode(access_token, options={"verify_signature": False})
-user_id = jwt_payload.get("hasura", {}).get("x-hasura-user-id")
+jwt_payload = AuthClient.parse_access_token(access_token)
+user_id = jwt_payload["user_id"]
 
 # Initialize client
 client = Client(
@@ -115,12 +115,12 @@ To regenerate the documentation:
 
 1. Test PyPI release:
 ```bash
-./scripts/push_to_testpypi.sh
+./scripts/push_to_testpypi.sh YOUR_PYPI_TOKEN
 ```
 
 2. Production PyPI release:
 ```bash
-./scripts/push_to_pypi.sh
+./scripts/push_to_pypi.sh YOUR_PYPI_TOKEN
 ```
 
 ## Contributing
@@ -144,4 +144,4 @@ For support, please:
 
 ## Examples
 
-For complete working examples of client usage, check the [`examples/`](examples/) directory in the repository.
+For complete working examples of client usage, check the [`use_cases/`](src/synmetrix_python_client/use_cases/) directory in the repository.
