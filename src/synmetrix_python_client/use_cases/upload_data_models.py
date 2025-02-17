@@ -187,7 +187,7 @@ async def main(
                     if not isinstance(yaml_data, dict):
                         logger.warning(f"Invalid format in {model_file}")
                         continue
-                    if "cubes" not in yaml_data or "views" not in yaml_data:
+                    if "cubes" not in yaml_data and "views" not in yaml_data:
                         logger.warning(f"No cubes or views found in {model_file}")
                         continue
 
