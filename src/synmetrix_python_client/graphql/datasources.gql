@@ -16,6 +16,7 @@ query Datasources(
   $limit: Int
   $where: datasources_bool_exp
   $order_by: [datasources_order_by!]
+  $branch_status: branch_statuses_enum = active
 ) {
   datasources(
     offset: $offset
@@ -29,7 +30,7 @@ query Datasources(
     db_type
     created_at
     updated_at
-    branches(where: { status: { _eq: active } }) {
+    branches(where: { status: { _eq: $branch_status } }) {
       id
     }
     sql_credentials {
@@ -113,7 +114,7 @@ mutation UpdateDataSource(
 ) {
   update_datasources_by_pk(pk_columns: $pk_columns, _set: $_set) {
     id
-    branches (where: { status: { _eq: active }}) {
+    branches(where: { status: { _eq: active } }) {
       id
     }
   }

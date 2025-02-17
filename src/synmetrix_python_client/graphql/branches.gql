@@ -20,3 +20,9 @@ mutation ExportData($branch_id: String) {
     download_url
   }
 }
+
+mutation DeleteBranch($id: uuid!) {
+  update_branches_by_pk(_set: { status: archived }, pk_columns: { id: $id }) {
+    id
+  }
+}

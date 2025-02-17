@@ -125,7 +125,7 @@ class TestUploadDataModelsIntegration:
                     user_id=user_id,
                     datasource_id=datasource_id,
                     name=branch_name,
-                    status="active",
+                    status="created",
                 )
             )
             branch_id = branch.insert_branches_one.id
@@ -150,6 +150,9 @@ class TestUploadDataModelsIntegration:
             dataschemas = version.versions[0].dataschemas
             assert len(dataschemas) == 1, "Expected one model"
             assert dataschemas[0].name == "orders.yml", "Model name mismatch"
+
+            # delete the branch
+            await client.delete_branch(id=branch_id)
         finally:
             # Clean up: delete the data source
             if datasource_id:

@@ -98,6 +98,7 @@ from .datasources import (
 )
 from .delete_access_list import DeleteAccessList, DeleteAccessListDeleteAccessListsByPk
 from .delete_alert import DeleteAlert, DeleteAlertDeleteAlertsByPk
+from .delete_branch import DeleteBranch, DeleteBranchUpdateBranchesByPk
 from .delete_credentials import (
     DeleteCredentials,
     DeleteCredentialsDeleteSqlCredentialsByPk,
@@ -105,7 +106,6 @@ from .delete_credentials import (
 from .delete_data_source import DeleteDataSource, DeleteDataSourceDeleteDatasourcesByPk
 from .delete_member import DeleteMember, DeleteMemberDeleteMembersByPk
 from .delete_report import DeleteReport, DeleteReportDeleteReportsByPk
-from .delete_schema import DeleteSchema, DeleteSchemaUpdateBranchesByPk
 from .delete_team import DeleteTeam, DeleteTeamDeleteTeamsByPk
 from .edit_team import EditTeam, EditTeamUpdateTeamsByPk
 from .enums import (
@@ -852,6 +852,8 @@ __all__ = [
     "DeleteAccessListDeleteAccessListsByPk",
     "DeleteAlert",
     "DeleteAlertDeleteAlertsByPk",
+    "DeleteBranch",
+    "DeleteBranchUpdateBranchesByPk",
     "DeleteCredentials",
     "DeleteCredentialsDeleteSqlCredentialsByPk",
     "DeleteDataSource",
@@ -860,8 +862,6 @@ __all__ = [
     "DeleteMemberDeleteMembersByPk",
     "DeleteReport",
     "DeleteReportDeleteReportsByPk",
-    "DeleteSchema",
-    "DeleteSchemaUpdateBranchesByPk",
     "DeleteTeam",
     "DeleteTeamDeleteTeamsByPk",
     "EditTeam",

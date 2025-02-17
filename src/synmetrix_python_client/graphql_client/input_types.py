@@ -114,6 +114,7 @@ class Int_comparison_exp(BaseModel):
 
 class SourceTable(BaseModel):
     name: str
+    schema_: str = Field(alias="schema")
 
 
 class String_comparison_exp(BaseModel):

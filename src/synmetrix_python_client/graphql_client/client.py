@@ -30,13 +30,14 @@ from .current_version import CurrentVersion
 from .datasources import Datasources
 from .delete_access_list import DeleteAccessList
 from .delete_alert import DeleteAlert
+from .delete_branch import DeleteBranch
 from .delete_credentials import DeleteCredentials
 from .delete_data_source import DeleteDataSource
 from .delete_member import DeleteMember
 from .delete_report import DeleteReport
-from .delete_schema import DeleteSchema
 from .delete_team import DeleteTeam
 from .edit_team import EditTeam
+from .enums import branch_statuses_enum
 from .export_data import ExportData
 from .fetch_meta import FetchMeta
 from .fetch_tables import FetchTables
@@ -401,6 +402,23 @@ class Client(AsyncBaseClient):
         )
         data = self.get_data(response)
         return ExportData.model_validate(data)
+
+    async def delete_branch(self, id: Any, **kwargs: Any) -> DeleteBranch:
+        query = gql(
+            """
+            mutation DeleteBranch($id: uuid!) {
+              update_branches_by_pk(_set: {status: archived}, pk_columns: {id: $id}) {
+                id
+              }
+            }
+            """
+        )
+        variables: Dict[str, object] = {"id": id}
+        response = await self.execute(
+            query=query, operation_name="DeleteBranch", variables=variables, **kwargs
+        )
+        data = self.get_data(response)
+        return DeleteBranch.model_validate(data)
 
     async def create_branch(
         self, object: branches_insert_input, **kwargs: Any
@@ -853,11 +871,12 @@ class Client(AsyncBaseClient):
         limit: Union[Optional[int], UnsetType] = UNSET,
         where: Union[Optional[datasources_bool_exp], UnsetType] = UNSET,
         order_by: Union[Optional[List[datasources_order_by]], UnsetType] = UNSET,
+        branch_status: Union[Optional[branch_statuses_enum], UnsetType] = UNSET,
         **kwargs: Any
     ) -> Datasources:
         query = gql(
             """
-            query Datasources($offset: Int, $limit: Int, $where: datasources_bool_exp, $order_by: [datasources_order_by!]) {
+            query Datasources($offset: Int, $limit: Int, $where: datasources_bool_exp, $order_by: [datasources_order_by!], $branch_status: branch_statuses_enum = active) {
               datasources(offset: $offset, limit: $limit, where: $where, order_by: $order_by) {
                 id
                 name
@@ -865,7 +884,7 @@ class Client(AsyncBaseClient):
                 db_type
                 created_at
                 updated_at
-                branches(where: {status: {_eq: active}}) {
+                branches(where: {status: {_eq: $branch_status}}) {
                   id
                 }
                 sql_credentials {
@@ -892,6 +911,7 @@ class Client(AsyncBaseClient):
             "limit": limit,
             "where": where,
             "order_by": order_by,
+            "branch_status": branch_status,
         }
         response = await self.execute(
             query=query, operation_name="Datasources", variables=variables, **kwargs
@@ -1615,23 +1635,6 @@ class Client(AsyncBaseClient):
         )
         data = self.get_data(response)
         return AllDataSchemas.model_validate(data)
-
-    async def delete_schema(self, id: Any, **kwargs: Any) -> DeleteSchema:
-        query = gql(
-            """
-            mutation DeleteSchema($id: uuid!) {
-              update_branches_by_pk(_set: {status: archived}, pk_columns: {id: $id}) {
-                id
-              }
-            }
-            """
-        )
-        variables: Dict[str, object] = {"id": id}
-        response = await self.execute(
-            query=query, operation_name="DeleteSchema", variables=variables, **kwargs
-        )
-        data = self.get_data(response)
-        return DeleteSchema.model_validate(data)
 
     async def credentials(self, team_id: Any, **kwargs: Any) -> Credentials:
         query = gql(

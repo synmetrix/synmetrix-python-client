@@ -111,6 +111,16 @@ To regenerate the documentation:
 ./scripts/generate_auth_api_docs.sh    # Auth documentation
 ```
 
+### Generating GraphQL Client
+
+To generate the GraphQL client:
+
+```bash
+poetry run generate-client
+```
+
+Note: please check `remote_schema_url` and `remote_schema_headers` in `pyproject.toml` to ensure the correct schema is used.
+
 ### Publishing to PyPI
 
 1. Test PyPI release:

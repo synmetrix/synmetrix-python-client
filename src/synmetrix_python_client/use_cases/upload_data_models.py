@@ -65,7 +65,8 @@ async def verify_branch(client: Client, datasource_id: str, branch_id: str) -> b
             where=datasources_bool_exp(
                 id=uuid_comparison_exp(_eq=datasource_id),
                 branches=branches_bool_exp(id=uuid_comparison_exp(_eq=branch_id)),
-            )
+            ),
+            branch_status="created",
         )
 
         # Check if branch exists
